@@ -4,20 +4,7 @@
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<queryString>
-		<![CDATA[SELECT
-		*
-		FROM
-			Empresas e
-			INNER JOIN 	servicios s ON s.codigoempresa = e.codigoempresa
-			INNER JOIN presupuestos p ON p.codigoempresa = e.codigoempresa
-			INNER JOIN servicios_has_empleados she ON she.codigoservicio = s.codigoservicio
-			INNER JOIN empleados emp ON she.codigoempleado = emp.codigoempleado
-			INNER JOIN tipoempleado te ON te.codigoTipoEmpleado = emp.codigotipoempleado
-			INNER JOIN servicios_has_platos shp ON shp.codigoservicio = s.codigoservicio
-			INNER JOIN platos pla ON pla.codigoplato = shp.codigoplato
-			INNER JOIN tipoplato tp ON tp.codigotipoplato = pla.codigotipoplato
-			INNER JOIN productos_has_platos php ON php.codigoplato = pla.codigoplato
-			INNER JOIN productos pro ON pro.codigoproducto = php.codigoproducto;]]>
+		<![CDATA[call sp_ReporteFinal();]]>
 	</queryString>
 	<field name="codigoEmpresa" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -199,10 +186,6 @@
 				</textElement>
 				<text><![CDATA[Teléfono]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="0" y="25" width="143" height="20" uuid="954aa781-0a87-4c67-b770-6886bae70bfc"/>
-				<textFieldExpression><![CDATA[$F{codigoProducto}]]></textFieldExpression>
-			</textField>
 		</band>
 	</detail>
 	<summary>

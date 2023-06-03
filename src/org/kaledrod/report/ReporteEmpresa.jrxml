@@ -55,7 +55,7 @@
 	<pageHeader>
 		<band height="76" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="11" width="572" height="52" uuid="d52517f3-fbff-4b0a-a418-f04d158ad6a5"/>
+				<reportElement x="0" y="0" width="572" height="76" uuid="d52517f3-fbff-4b0a-a418-f04d158ad6a5"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial Black" size="26"/>
 				</textElement>
