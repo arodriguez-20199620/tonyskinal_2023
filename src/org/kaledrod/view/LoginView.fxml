@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="30.0" prefWidth="1000.0" style="-fx-background-color: #1DDDBC;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="1000.0" text="Presupuesto" textFill="WHITE" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="3.0">
+               <font>
+                  <Font name="Arial" size="20.0" />
+               </font>
+            </Label>
+            <Button contentDisplay="RIGHT" layoutX="960.0" mnemonicParsing="false" styleClass="closed" stylesheets="@../resourse/TonysKinal.css">
+               <graphic>
+                  <ImageView fx:id="imgCerrar" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" styleClass="back">
+                     <image>
+                        <Image url="@../image/Closed.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button id="min" layoutX="929.0" layoutY="3.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="35.0" styleClass="min" stylesheets="@../resourse/TonysKinal.css" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="0.0">
+               <graphic>
+                  <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/Minimizar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="550.0" layoutX="50.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0">
+         <image>
+            <Image url="@../image/Login.jpg" />
+         </image>
+      </ImageView>
+      <TextField layoutX="101.0" layoutY="208.0" prefHeight="25.0" prefWidth="264.0" />
+      <TextField layoutX="101.0" layoutY="354.0" prefHeight="25.0" prefWidth="264.0" />
+   </children>
+</AnchorPane>

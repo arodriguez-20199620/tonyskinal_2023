@@ -1,0 +1,469 @@
+/* Estilo de texto seleccionado */
+.combo-box .text:selected {
+  -fx-background-color: #1dddbc;
+  -fx-text-fill: white;
+}
+
+/* Estilo de combobox deshabilitado */
+.combo-box:disabled {
+  -fx-opacity: 1;
+}
+
+.menu-bar,
+.menu-bar .label {
+  -fx-background-color: transparent;
+  -fx-border-width: 0 0 2 0;
+  -fx-border-color: transparent;
+  -fx-pref-height: 100px;
+  -fx-pref-height: 50px;
+  -fx-font-size: 15px;
+  -fx-font-family: "Garet Regular";
+  -fx-text-fill: white;
+}
+
+.menu-bar .menu-button:hover,
+.menu-bar .menu-button:focused,
+.menu-bar .menu-button:showing {
+  -fx-background-color: transparent;
+  -fx-border-width: 0 0 2 0;
+  -fx-border-color: derive(#1dddbc, 30%);
+}
+
+.menu-item,
+.menu-item .label {
+  -fx-background-color: transparent;
+  -fx-border-width: 0 0 0 5;
+  -fx-border-color: transparent;
+  -fx-pref-height: 30px;
+  -fx-font-size: 15px;
+  -fx-font-family: "Garet";
+  -fx-text-fill: white;
+}
+
+.menu-item:hover {
+  -fx-background-color: linear-gradient(to right, #363636, #121212);
+  /*    -fx-background-color: #363636;*/
+  -fx-border-width: 0 0 0 5;
+  -fx-border-color: derive(#1dddbc, 30%);
+  -fx-pref-height: 30px;
+}
+
+.menu-item .label:hover {
+  -fx-font-size: 15px;
+  -fx-font-family: "Arial Black";
+  -fx-text-fill: white;
+}
+.context-menu {
+  -fx-skin: "com.sun.javafx.scene.control.skin.ContextMenuSkin";
+  -fx-background-color: #121212;
+  -fx-border-width: 0 2 2 2;
+  -fx-border-color: derive(#121212, 10%);
+  /*-fx-border-color: rgba(225, 225, 225, 0.9);*/
+
+  /*    * -fx-background-insets: 0.0, 1.0, 2.0;
+        
+        -fx-padding: 0.333333em 0.083333em 0.666667em 0.083333em; 
+        -fx-opacity: 0.9; */
+}
+
+/* Botones*/
+
+/* Botones normales*/
+.button1 {
+  -fx-pref-width: 150px;
+  -fx-pref-height: 50px;
+  -fx-background-radius: 0;
+  -fx-background-color: #121212;
+  -fx-background-radius: 5;
+  -fx-border-radius: 2;
+  -fx-text-fill: white;
+  -fx-font: 15px "Garet Bold";
+}
+
+.button1:hover {
+  -fx-background-color: #1dddbc;
+}
+
+.button1:pressed {
+  -fx-scale-x: 0.9;
+  -fx-scale-y: 0.9;
+}
+
+/* Boton para regresar*/
+.back {
+  -fx-pref-width: 30px;
+  -fx-pref-height: 30px;
+  -fx-background-color: transparent;
+  -fx-text-fill: #0c0c0c;
+  -fx-font-family: "Arial";
+  -fx-font-size: 12px;
+  -fx-background-radius: 0 0 0 0;
+}
+
+.back:hover {
+  -fx-background-color: derive(#1dddbc, 30%);
+}
+
+/* Boton para confirmar */
+.confirmar {
+  -fx-pref-width: 120px;
+  -fx-pref-height: 50px;
+  -fx-background-color: #121212;
+  -fx-background-radius: 5;
+  -fx-text-fill: white;
+  -fx-font-family: "Garet Bold";
+  -fx-font-size: 15px;
+}
+
+.confirmar:hover{
+    -fx-background-color: derive(#1DDDBC, 30%);
+}
+
+.confirmar:pressed {
+  -fx-scale-x: 0.9;
+  -fx-scale-y: 0.9;
+}
+
+/* Boton para cancelar */
+.cancelar {
+  -fx-pref-width: 120px;
+  -fx-pref-height: 50px;
+  -fx-background-color: #121212;
+  -fx-background-radius: 5;
+  -fx-text-fill: white;
+  -fx-font-family: "Garet Bold";
+  -fx-font-size: 15px;
+}
+
+.cancelar:hover {
+    -fx-background-color: derive(red, 50%);
+}
+/* Boton para cerrar */
+.closed {
+  -fx-pref-width: 30px;
+  -fx-pref-height: 30px;
+  -fx-background-color: transparent;
+  -fx-background-radius: 0;
+}
+
+.closed:hover {
+  -fx-background-color: derive(red, 30%);
+}
+
+/* Boton para minimizar */
+.min {
+  -fx-pref-width: 30px;
+  -fx-pref-height: 30px;
+  -fx-background-color: transparent;
+}
+
+.min:hover {
+  -fx-background-color: derive(#1dddbc, 30%);
+}
+/* Boton para eliminar */
+.eliminar {
+  -fx-pref-width: 100px;
+  -fx-pref-height: 20px;
+  -fx-alignment: center;
+  -fx-font-family: "Garet Regular";
+  -fx-text-fill: white;
+  -fx-font-size: 15px;
+  -fx-background-color: red;
+}
+
+.eliminar:hover {
+  -fx-background-color: derive(red, 30%);
+}
+
+.eliminar:pressed {
+  -fx-scale-x: 0.9;
+  -fx-scale-y: 0.9;
+}
+
+/* Estilo de fuente y color de texto */
+.text-field {
+  -fx-pref-width: 200px;
+  -fx-font-family: "Garet";
+  -fx-font-size: 14px;
+  -fx-text-fill: #333333;
+}
+
+/* Estilo de fondo y borde */
+.text-field {
+  -fx-background-color: transaparent;
+  -fx-background-radius: 3;
+  -fx-border-color: #cccccc;
+  -fx-border-width: 1px;
+  -fx-border-radius: 3;
+}
+
+/* Estilo de borde resaltado al obtener el foco */
+.text-field:focused {
+  -fx-border-color: #1dddbc;
+  -fx-border-width: 2px;
+}
+
+/* Estilo de borde y fondo al pasar el ratón por encima */
+.text-field:hover {
+  -fx-border-color: #999999;
+  -fx-background-color: #ededed;
+}
+
+/* Estilo de texto de marcador de posición */
+.text-field .text {
+  -fx-fill: #a0a0a0;
+}
+
+/* Estilo de texto seleccionado */
+.text-field .text:selected {
+  -fx-background-color: #1dddbc;
+  -fx-text-fill: white;
+}
+
+/* Estilo de campo de texto deshabilitado */
+.text-field:disabled {
+  -fx-opacity: 0.5;
+}
+
+.combo-box {
+  -fx-opacity: 1;
+  -fx-pref-width: 200px;
+  -fx-font-family: "Arial";
+  -fx-font-size: 14px;
+  -fx-text-fill: #333333;
+}
+
+/* Estilo de fondo y borde */
+.combo-box {
+  -fx-background-color: #f4f4f4;
+  -fx-background-radius: 3;
+  -fx-border-color: #cccccc;
+  -fx-border-width: 1px;
+  -fx-border-radius: 3;
+}
+
+/* Estilo de borde resaltado al obtener el foco */
+.combo-box:focused {
+  -fx-border-color: #1dddbc;
+  -fx-border-width: 2px;
+}
+
+/* Estilo de borde y fondo al pasar el ratón por encima */
+.combo-box:hover {
+  -fx-border-color: #999999;
+  -fx-background-color: #ededed;
+}
+
+/* Estilo de texto de marcador de posición */
+.combo-box .text {
+  -fx-fill: #a0a0a0;
+}
+
+.table-view {
+  -fx-background-color: transparent;
+  -fx-border-width: 0;
+}
+
+.table-cell {
+  -fx-padding: 0.5em 0.5em 0.1em 0.3em;
+  -fx-font: 13px "Garet Regular";
+  -fx-border-insets: 0;
+  -fx-alignment: CENTER;
+  -fx-background-color: derive(#121212, 30%); /* Fondo transparente blanco */
+  -fx-text-fill: white;
+}
+
+.table-cell:hover {
+  -fx-background-color: #1dddbc;
+  -fx-text-fill: white;
+}
+
+.table-row-cell:empty,
+.table-cell:empty:hover {
+  -fx-background-color: whitesmoke;
+}
+
+.table-row-cell:empty .table-cell {
+  -fx-border-width: 0px;
+}
+
+.table-view:row-selection .table-row-cell:filled:hover {
+  -fx-background-color: rgba(28, 183, 236, 0.25);
+}
+
+.table-view:row-selection .table-row-cell:filled:selected:hover {
+  -fx-background-color: derive(#1dddbc, 50%);
+}
+
+.table-view:row-selection .table-row-cell:filled:selected {
+  -fx-background-color: derive(#1dddbc, 50%);
+  -fx-text-fill: black;
+}
+
+.table-view,
+.table-view:focused {
+  -fx-background-color: transparent, -fx-box-border,
+    -fx-control-inner-background;
+  -fx-background-insets: -1.4, 0, 1;
+  -fx-background-radius: 1.4, 0, 0;
+}
+
+.table-view .column-header .label {
+  -fx-text-fill: black; /* Cambio de color de letras a blanco */
+  -fx-font: 12px "Garet";
+  -fx-alignment: CENTER;
+}
+
+.table-view .column-header:hover {
+  -fx-background-color: derive(#1dddbc, 30%);
+}
+
+.table-view .column-header,
+.table-view .filler {
+  -fx-background-color: #1dddbc; /* Cambio de color de fondo a negro */
+  -fx-size: 45;
+}
+
+.table-view .column-header-background {
+  -fx-background-color: transparent;
+}
+
+.table-view .show-hide-columns-button {
+  -fx-background-color: white;
+  -fx-border-color: -fx-box-border;
+  -fx-border-insets: 0;
+}
+
+/*Calendario */
+
+.root {
+  -fx-base: #121212;
+}
+
+.datepicker-invalid {
+  -fx-border-color: red;
+}
+
+.datepicker-valid {
+  -fx-border-color: null;
+}
+
+.calendar {
+}
+
+.calendar-header {
+  -fx-background-color: linear-gradient(to bottom, #121212, #1dddbc);
+  -fx-padding: 0.5em;
+}
+
+.calendar-footer {
+  -fx-background-color: linear-gradient(to top, #121212, #1dddbc);
+  -fx-padding: 0.2em;
+}
+
+.calendar-month-view,
+.calendar-year-view,
+.calendar-decades-view {
+  -fx-background-color: linear-gradient(to bottom, #121212, #1dddbc);
+  -fx-padding: 0;
+}
+
+.calendar-cell-current-month,
+.calendar-year-button,
+.calendar-month-button {
+  -fx-background-color: null;
+  -fx-background-radius: 0;
+  -fx-background-insets: 0, 0, 0, 0;
+  -fx-cursor: hand;
+  -fx-padding: 0.7em;
+  -fx-font-weight: bold;
+  -fx-background-radius: 8;
+  -fx-text-fill: white;
+}
+
+.calendar-cell-current-month:hover,
+.calendar-year-button:hover,
+.calendar-month-button:hover {
+  -fx-background-color: #ffffff;
+}
+
+.calendar-cell-other-month {
+  -fx-background-color: null;
+  -fx-background-radius: 0;
+  -fx-background-insets: 0, 0, 0, 0;
+  -fx-opacity: 0.7;
+  -fx-cursor: hand;
+  -fx-padding: 0.7em;
+  -fx-background-radius: 8;
+}
+
+.calendar-cell-other-month:hover {
+  -fx-background-color: #ffffff;
+}
+
+.calendar-cell-today {
+  -fx-background-color: #ffffff;
+}
+
+.calendar-navigation-button,
+.calendar-navigation-title,
+.calendar-today-button {
+  -fx-background-color: null;
+  -fx-cursor: hand;
+  -fx-text-fill: white;
+}
+
+.calendar-navigation-title:disabled {
+  -fx-opacity: 1;
+}
+
+.calendar-navigation-arrow {
+  -fx-padding: 4 3.5 4 3.5;
+  -fx-padding: 0.333333em 0.333333em 0.333333em 0.333333em;
+  -fx-shape: "M 100 100 L 300 100 L 200 300 z";
+  -fx-background-color: #ffffff;
+}
+
+.calendar-weekdays {
+  -fx-background-radius: -fx-body-color;
+  -fx-background-color: -fx-body-color;
+  -fx-padding: 3px;
+}
+
+.calendar-week-number {
+  -fx-font-size: 0.8em;
+  -fx-padding: 4px;
+}
+
+.jfx-time-picker {
+    -fx-opacity: 1;
+    -fx-pref-width: 200px;
+    -fx-font-family: "Arial";
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333;
+}
+
+/* Estilo de fondo y borde */
+.jfx-time-picker {
+    -jfx-default-color: #1dddbc;
+    -jfx-focus-color: #1dddbc;
+    -jfx-unfocus-color: #1dddbc;
+}
+
+/* Estilo de borde resaltado al obtener el foco 
+.jfx-time-picker .spinner .increment-arrow-button:focused,
+.jfx-time-picker .spinner .decrement-arrow-button:focused {
+    -fx-border-color: #1dddbc;
+    -fx-border-width: 2px;
+}
+
+ Estilo de borde y fondo al pasar el ratón por encima 
+.jfx-time-picker:hover {
+    -fx-border-color: #999999;
+    -jfx-default-color: #ededed;
+}
+
+ Estilo de texto de marcador de posición 
+.jfx-time-picker .text-field .text {
+    -fx-text-fill: #a0a0a0;
+}*/

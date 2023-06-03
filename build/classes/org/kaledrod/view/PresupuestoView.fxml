@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kaledrod.controller.PresupuestoController">
+   <children>
+      <AnchorPane layoutY="30.0" prefHeight="570.0" prefWidth="200.0" style="-fx-background-color: #121212;" />
+      <TableView fx:id="tblPresupuestos" layoutX="250.0" layoutY="200.0" onKeyReleased="#seleccionarElemento" onMouseClicked="#seleccionarElemento" prefHeight="350.0" prefWidth="700.0" stylesheets="@../resourse/TonysKinal.css">
+        <columns>
+          <TableColumn fx:id="colCodigoPresupuesto" prefWidth="175.0" text="Codigo Presupuesto" />
+            <TableColumn fx:id="colFechaSolicitud" prefWidth="175.0" text="Fecha Solicitud" />
+            <TableColumn fx:id="colCantidadPresupuesto" prefWidth="175.0" text="Cantidad Presupuesto" />
+            <TableColumn fx:id="colCodigoEmpresa" prefWidth="175.0" text="Codigo Empresa" />
+        </columns>
+         <columnResizePolicy>
+         
+         </columnResizePolicy>
+      </TableView>
+      <GridPane fx:id="grpFecha" layoutX="250.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="80.0" prefWidth="700.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="225.33334350585938" minWidth="10.0" prefWidth="178.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="289.66668701171875" minWidth="10.0" prefWidth="193.0" />
+          <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="177.6666259765625" minWidth="10.0" prefWidth="122.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="205.0" minWidth="10.0" prefWidth="205.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="codigoPresupuesto">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Label>
+            <Label text="Fecha Solicitud" GridPane.columnIndex="2">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtCodigoPresupuesto" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="172.0" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="1" />
+            <Label text="Cantidad Presupuesto" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtCantidadPresupuesto" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="172.0" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Codigo Empresa" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="cmbCodigoEmpresa" prefHeight="25.0" prefWidth="180.0" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+      <VBox layoutY="200.0" prefHeight="250.0" prefWidth="200.0">
+         <children>
+            <Button id="nuevo" fx:id="btnNuevo" alignment="CENTER" mnemonicParsing="false" onAction="#nuevo" styleClass="button1" stylesheets="@../resourse/TonysKinal.css" text="Nuevo">
+               <graphic>
+                  <ImageView fx:id="imgNuevo" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/Nuevo.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btnEliminar" alignment="CENTER" mnemonicParsing="false" onAction="#eliminar" styleClass="button1" stylesheets="@../resourse/TonysKinal.css" text="Eliminar">
+               <graphic>
+                  <ImageView fx:id="imgEliminar" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/Eliminar.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btnEditar" alignment="CENTER" mnemonicParsing="false" onAction="#editar" styleClass="button1" stylesheets="@../resourse/TonysKinal.css" text="Editar">
+               <graphic>
+                  <ImageView fx:id="imgEditar" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/Editar.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btnReporte" alignment="CENTER" mnemonicParsing="false" onAction="#generarReporte" styleClass="button1" stylesheets="@../resourse/TonysKinal.css" text="Reporte">
+               <graphic>
+                  <ImageView fx:id="imgReporte" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/Reporte.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+         </children>
+      </VBox>
+      <AnchorPane prefHeight="30.0" prefWidth="1000.0" style="-fx-background-color: #1DDDBC;">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="1000.0" text="Presupuesto" textFill="#0c0c0c" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="3.0">
+               <font>
+                  <Font name="Arial" size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnCerrar" contentDisplay="RIGHT" layoutX="960.0" mnemonicParsing="false" onAction="#buttonAccionCerrar" styleClass="closed" stylesheets="@../resourse/TonysKinal.css">
+               <graphic>
+                  <ImageView fx:id="imgCerrar" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" styleClass="back">
+                     <image>
+                        <Image url="@../image/Closed.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button id="min" layoutX="929.0" layoutY="3.0" mnemonicParsing="false" onAction="#buttonAccionMinimizar" prefHeight="22.0" prefWidth="35.0" styleClass="min" stylesheets="@../resourse/TonysKinal.css" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="0.0">
+               <graphic>
+                  <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/Minimizar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/Logo2Forma2.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnRegresar" layoutX="880.0" layoutY="570.0" mnemonicParsing="false" onAction="#regresar" styleClass="back" stylesheets="@../resourse/TonysKinal.css" text="REGRESAR">
+         <graphic>
+            <ImageView fx:id="imgRegresar" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" styleClass="back">
+               <image>
+                  <Image url="@../image/Regresar.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>

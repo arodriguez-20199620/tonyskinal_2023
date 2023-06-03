@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" style="-fx-background-color: #F5F5EF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kaledrod.controller.EmpleadoController">
+   <children>
+      <AnchorPane layoutX="184.0" layoutY="33.0" prefHeight="30.0" prefWidth="1000.0" style="-fx-background-color: #1DDDBC;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="1000.0" text="Empleado" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font name="Garet Medium" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <HBox prefHeight="30.0" prefWidth="90.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button fx:id="btnRegresar" mnemonicParsing="false" onAction="#menuPrincipal" prefWidth="68.0" styleClass="back" stylesheets="@../resourse/TonysKinal.css">
+               <graphic>
+                  <ImageView fx:id="imgRegresar" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" styleClass="back">
+                     <image>
+                        <Image url="@../image/Regresar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button id="min" fx:id="btnMinimizar" mnemonicParsing="false" onAction="#buttonAccionMinimizar" prefHeight="22.0" prefWidth="35.0" styleClass="min" stylesheets="@../resourse/TonysKinal.css">
+               <graphic>
+                  <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/Minimizar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnCerrar" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#buttonAccionCerrar" styleClass="closed" stylesheets="@../resourse/TonysKinal.css">
+               <graphic>
+                  <ImageView fx:id="imgCerrar" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" styleClass="back">
+                     <image>
+                        <Image url="@../image/Closed.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </HBox>
+      <TableView fx:id="tblEmpleados" layoutX="50.0" layoutY="280.0" onKeyReleased="#seleccionarElemento" onMouseClicked="#seleccionarElemento" prefHeight="350.0" prefWidth="900.0" stylesheets="@../resourse/TonysKinal.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+        <columns>
+          <TableColumn fx:id="colCodEmpleado" prefWidth="150.0" text="Cod Empleado" />
+          <TableColumn fx:id="colNumeroEmpleado" prefWidth="150.0" text="No . Empleado" />
+            <TableColumn fx:id="colApellidosEmpleado" prefWidth="150.0" text="Apellidos del empleado" />
+            <TableColumn fx:id="colNombreEmpleado" prefWidth="150.0" text="Nombre del empleado" />
+            <TableColumn fx:id="colDireccionEmpleado" prefWidth="150.0" text="Direccion del empleado" />
+            <TableColumn fx:id="colTelefonoContacto" prefWidth="150.0" text="Telefono de contacto" />
+            <TableColumn fx:id="colGradoCocinero" prefWidth="150.0" text="Grado de cocinero" />
+            <TableColumn fx:id="colCodTipoEmpleado" prefWidth="150.0" text="Cod Tipo Empleado" />
+            <TableColumn fx:id="colAccion" prefWidth="150.0" text="Accion" />
+        </columns>
+      </TableView>
+      <GridPane layoutX="111.0" layoutY="120.0" prefHeight="150.0" prefWidth="900.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
+        <columnConstraints>
+            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Codigo de empleado">
+               <font>
+                  <Font name="Garet Regular" size="18.0" />
+               </font>
+            </Label>
+            <Label text="Apellidos del empleado" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Garet Regular" size="18.0" />
+               </font>
+            </Label>
+            <Label text="Direccion del empleado" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Garet Regular" size="18.0" />
+               </font>
+            </Label>
+            <Label text="No . Empleado" GridPane.columnIndex="2">
+               <font>
+                  <Font name="Garet Regular" size="18.0" />
+               </font>
+            </Label>
+            <Label text="Nombre del empleado" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Garet Regular" size="18.0" />
+               </font>
+            </Label>
+            <Label text="Telefono de contacto" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Garet Regular" size="18.0" />
+               </font>
+            </Label>
+            <Label text="Grado de cocinero" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Garet Regular" size="18.0" />
+               </font>
+            </Label>
+            <Label text="Codigo Tipo Empleado" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Garet Regular" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtCodEmpleado" maxHeight="-Infinity" maxWidth="-Infinity" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="1" />
+            <TextField fx:id="txtApellidoEmpleado" maxHeight="-Infinity" maxWidth="-Infinity" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtDireccionEmpleado" maxHeight="-Infinity" maxWidth="-Infinity" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtGradoCocinero" maxHeight="-Infinity" maxWidth="-Infinity" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="txtNumeroEmpleado" maxHeight="-Infinity" maxWidth="-Infinity" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="3" />
+            <TextField fx:id="txtNombreEmpleado" maxHeight="-Infinity" maxWidth="-Infinity" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <TextField fx:id="txtTelefonoContacto" maxHeight="-Infinity" maxWidth="-Infinity" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <ComboBox fx:id="cmbCodTipoEmpleado" prefHeight="30.0" prefWidth="226.0" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+         </children>
+      </GridPane>
+      <HBox layoutX="607.0" layoutY="207.0" prefHeight="30.0" prefWidth="470.0" style="-fx-spacing: 10;" AnchorPane.bottomAnchor="380.0" AnchorPane.rightAnchor="50.0">
+         <children>
+            <Button id="nuevo" fx:id="btnNuevo" mnemonicParsing="false" onAction="#nuevo" styleClass="button1" stylesheets="@../resourse/TonysKinal.css" text="Agregar">
+               <graphic>
+                  <ImageView fx:id="imgNuevo" fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/Nuevo.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#editar" styleClass="button1" stylesheets="@../resourse/TonysKinal.css" text="Editar">
+               <graphic>
+                  <ImageView fx:id="imgEditar" fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/Editar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnReporte" mnemonicParsing="false" prefWidth="234.0" styleClass="button1" stylesheets="@../resourse/TonysKinal.css" text="Reporte">
+               <graphic>
+                  <ImageView fx:id="imgReporte" fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/Reporte.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </HBox>
+      <HBox layoutX="60.0" layoutY="230.0" prefHeight="35.0" prefWidth="250.0" style="-fx-spacing: 20;" AnchorPane.bottomAnchor="380.0" AnchorPane.leftAnchor="50.0">
+         <children>
+            <Button fx:id="btnCancelar" mnemonicParsing="false" styleClass="cancelar" stylesheets="@../resourse/TonysKinal.css" text="Cancelar" />
+            <Button fx:id="btnConfirmar" mnemonicParsing="false" styleClass="confirmar" stylesheets="@../resourse/TonysKinal.css" text="Confirmar" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

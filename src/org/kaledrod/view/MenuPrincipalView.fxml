@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kaledrod.controller.MenuPrincipalController">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../image/MenuPrincipal.png" />
+         </image>
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+      </ImageView>
+      <AnchorPane layoutX="494.0" layoutY="-3.0" prefHeight="50.0" prefWidth="235.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <MenuBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="35.0" prefWidth="235.0" stylesheets="@../resourse/TonysKinal.css" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <menus>
+                  <Menu mnemonicParsing="false" text="Modulos">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#ventanaEmpresa" text="Empresas" />
+                        <MenuItem mnemonicParsing="false" onAction="#ventanaProducto" text="Productos" />
+                        <MenuItem mnemonicParsing="false" onAction="#ventanaPresupuesto" text="Presupuesto" />
+                        <MenuItem mnemonicParsing="false" onAction="#ventanaTipoEmpleado" text="Tipo Empleado" />
+                        <MenuItem mnemonicParsing="false" onAction="#ventanaTipoPlato" text="Tipo Plato" />
+                        <MenuItem mnemonicParsing="false" onAction="#ventanEmpleado" text="Empleados" />
+                        <MenuItem mnemonicParsing="false" onAction="#ventanaPlato" text="Platos" />
+                        <MenuItem mnemonicParsing="false" onAction="#ventanaServicios" text="Servicios" />
+                        <MenuItem mnemonicParsing="false" text="Productos_has_plato" />
+                        <MenuItem mnemonicParsing="false" text="Servicios_Has_Empleados" />
+                        <MenuItem mnemonicParsing="false" text="Servicios_Has_Platos" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Reportes">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Reporte de productos" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text=" ?">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#ventanaProgramador" text="Programador" />
+                    </items>
+                  </Menu>
+               </menus>
+            </MenuBar>
+         </children>
+      </AnchorPane>
+      <HBox layoutX="10.0" layoutY="10.0" prefHeight="30.0" prefWidth="60.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button id="min" fx:id="btnMinimizar" mnemonicParsing="false" onAction="#buttonAccionMinimizar" prefHeight="22.0" prefWidth="35.0" styleClass="min" stylesheets="@../resourse/TonysKinal.css">
+               <graphic>
+                  <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/Minimizar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnCerrar" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#buttonAccionCerrar" styleClass="closed" stylesheets="@../resourse/TonysKinal.css">
+               <graphic>
+                  <ImageView fx:id="imgCerrar" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" styleClass="back">
+                     <image>
+                        <Image url="@../image/Closed.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
