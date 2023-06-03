@@ -8,8 +8,7 @@
 	</parameter>
 	<queryString>
 		<![CDATA[Select * from Empresas E inner join Presupuestos P on
-E.codigoEmpresa = P.codigoEmpresa where P.codigoPresupuesto = $P{codEmpresa} group by P.cantidadPresupuesto;
-]]>
+E.codigoEmpresa = P.codigoEmpresa where P.codigoPresupuesto = $P{codEmpresa} group by P.cantidadPresupuesto;]]>
 	</queryString>
 	<field name="codigoEmpresa" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>

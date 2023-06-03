@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportePresupuesto" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1c6ba915-724f-4d35-b256-97ecf2b3ffcc">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="48"/>
 	<parameter name="codEmpresa" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -68,12 +68,12 @@ E.codigoEmpresa = S.codigoEmpresa where E.codigoEmpresa = $P{codEmpresa}]]>
 				<textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
 			</textField>
 			<subreport>
-				<reportElement x="0" y="60" width="572" height="83" uuid="14141520-8704-4f01-b004-614fdb72db4e"/>
+				<reportElement x="0" y="60" width="572" height="87" uuid="63f81d15-46e2-4473-b9f3-5cb796a7c766"/>
 				<subreportParameter name="codEmpresa">
 					<subreportParameterExpression><![CDATA[$P{codEmpresa}]]></subreportParameterExpression>
 				</subreportParameter>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "SubReportePresupuesto.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA["D:\\User\\Documentos\\NetBeansProjects\\tonyskinal_2023\\src\\org\\kaledrod\\report\\SubReportePresupuesto.jasper"]]></subreportExpression>
 			</subreport>
 		</band>
 	</pageHeader>
