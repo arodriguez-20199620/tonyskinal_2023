@@ -229,19 +229,20 @@ public class EmpresaController implements Initializable {
     }
 
     public void actualizar() {
+        Empresa registro = (Empresa) tblEmpresas.getSelectionModel().getSelectedItem();
+        registro.setNombreEmpresa(txtNombreEmpresa.getText());
+        registro.setDireccion(txtDireccion.getText());
+        registro.setTelefono(txtTelefono.getText());
         try {
             PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_EditarEmpresa(?,?,?,?)");
-            Empresa registro = (Empresa) tblEmpresas.getSelectionModel().getSelectedItem();
-            registro.setNombreEmpresa(txtNombreEmpresa.getText());
-            registro.setDireccion(txtDireccion.getText());
-            registro.setTelefono(txtTelefono.getText());
             procedimiento.setInt(1, registro.getCodigoEmpresa());
             procedimiento.setString(2, registro.getNombreEmpresa());
             procedimiento.setString(3, registro.getDireccion());
             procedimiento.setString(4, registro.getTelefono());
             procedimiento.execute();
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
+//            e.printStackTrace();
         }
     }
 
@@ -275,7 +276,7 @@ public class EmpresaController implements Initializable {
         }
     }
 
-      public void generarReporete() {
+    public void generarReporete() {
         imprimirReporte();
     }
 

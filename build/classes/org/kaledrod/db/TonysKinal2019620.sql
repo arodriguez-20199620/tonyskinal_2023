@@ -66,8 +66,6 @@ Create table Servicios(
     constraint FK_Servicios_Empresas foreign key (codigoEmpresa) 
 		references Empresas(codigoEmpresa) on delete cascade
 ); 
-select * From Servicios;
-
 
 Create table Presupuestos(
 	codigoPresupuesto int not null auto_increment, 
@@ -159,7 +157,26 @@ Delimiter $$
 		End $$
 Delimiter ;
 
-
+delimiter $$
+create procedure sp_ReporteFinal()
+begin
+   SELECT 
+		*
+		FROM 
+			Empresas e 
+			INNER JOIN 	servicios s ON s.codigoempresa = e.codigoempresa
+			INNER JOIN presupuestos p ON p.codigoempresa = e.codigoempresa
+			INNER JOIN servicios_has_empleados she ON she.codigoservicio = s.codigoservicio
+			INNER JOIN empleados emp ON she.codigoempleado = emp.codigoempleado
+			INNER JOIN tipoempleado te ON te.codigoTipoEmpleado = emp.codigotipoempleado
+			INNER JOIN servicios_has_platos shp ON shp.codigoservicio = s.codigoservicio
+			INNER JOIN platos pla ON pla.codigoplato = shp.codigoplato
+			INNER JOIN tipoplato tp ON tp.codigotipoplato = pla.codigotipoplato
+			INNER JOIN productos_has_platos php ON php.codigoplato = pla.codigoplato
+			INNER JOIN productos pro ON pro.codigoproducto = php.codigoproducto;
+end $$
+delimiter ;
+call sp_ReporteFinal();
 call sp_AgregarUsuario('Angel','Rodriguez','arodriguez','1234');
 Call sp_ListarUsuarios();
 
@@ -688,13 +705,14 @@ call sp_EditarEmpleado(3, 5, 'Marroquin Santos', 'Fernanda Stacy', 'Zona 8, 8va 
 
 -- ------------------------------------PROCEDIMIENTOS ALMACENADOS DE PRODUCTOS_HAS_PLATOS ----------------------------------
 -- ---------------------------------------------Agregar PRODUCTO_HAS_PLATO----------------------------------------------
-Delimiter //
+Delimiter $$
 	Create procedure sp_AgregarProducto_has_Plato(in Productos_codigoProducto int, in codigoPlato int, in codigoProducto int)
-        Begin
+        begin
 			Insert Into Productos_has_Platos(Productos_codigoProducto, codigoPlato, codigoProducto)
 				Values (Productos_codigoProducto, codigoPlato, codigoProducto);
-        End//
+        end $$
 Delimiter ; 
+
 -- ---------------------------------------------Listar PRODUCTOS_HAS_PLATOS----------------------------------------------
 Delimiter //
 	Create procedure sp_ListarProductos_has_Platos()
@@ -739,12 +757,12 @@ Delimiter //
 Delimiter ; 
 -- DATOS ---------------
 call sp_AgregarProducto_has_Plato(1, 1, 1);
-call sp_AgregarProducto('Enrollados', 50);
-call sp_AgregarProducto('Enrollados', 50);
+call sp_AgregarProducto_has_Plato(2, 2, 2);
+call sp_AgregarProducto_has_Plato(3, 3, 3);
 call sp_ListarProductos_has_Platos();
-call sp_BuscarProducto_has_Plato(1);
+-- call sp_BuscarProducto_has_Plato(1);
 -- call sp_EliminarProducto(2);
-call sp_EditarProducto(3, 'Pan con salchicha y papa', 100);
+-- call sp_ListarProductos_has_Platos(3, 'Pan con salchicha y papa', 100);
 
 -- ------------------------------------PROCEDIMIENTOS ALMACENADOS DE SERVICIOS_HAS_EMPLEADOS ----------------------------------
 -- ---------------------------------------------Agregar SERVICIO_HAS_EMPLEADO----------------------------------------------
@@ -756,7 +774,8 @@ Delimiter //
 				codigoEmpleado, fechaEvento, horaEvento, lugarEvento) values 
                 (Servicios_codigoServicio, codigoServicio, codigoEmpleado, fechaEvento, horaEvento, lugarEvento);
         End//
-Delimiter ; 
+Delimiter ;
+
 -- ---------------------------------------------Listar SERVICIOS_HAS_EMPLEADOS----------------------------------------------
 Delimiter //
 	Create procedure sp_ListarServicios_has_Empleados()
@@ -790,7 +809,7 @@ Delimiter ;
 Delimiter //
 	Create procedure sp_EliminarServicio_has_Empleado(in Servicios_codServicio int )
 		Begin
-			Delete from Servicios_has_Empleados SHE
+			Delete from Servicios_has_Empleados SHE 
 				where SHE.Servicios_codigoServicio = Servicios_codServicio; 
         End//
 Delimiter ; 
@@ -807,23 +826,26 @@ Delimiter //
                     Where SHE.Servicios_codigoServicio = Servicios_codServicio; 
         End//
 Delimiter ; 
-
+call sp_AgregarServicio_has_Empleado(1, 1, 1, '2023-05-10', '12:30:00', "23");
+call sp_AgregarServicio_has_Empleado(2, 2, 2, '2023-05-10', '12:30:00', "23");
+call sp_AgregarServicio_has_Empleado(3, 3, 3, '2023-05-10', '12:30:00', "23");
+call sp_ListarServicios_has_Empleados();
 -- ------------------------------------PROCEDIMIENTOS ALMACENADOS DE SERVICIOS_HAS_PLATOS ----------------------------------
 -- ---------------------------------------------Agregar SERVICIO_HAS_PLATO----------------------------------------------
 Delimiter //
-	Create procedure sp_AgregarServicio_has_Plato(in Servicios_codigoProducto int , in codigoPlato int,
+	Create procedure sp_AgregarServicio_has_Plato(in Servicios_codigoServicio int , in codigoPlato int,
 		in codigoServicio int)
         Begin
-			Insert into Servicios_has_Platos(Servicios_codigoProducto, codigoPlato, codigoServicio)
-				Values (Servicios_codigoProducto, codigoPlato, codigoServicio);
+			Insert into Servicios_has_Platos(Servicios_codigoServicio, codigoPlato, codigoServicio)
+				Values (Servicios_codigoServicio, codigoPlato, codigoServicio);
         End//
-Delimiter ; 
+Delimiter ;
 -- ---------------------------------------------Listar SERVICIOS_HAS_PLATOS----------------------------------------------
 Delimiter //
 	Create procedure sp_ListarServicios_has_Platos()
 		Begin
 			Select 
-				SHP.Servicios_codigoProducto,
+				SHP.Servicios_codigoServicio,
                 SHP.codigoPlato, 
                 SHP.codigoServicio
                 From Servicios_has_Platos SHP; 
@@ -859,4 +881,8 @@ Delimiter //
 					SHP.codigoServicio = codServicio
 					Where SHP.Servicios_codigoProducto = Servicios_codProducto; 					
         End//
-Delimiter ; 
+Delimiter ;
+call sp_AgregarServicio_has_Plato (1, 1 ,1);
+call sp_AgregarServicio_has_Plato (2, 2 ,2);
+call sp_AgregarServicio_has_Plato (3, 3,3);
+call sp_ListarServicios_has_Platos();
