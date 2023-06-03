@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteEmpresa" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d8f0a2c7-e2b1-4b3c-9ca3-90b8c03f68c4">
-	<property name="ireport.zoom" value="1.4641000000000008"/>
+	<property name="ireport.zoom" value="1.210000000000003"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="12"/>
+	<property name="ireport.y" value="34"/>
 	<queryString>
 		<![CDATA[call sp_ListarEmpresas();]]>
 	</queryString>
@@ -22,64 +22,129 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="52" splitType="Stretch"/>
+		<band height="80" splitType="Stretch">
+			<rectangle>
+				<reportElement x="472" y="0" width="100" height="80" forecolor="#FFFFFF" backcolor="#1DDDBC" uuid="2fbc4b3b-7f65-496a-9378-15de49ded90e"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="0" width="460" height="80" forecolor="#FFFFFF" backcolor="#1DDDBC" uuid="b1e02fe9-f01c-4366-bed9-7aa7d857934b"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="10" y="10" width="100" height="20" forecolor="#FFFFFF" uuid="2c80aa8a-7b10-4507-bfbe-6d9b92c047a7"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Garet Medium" size="12"/>
+				</textElement>
+				<text><![CDATA[Tony`s Kinal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="30" width="450" height="20" forecolor="#FFFFFF" uuid="6d6b94e7-daf4-4293-9aaf-c6cf824dc404"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Garet Medium" size="12"/>
+				</textElement>
+				<text><![CDATA[6 avenida 13-54 zona 7, Colonia Landívar, 01007 Ciudad de Guatemala]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="50" width="419" height="20" forecolor="#FFFFFF" uuid="b9ffe8a7-e856-4ee0-a039-3b57b38161b4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Garet Medium" size="12"/>
+				</textElement>
+				<text><![CDATA[2216 0000]]></text>
+			</staticText>
+		</band>
 	</title>
 	<pageHeader>
-		<band height="104" splitType="Stretch"/>
+		<band height="76" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="11" width="572" height="52" uuid="d52517f3-fbff-4b0a-a418-f04d158ad6a5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Garet Bold" size="26"/>
+				</textElement>
+				<text><![CDATA[Informe de empresas]]></text>
+			</staticText>
+		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="38" splitType="Stretch">
+		<band height="26" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="572" height="25" forecolor="#FFFFFF" backcolor="#1DDDBC" uuid="13ab56d1-7e4a-420f-b9d6-295010bb9348"/>
+			</rectangle>
 			<staticText>
-				<reportElement x="429" y="0" width="143" height="20" uuid="aef51b2a-0704-48ec-bd22-64cbc1f047b6"/>
-				<textElement textAlignment="Center"/>
+				<reportElement mode="Transparent" x="429" y="0" width="143" height="25" forecolor="#FFFFFF" backcolor="#FFFFFF" uuid="aef51b2a-0704-48ec-bd22-64cbc1f047b6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Garet Bold"/>
+				</textElement>
 				<text><![CDATA[DIrección]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="286" y="0" width="143" height="20" uuid="7caedf65-18ab-4639-a004-fd3aa2454c52"/>
-				<textElement textAlignment="Center"/>
+				<reportElement x="286" y="0" width="143" height="25" forecolor="#FFFFFF" backcolor="#FFFFFF" uuid="7caedf65-18ab-4639-a004-fd3aa2454c52"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Garet Bold"/>
+				</textElement>
 				<text><![CDATA[Telefono]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="143" y="0" width="143" height="20" uuid="7fd31350-2f0f-482c-a878-0ad9caf2b620"/>
-				<textElement textAlignment="Center"/>
+				<reportElement x="143" y="0" width="143" height="25" forecolor="#FFFFFF" backcolor="#FFFFFF" uuid="7fd31350-2f0f-482c-a878-0ad9caf2b620"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Garet Bold"/>
+				</textElement>
 				<text><![CDATA[Nombre de empresa]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="0" width="143" height="20" uuid="4c844078-df2e-4d28-810f-fb92ee8a6101"/>
-				<textElement textAlignment="Center"/>
+				<reportElement x="0" y="0" width="143" height="25" forecolor="#FFFFFF" backcolor="#FFFFFF" uuid="4c844078-df2e-4d28-810f-fb92ee8a6101"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Garet Bold"/>
+				</textElement>
 				<text><![CDATA[Codigo de empresa]]></text>
 			</staticText>
+			<line>
+				<reportElement x="0" y="25" width="572" height="1" forecolor="#FFFFFF" uuid="2f1409e9-0c59-4109-ae97-47486a80d3c0"/>
+			</line>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="53" splitType="Stretch">
+		<band height="21" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="572" height="20" forecolor="#FFFFFF" backcolor="#E4E9ED" uuid="b1296dde-4e29-4786-89fb-b79de05d2ace"/>
+			</rectangle>
 			<textField>
 				<reportElement x="0" y="0" width="143" height="20" uuid="291a3887-efb9-4f7d-8b0b-a058ac56ecd3"/>
-				<textElement textAlignment="Center">
-					<font isStrikeThrough="false"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Garet Regular" isStrikeThrough="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{codigoEmpresa}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="143" y="0" width="143" height="20" uuid="8d956c48-ddd9-46ee-9a22-aaf73fa6c5bb"/>
-				<textElement textAlignment="Center">
-					<font isStrikeThrough="false"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Garet Regular" isStrikeThrough="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombreEmpresa}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="286" y="0" width="143" height="20" uuid="02902230-f957-4383-ae5b-476552eb117b"/>
-				<textElement textAlignment="Center">
-					<font isStrikeThrough="false"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{direccion}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="429" y="0" width="143" height="20" uuid="de96873d-7d29-411b-b185-cef6d9f76051"/>
-				<textElement textAlignment="Center">
-					<font isStrikeThrough="false"/>
+				<reportElement x="286" y="0" width="143" height="20" uuid="de96873d-7d29-411b-b185-cef6d9f76051"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Garet Regular" isStrikeThrough="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="286" y="1" width="1" height="20" forecolor="#FFFFFF" uuid="b70d25a8-a50c-447f-b25f-318ed4667d26"/>
+			</line>
+			<line>
+				<reportElement x="0" y="20" width="572" height="1" forecolor="#FFFFFF" uuid="db8b6152-e73b-4443-b980-b18597d245f6"/>
+			</line>
+			<line>
+				<reportElement x="429" y="0" width="1" height="20" forecolor="#FFFFFF" uuid="0c67696d-e705-4531-ac48-79df56d17ef1"/>
+			</line>
+			<line>
+				<reportElement x="143" y="0" width="1" height="20" forecolor="#FFFFFF" uuid="a3cbbdaf-f711-4618-86ba-1c46d3df0b8a"/>
+			</line>
+			<textField>
+				<reportElement x="429" y="1" width="143" height="20" uuid="02902230-f957-4383-ae5b-476552eb117b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Garet Regular" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{direccion}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

@@ -227,7 +227,7 @@ call sp_AgregarEmpresa('Tonys Kinal','Zona 7 Colonia Landivar', '87569820');
 call sp_AgregarEmpresa('Tonys Kinal','Zona 7 Colonia Landivar', '87569820');
 call sp_ListarEmpresas();
 call sp_BuscarEmpresa(1);
-call sp_EliminarEmpresa(2);
+-- call sp_EliminarEmpresa(2);
 call sp_EditarEmpresa(3,'Tonys Kinal 3', 'Zona 1 Sexta Avenida 18 calle', '45122014'); 
 
 -- ------------------------------------PROCEDIMIENTOS ALMACENADOS DE PRESUPUESTO ----------------------------------
@@ -291,7 +291,7 @@ call sp_AgregarPresupuesto('2022-01-28','3500.00', 1);
 call sp_AgregarPresupuesto('2022-01-28','3500.00', 1);
 call sp_ListarPresupuestos();
 call sp_BuscarPresupuesto(1);
-call sp_EliminarPresupuesto(2);
+-- call sp_EliminarPresupuesto(2);
 call sp_EditarPresupuesto(3,'2021-02-12', '1000.00',1);
 
 -- ------------------------------------PROCEDIMIENTOS ALMACENADOS DE TIPOEMPLEADO ----------------------------------
@@ -348,7 +348,7 @@ call sp_AgregarTipoEmpleado('Cocinero');
 call sp_AgregarTipoEmpleado('Cocinero');
 call sp_ListarTipoEmpleados();
 call sp_BuscarTipoEmpleado(1);
-call sp_EliminarTipoEmpleado(2);
+-- call sp_EliminarTipoEmpleado(2);
 call sp_EditarTipoEmpleado(3,'Ayudante');
 -- ------------------------------------PROCEDIMIENTOS ALMACENADOS DE TIPOPLATO ----------------------------------
 -- ---------------------------------------------Agregar TipoPlato----------------------------------------------
@@ -404,7 +404,7 @@ call sp_AgregarTipoPlato('Plato entrada');
 call sp_AgregarTipoPlato('Plato entrada');
 call sp_ListarTipoPlatos();
 call sp_BuscarTipoPlato(1);
-call sp_EliminarTipoPlato(2);
+-- call sp_EliminarTipoPlato(2);
 call sp_EditarTipoPlato(3,'Plato fuerte');
 
 -- ------------------------------------PROCEDIMIENTOS ALMACENADOS DE SERVICIOS ----------------------------------
@@ -477,7 +477,7 @@ call sp_AgregarServicio('2023-06-18', 'Boda', '12:30:00', 'Kilometro 13.5 Carret
 call sp_AgregarServicio('2023-06-18', 'Boda', '12:30:00', 'Kilometro 13.5 Carretera al Salvador', '78419852', 1);
 call sp_ListarServicios();
 call sp_BuscarServicio(1);
-call sp_EliminarServicio(2);
+-- call sp_EliminarServicio(2);
 call sp_EditarServicio(3, '2023-04-20', 'Boda', '14:00:00', 'Zona 10, diagonal 6', '8623 1931');
 
 -- ------------------------------------PROCEDIMIENTOS ALMACENADOS DE PLATOS ----------------------------------
@@ -547,7 +547,7 @@ call sp_AgregarPlato(100, 'Pierna al horno', 'Pierna al horno con arroz y ensala
 call sp_AgregarPlato(100, 'Pierna al horno', 'Pierna al horno con arroz y ensalada', '40.00', 3);
 call sp_ListarPlatos();
 call sp_BuscarPlato(1);
-call sp_EliminarPlato(2);
+-- call sp_EliminarPlato(2);
 call sp_EditarPlato(3, 200, 'Carne a las brazas', 'Carne a las brazas con arroz y ensalada', '40.00');
 
 -- ------------------------------------PROCEDIMIENTOS ALMACENADOS DE PRODUCTOS ----------------------------------
@@ -606,7 +606,7 @@ call sp_AgregarProducto('Enrollados', 50);
 call sp_AgregarProducto('Enrollados', 50);
 call sp_ListarProductos();
 call sp_BuscarProducto(1);
-call sp_EliminarProducto(2);
+-- call sp_EliminarProducto(2);
 call sp_EditarProducto(3, 'Pan con salchicha y papa', 100);
 -- ------------------------------------PROCEDIMIENTOS ALMACENADOS DE PRODUCTOS ----------------------------------
 -- ---------------------------------------------Agregar Empleado------------------------------------------------
@@ -683,7 +683,7 @@ call sp_AgregarEmpleado(5, 'Alvarez Cortez', 'Benito Raul', 'Zona 13, 13 calle, 
 call sp_AgregarEmpleado(5, 'Alvarez Cortez', 'Benito Raul', 'Zona 13, 13 calle, lote 102', '87565321', 'Chef de cocina caliente', 1);
 call sp_ListarEmpleados	();
 call sp_BuscarEmpleado(1);
-call sp_EliminarEmpleado(2);
+-- call sp_EliminarEmpleado(2);
 call sp_EditarEmpleado(3, 5, 'Marroquin Santos', 'Fernanda Stacy', 'Zona 8, 8va calle', '51698732', 'Chef de cocina fría', 3);
 
 -- ------------------------------------PROCEDIMIENTOS ALMACENADOS DE PRODUCTOS_HAS_PLATOS ----------------------------------
@@ -743,7 +743,7 @@ call sp_AgregarProducto('Enrollados', 50);
 call sp_AgregarProducto('Enrollados', 50);
 call sp_ListarProductos_has_Platos();
 call sp_BuscarProducto_has_Plato(1);
-call sp_EliminarProducto(2);
+-- call sp_EliminarProducto(2);
 call sp_EditarProducto(3, 'Pan con salchicha y papa', 100);
 
 -- ------------------------------------PROCEDIMIENTOS ALMACENADOS DE SERVICIOS_HAS_EMPLEADOS ----------------------------------
