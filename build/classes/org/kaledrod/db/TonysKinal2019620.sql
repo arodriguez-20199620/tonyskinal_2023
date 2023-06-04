@@ -160,20 +160,20 @@ Delimiter ;
 delimiter $$
 create procedure sp_ReporteFinal()
 begin
-   SELECT 
+   select 
 		*
-		FROM 
+		from 
 			Empresas e 
-			INNER JOIN 	servicios s ON s.codigoempresa = e.codigoempresa
-			INNER JOIN presupuestos p ON p.codigoempresa = e.codigoempresa
-			INNER JOIN servicios_has_empleados she ON she.codigoservicio = s.codigoservicio
-			INNER JOIN empleados emp ON she.codigoempleado = emp.codigoempleado
-			INNER JOIN tipoempleado te ON te.codigoTipoEmpleado = emp.codigotipoempleado
-			INNER JOIN servicios_has_platos shp ON shp.codigoservicio = s.codigoservicio
-			INNER JOIN platos pla ON pla.codigoplato = shp.codigoplato
-			INNER JOIN tipoplato tp ON tp.codigotipoplato = pla.codigotipoplato
-			INNER JOIN productos_has_platos php ON php.codigoplato = pla.codigoplato
-			INNER JOIN productos pro ON pro.codigoproducto = php.codigoproducto;
+			inner join servicios s ON s.codigoempresa = e.codigoempresa
+				inner join presupuestos p ON p.codigoempresa = e.codigoempresa
+					inner join servicios_has_empleados she ON she.codigoservicio = s.codigoservicio
+						inner join empleados emp ON she.codigoempleado = emp.codigoempleado
+							inner join tipoempleado te ON te.codigoTipoEmpleado = emp.codigotipoempleado
+								inner join servicios_has_platos shp ON shp.codigoservicio = s.codigoservicio
+									inner join platos pla ON pla.codigoplato = shp.codigoplato
+										inner join tipoplato tp ON tp.codigotipoplato = pla.codigotipoplato
+											inner join productos_has_platos php ON php.codigoplato = pla.codigoplato
+												inner join productos pro ON pro.codigoproducto = php.codigoproducto;
 end $$
 delimiter ;
 call sp_ReporteFinal();
@@ -239,9 +239,11 @@ Delimiter $$
         End$$
 Delimiter ;
 -- ---------------DATOS
-call sp_AgregarEmpresa('Tonys Kinal','Zona 7 Colonia Landivar', '87569820');
-call sp_AgregarEmpresa('Tonys Kinal','Zona 7 Colonia Landivar', '87569820');
-call sp_AgregarEmpresa('Tonys Kinal','Zona 7 Colonia Landivar', '87569820');
+call sp_AgregarEmpresa('Pollo campero','9 Av 14-75 Ciudad de Guatemala 01013', '55511234');
+call sp_AgregarEmpresa('McDonalds','Calzada Roosevelt zona 3 Mixco, Mixco', '31232113');
+call sp_AgregarEmpresa('Burger King','Zona 7 Colonia Landivar', '98761723');
+call sp_AgregarEmpresa('Taco bell','Zona 7 Colonia Landivar', '98761723');
+call sp_AgregarEmpresa('Burger King','Zona 7 Colonia Landivar', '98761723');
 call sp_ListarEmpresas();
 call sp_BuscarEmpresa(1);
 -- call sp_EliminarEmpresa(2);
@@ -304,8 +306,10 @@ Delimiter $$
 Delimiter ;
 -- ---------------DATOS
 call sp_AgregarPresupuesto('2022-01-28','3500.00', 1);
-call sp_AgregarPresupuesto('2022-01-28','3500.00', 1);
-call sp_AgregarPresupuesto('2022-01-28','3500.00', 1);
+call sp_AgregarPresupuesto('2022-01-28','3500.00', 2);
+call sp_AgregarPresupuesto('2022-01-28','3500.00', 3);
+call sp_AgregarPresupuesto('2023-05-28','3320.00', 4);
+call sp_AgregarPresupuesto('2023-05-28','3320.00', 5);
 call sp_ListarPresupuestos();
 call sp_BuscarPresupuesto(1);
 -- call sp_EliminarPresupuesto(2);
@@ -360,9 +364,11 @@ Delimiter $$
         End$$
 Delimiter ; 
 -- ---------------DATOS
+call sp_AgregarTipoEmpleado('Chef');
+call sp_AgregarTipoEmpleado('Camarero o mesero');
+call sp_AgregarTipoEmpleado('Bartender');
 call sp_AgregarTipoEmpleado('Cocinero');
-call sp_AgregarTipoEmpleado('Cocinero');
-call sp_AgregarTipoEmpleado('Cocinero');
+call sp_AgregarTipoEmpleado('Host o anfitrión');
 call sp_ListarTipoEmpleados();
 call sp_BuscarTipoEmpleado(1);
 -- call sp_EliminarTipoEmpleado(2);
@@ -417,8 +423,10 @@ Delimiter $$
 Delimiter ;
 -- ---------------DATOS
 call sp_AgregarTipoPlato('Plato entrada');
-call sp_AgregarTipoPlato('Plato entrada');
-call sp_AgregarTipoPlato('Plato entrada');
+call sp_AgregarTipoPlato('Postre');
+call sp_AgregarTipoPlato('Plato vegetariano');
+call sp_AgregarTipoPlato('Plato principal');
+call sp_AgregarTipoPlato('Plato de mariscos');
 call sp_ListarTipoPlatos();
 call sp_BuscarTipoPlato(1);
 -- call sp_EliminarTipoPlato(2);
@@ -491,7 +499,9 @@ Delimiter ;
 -- ---------------DATOS
 call sp_AgregarServicio('2023-06-18', 'Boda', '12:30:00', 'Kilometro 13.5 Carretera al Salvador', '78419852', 1);
 call sp_AgregarServicio('2023-06-18', 'Boda', '12:30:00', 'Kilometro 13.5 Carretera al Salvador', '78419852', 1);
+call sp_AgregarServicio('2023-06-18', '15 años', '12:30:00', 'Kilometro 13.5 Carretera al Salvador', '78419852', 1);
 call sp_AgregarServicio('2023-06-18', 'Boda', '12:30:00', 'Kilometro 13.5 Carretera al Salvador', '78419852', 1);
+call sp_AgregarServicio('2023-06-18', '15 años', '12:30:00', 'Kilometro 13.5 Carretera al Salvador', '78419852', 1);
 call sp_ListarServicios();
 call sp_BuscarServicio(1);
 -- call sp_EliminarServicio(2);
@@ -559,9 +569,11 @@ Delimiter //
         End//
 Delimiter ;
 -- ---------------DATOS
-call sp_AgregarPlato(100, 'Pierna al horno', 'Pierna al horno con arroz y ensalada', '40.00', 3);
-call sp_AgregarPlato(100, 'Pierna al horno', 'Pierna al horno con arroz y ensalada', '40.00', 3);
-call sp_AgregarPlato(100, 'Pierna al horno', 'Pierna al horno con arroz y ensalada', '40.00', 3);
+call sp_AgregarPlato(100, 'Lasagna de carne:', 'Capas de pasta intercaladas con carne molida sazonada', '80.00', 3);
+call sp_AgregarPlato(100, 'Sushi de salmón', 'Deliciosos rollos de arroz sushi rellenos de salmón fresco', '100.00', 3);
+call sp_AgregarPlato(100, 'Tacos al pastor', 'Tortillas de maíz rellenas de carne de cerdo marinada con especias', '45.00', 3);
+call sp_AgregarPlato(100, 'Pad Thai', 'Fideos de arroz salteados con camarones', '65.00', 3);
+call sp_AgregarPlato(100, 'Pollo al curry', 'Trozos de pollo tierno cocinados en una salsa aromática de curry', '40.00', 3);
 call sp_ListarPlatos();
 call sp_BuscarPlato(1);
 -- call sp_EliminarPlato(2);
@@ -618,9 +630,11 @@ Delimiter //
 		End //
 Delimiter ;
 -- DATOS ---------------
-call sp_AgregarProducto('Enrollados', 50);
-call sp_AgregarProducto('Enrollados', 50);
-call sp_AgregarProducto('Enrollados', 50);
+call sp_AgregarProducto('Ensalada Caprese', 27);
+call sp_AgregarProducto('Filete de Salmón', 94);
+call sp_AgregarProducto('Risotto de Champiñones', 63);
+call sp_AgregarProducto('Pollo Marsala', 12);
+call sp_AgregarProducto('Tarta de Manzana', 58);
 call sp_ListarProductos();
 call sp_BuscarProducto(1);
 -- call sp_EliminarProducto(2);
@@ -695,9 +709,12 @@ Delimiter //
                 where E.codigoEmpleado = codEmpleado; 		
         End//
  Delimiter ; 
-call sp_AgregarEmpleado(5, 'Alvarez Cortez', 'Benito Raul', 'Zona 13, 13 calle, lote 102', '87565321', 'Chef de cocina caliente', 1);
-call sp_AgregarEmpleado(5, 'Alvarez Cortez', 'Benito Raul', 'Zona 13, 13 calle, lote 102', '87565321', 'Chef de cocina caliente', 1);
-call sp_AgregarEmpleado(5, 'Alvarez Cortez', 'Benito Raul', 'Zona 13, 13 calle, lote 102', '87565321', 'Chef de cocina caliente', 1);
+-- Llamada 1
+call sp_AgregarEmpleado (1, 'González Pérez', 'Ana María', 'Avenida Principal, 123', '555-1234', 'Asistente Administrativo', 1); 
+call sp_AgregarEmpleado (2, 'Martínez López', 'Carlos', 'Calle Secundaria, 456', '555-5678', 'Cocinero', 2);
+call sp_AgregarEmpleado (3, 'Rodríguez Morales', 'Laura', 'Paseo Central, 789', '555-9876', 'Bartender', 3);
+call sp_AgregarEmpleado (4, 'Hernández Gómez', 'Pedro', 'Plaza del Sol, 234', '555-2468', 'Técnico de soporte', 4);
+call sp_AgregarEmpleado (5, 'López García', 'María', 'Avenida Principal, 567', '555-1357', 'Gerente', 5);
 call sp_ListarEmpleados	();
 call sp_BuscarEmpleado(1);
 -- call sp_EliminarEmpleado(2);
@@ -759,6 +776,8 @@ Delimiter ;
 call sp_AgregarProducto_has_Plato(1, 1, 1);
 call sp_AgregarProducto_has_Plato(2, 2, 2);
 call sp_AgregarProducto_has_Plato(3, 3, 3);
+call sp_AgregarProducto_has_Plato(4, 4, 4);
+call sp_AgregarProducto_has_Plato(5, 5, 5);
 call sp_ListarProductos_has_Platos();
 -- call sp_BuscarProducto_has_Plato(1);
 -- call sp_EliminarProducto(2);
@@ -829,6 +848,9 @@ Delimiter ;
 call sp_AgregarServicio_has_Empleado(1, 1, 1, '2023-05-10', '12:30:00', "23");
 call sp_AgregarServicio_has_Empleado(2, 2, 2, '2023-05-10', '12:30:00', "23");
 call sp_AgregarServicio_has_Empleado(3, 3, 3, '2023-05-10', '12:30:00', "23");
+call sp_AgregarServicio_has_Empleado(4, 4, 4, '2023-05-10', '12:30:00', '23');
+call sp_AgregarServicio_has_Empleado(5, 5, 5, '2023-05-10', '12:30:00', '23');
+
 call sp_ListarServicios_has_Empleados();
 -- ------------------------------------PROCEDIMIENTOS ALMACENADOS DE SERVICIOS_HAS_PLATOS ----------------------------------
 -- ---------------------------------------------Agregar SERVICIO_HAS_PLATO----------------------------------------------
@@ -884,5 +906,7 @@ Delimiter //
 Delimiter ;
 call sp_AgregarServicio_has_Plato (1, 1 ,1);
 call sp_AgregarServicio_has_Plato (2, 2 ,2);
-call sp_AgregarServicio_has_Plato (3, 3,3);
+call sp_AgregarServicio_has_Plato (3, 3, 3);
+call sp_AgregarServicio_has_Plato (4, 4 ,4);
+call sp_AgregarServicio_has_Plato (5, 5, 5);
 call sp_ListarServicios_has_Platos();

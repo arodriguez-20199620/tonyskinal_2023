@@ -6,6 +6,8 @@
 package org.kaledrod.controller;
 
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,6 +16,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import org.kaledrod.main.Principal;
 import org.kaledrod.controller.PresupuestoController;
+import org.kaledrod.report.GenerarReporte;
 
 /**
  *
@@ -71,6 +74,16 @@ public class MenuPrincipalController implements Initializable {
 
     public void ventanaServicios() {
         escenarioPrincipal.ventanaServicios();
+    }
+    
+        public void generarReporete() {
+        imprimirReporte();
+    }
+
+    public void imprimirReporte() {
+        Map parametros = new HashMap();
+        parametros.put("codigoEmpresa", null);
+        GenerarReporte.mostarReporte("ReporteGeneral.jasper", "Reporte general", parametros);
     }
 
     public void buttonAccionCerrar() {
