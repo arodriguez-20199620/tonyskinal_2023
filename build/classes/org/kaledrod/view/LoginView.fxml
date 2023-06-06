@@ -1,47 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" style="-fx-background-color: #0D1117;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="30.0" prefWidth="1000.0" style="-fx-background-color: #1DDDBC;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane layoutX="300.0" layoutY="100.0" prefHeight="440.0" prefWidth="400.0" style="-fx-background-color: #161B22; -fx-background-radius: 25;" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="100.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="1000.0" text="Presupuesto" textFill="WHITE" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="3.0">
+            <TextField layoutX="50.0" layoutY="166.0" prefHeight="50.0" prefWidth="300.0" promptText="Ingrese su usuario" style="-fx-background-color: #0D1117; -fx-text-fill: white;" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="170.0">
                <font>
-                  <Font name="Arial" size="20.0" />
+                  <Font name="Garet Regular" size="14.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="50.0" layoutY="296.0" prefHeight="50.0" prefWidth="300.0" promptText="Ingrese su contraseña" style="-fx-background-color: #0D1117; -fx-text-fill: white;" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="300.0">
+               <font>
+                  <Font name="Garet Regular" size="14.0" />
+               </font>
+            </TextField>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="7.0" layoutY="14.0" text="Iniciar sesión" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
+               <font>
+                  <Font name="Garet Bold" size="36.0" />
                </font>
             </Label>
-            <Button contentDisplay="RIGHT" layoutX="960.0" mnemonicParsing="false" styleClass="closed" stylesheets="@../resourse/TonysKinal.css">
-               <graphic>
-                  <ImageView fx:id="imgCerrar" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" styleClass="back">
-                     <image>
-                        <Image url="@../image/Closed.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button id="min" layoutX="929.0" layoutY="3.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="35.0" styleClass="min" stylesheets="@../resourse/TonysKinal.css" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="0.0">
-               <graphic>
-                  <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../image/Minimizar.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
+            <Label layoutX="50.0" layoutY="145.0" prefHeight="20.0" text="Usuario" textFill="WHITE" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="140.0">
+               <font>
+                  <Font name="Garet Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="55.0" layoutY="275.0" prefHeight="20.0" text="Contraseña" textFill="WHITE" AnchorPane.topAnchor="270.0">
+               <font>
+                  <Font name="Garet Bold" size="18.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
-      <ImageView fitHeight="550.0" layoutX="50.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0">
+      <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="420.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="410.0">
          <image>
-            <Image url="@../image/Login.jpg" />
+            <Image url="@../image/Logo2Forma3.png" />
          </image>
       </ImageView>
-      <TextField layoutX="101.0" layoutY="208.0" prefHeight="25.0" prefWidth="264.0" />
-      <TextField layoutX="101.0" layoutY="354.0" prefHeight="25.0" prefWidth="264.0" />
+      <Label layoutX="512.0" layoutY="22.0" text="TONYS&#10;KINAL" textFill="#1dddbc" AnchorPane.leftAnchor="510.0" AnchorPane.topAnchor="20.0">
+         <font>
+            <Font name="Garet Medium" size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

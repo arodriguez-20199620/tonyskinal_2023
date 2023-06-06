@@ -43,9 +43,7 @@ import org.kaledrod.main.Principal;
  * @author Kaled Rodriguez
  */
 public class ServiciosController implements Initializable {
-
     Alert alerta = new Alert(Alert.AlertType.WARNING);
-
     private Principal escenarioPrincipal;
     private ObservableList<Servicios> listaServicio;
     private ObservableList<Empresa> listaEmpresa;

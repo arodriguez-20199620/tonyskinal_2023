@@ -1,7 +1,7 @@
 /* Estilo de texto seleccionado */
 .combo-box .text:selected {
   -fx-background-color: #1dddbc;
-  -fx-text-fill: white;
+    -fx-text-fill: white;
 }
 
 /* Estilo de combobox deshabilitado */

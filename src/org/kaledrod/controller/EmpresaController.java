@@ -35,7 +35,7 @@ import org.kaledrod.report.GenerarReporte;
  * @author Kaled Rodriguez
  */
 public class EmpresaController implements Initializable {
-
+    
     Alert alerta = new Alert(Alert.AlertType.WARNING);
 
     private enum operaciones {

@@ -135,8 +135,8 @@ public class Principal extends Application {
             ServiciosController servicios = (ServiciosController) cambiarEscena("ServiciosView.fxml", 1000, 650);
             servicios.setEscenarioPrincipal(this);
         } catch (Exception e) {
-//            System.out.println(e.getMessage());
-            e.printStackTrace();
+            System.out.println(e.getMessage());
+//            e.printStackTrace();
         }
     }
 
@@ -145,8 +145,8 @@ public class Principal extends Application {
             PlatoController plato = (PlatoController) cambiarEscena("PlatoView.fxml", 1000, 650);
             plato.setEscenarioPrincipal(this);
         } catch (Exception e) {
-//            System.out.println(e.getMessage());
-         e.printStackTrace();
+            System.out.println(e.getMessage());
+//         e.printStackTrace();
         }
     }
 

@@ -1,0 +1,83 @@
+[33mcommit 64e2dc9aea541ef0174e4458791441bf58e256bb[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: “arodriguez-2019620” <“arodriguez-2019620@kinal.edu.gt”>
+Date:   Mon Jun 5 00:02:03 2023 -0600
+
+    Se diseño la vista de Login
+
+[33mcommit 900a2b3febf62969ad07642b0e097153d0f7ff2c[m
+Author: arodriguez-20199620 <134989527+arodriguez-20199620@users.noreply.github.com>
+Date:   Sun Jun 4 01:59:28 2023 -0600
+
+    Se modifico el contenido de README.md
+
+[33mcommit c5cc7b2e57794a301e0bfdcbed7232978a43632a[m
+Merge: 346b541 d8b6f46
+Author: “arodriguez-2019620” <“arodriguez-2019620@kinal.edu.gt”>
+Date:   Sun Jun 4 01:56:32 2023 -0600
+
+    Merge branch 'main' of https://github.com/arodriguez-20199620/tonyskinal_2023
+
+[33mcommit 346b5417882d83d49e05a15f4268de78c12faf04[m
+Author: “arodriguez-2019620” <“arodriguez-2019620@kinal.edu.gt”>
+Date:   Sun Jun 4 01:56:28 2023 -0600
+
+    Se realizo la conexion de reporte general a java
+
+[33mcommit d8b6f46d3b66b9e17f51ed7ec89c07f50e1766d6[m
+Author: arodriguez-20199620 <134989527+arodriguez-20199620@users.noreply.github.com>
+Date:   Sat Jun 3 11:34:21 2023 -0600
+
+    Update README.md
+    
+    Se modifico el archivo Update README.md
+
+[33mcommit 137dcb43413489d80b649ba70bc36b65d5455523[m
+Author: “arodriguez-2019620” <“arodriguez-2019620@kinal.edu.gt”>
+Date:   Sat Jun 3 11:32:21 2023 -0600
+
+    Se modifico el reporte general
+
+[33mcommit 1b358a0de565e2c400c1ab2d5ec9463de925a133[m
+Author: “arodriguez-2019620” <“arodriguez-2019620@kinal.edu.gt”>
+Date:   Sat Jun 3 11:23:10 2023 -0600
+
+    Se introdujo un nuevo reporte para todos los datos generales
+
+[33mcommit 3845b0c2e89cd975db2ccadae0f4d4a25fa32df7[m
+Merge: 4c9a1de 4d31b6b
+Author: “arodriguez-2019620” <“arodriguez-2019620@kinal.edu.gt”>
+Date:   Sat Jun 3 02:28:32 2023 -0600
+
+    Merge branch 'main' of https://github.com/arodriguez-20199620/tonyskinal_2023
+
+[33mcommit 4c9a1de65b316e09283b966a093c016a8a92b5ba[m
+Author: “arodriguez-2019620” <“arodriguez-2019620@kinal.edu.gt”>
+Date:   Sat Jun 3 02:28:30 2023 -0600
+
+    Se mofico el tipo de fuete
+
+[33mcommit 4d31b6b09ed8c31f39c35fa0082f48f911c74ccd[m
+Author: arodriguez-20199620 <134989527+arodriguez-20199620@users.noreply.github.com>
+Date:   Sat Jun 3 02:22:28 2023 -0600
+
+    Create README.md
+    
+    Se creo el archivo README.md
+
+[33mcommit a30c9dca075cc9acb3a1c57585fc5492c176d41a[m
+Author: “arodriguez-2019620” <“arodriguez-2019620@kinal.edu.gt”>
+Date:   Sat Jun 3 02:17:21 2023 -0600
+
+    Se implemento reporte en empresa y presupuestos (FUNCIONALES)
+
+[33mcommit 0491c932429f7d7b0310de3d6f0bbc2fc3dca48a[m
+Author: “arodriguez-2019620” <“arodriguez-2019620@kinal.edu.gt”>
+Date:   Fri Jun 2 23:00:31 2023 -0600
+
+    Se actualizo el proyecto
+
+[33mcommit d25a733a2150c8c744d6fbef227cf671451210d2[m
+Author: “arodriguez-2019620” <“arodriguez-2019620@kinal.edu.gt”>
+Date:   Fri Jun 2 20:10:32 2023 -0600
+
+    Se agrego el proyecto en el repositorio
