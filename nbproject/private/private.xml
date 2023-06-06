@@ -4,11 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/User/Documentos/NetBeansProjects/tonyskinal_2023/src/org/kaledrod/main/Principal.java</file>
+            <file>file:/D:/User/Documentos/NetBeansProjects/tonyskinal_2023/src/org/kaledrod/bean/Servicios.java</file>
             <file>file:/D:/User/Documentos/NetBeansProjects/tonyskinal_2023/src/org/kaledrod/controller/ServiciosController.java</file>
             <file>file:/D:/User/Documentos/NetBeansProjects/tonyskinal_2023/src/org/kaledrod/resourse/TonysKinal.css</file>
-            <file>file:/D:/User/Documentos/NetBeansProjects/tonyskinal_2023/src/org/kaledrod/bean/Empresa.java</file>
-            <file>file:/D:/User/Documentos/NetBeansProjects/tonyskinal_2023/src/org/kaledrod/controller/MenuPrincipalController.java</file>
-            <file>file:/D:/User/Documentos/NetBeansProjects/tonyskinal_2023/src/org/kaledrod/db/Conexion.java</file>
+            <file>file:/D:/User/Documentos/NetBeansProjects/tonyskinal_2023/src/org/kaledrod/controller/PresupuestoController.java</file>
             <file>file:/D:/User/Documentos/NetBeansProjects/tonyskinal_2023/src/org/kaledrod/report/GenerarReporte.java</file>
             <file>file:/D:/User/Documentos/NetBeansProjects/tonyskinal_2023/src/org/kaledrod/controller/EmpresaController.java</file>
         </group>

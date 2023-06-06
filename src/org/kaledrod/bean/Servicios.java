@@ -5,7 +5,7 @@
  */
 package org.kaledrod.bean;
 
-import java.util.Date;
+import java.time.LocalDate;
 import javafx.scene.control.Button;
 import java.sql.Time;
 
@@ -16,7 +16,7 @@ import java.sql.Time;
 public class Servicios {
 
     private int codigoServicio;
-    private Date fechaServicio;
+    private LocalDate fechaServicio;
     private String tipoServicio;
     private Time horaServicio;
     private String lugarServicio;
@@ -27,7 +27,7 @@ public class Servicios {
     public Servicios() {
     }
 
-    public Servicios(int codigoServicio, Date fechaServicio, String tipoServicio, Time horaServicio, String lugarServicio, String telefonoContacto, int codigoEmpresa) {
+    public Servicios(int codigoServicio, LocalDate fechaServicio, String tipoServicio, Time horaServicio, String lugarServicio, String telefonoContacto, int codigoEmpresa) {
         this.codigoServicio = codigoServicio;
         this.fechaServicio = fechaServicio;
         this.tipoServicio = tipoServicio;
@@ -46,11 +46,11 @@ public class Servicios {
         this.codigoServicio = codigoServicio;
     }
 
-    public Date getFechaServicio() {
+    public LocalDate getFechaServicio() {
         return fechaServicio;
     }
 
-    public void setFechaServicio(Date fechaServicio) {
+    public void setFechaServicio(LocalDate fechaServicio) {
         this.fechaServicio = fechaServicio;
     }
 

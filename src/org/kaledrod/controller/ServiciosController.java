@@ -14,7 +14,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import org.kaledrod.bean.Empresa;
 import org.kaledrod.bean.Servicios;
-import com.jfoenix.controls.JFXTimePicker;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Time;
@@ -37,17 +36,26 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import org.kaledrod.db.Conexion;
 import org.kaledrod.main.Principal;
+import com.jfoenix.controls.JFXTimePicker;
+import com.jfoenix.controls.JFXDatePicker;
+import java.sql.Date;
+import java.time.LocalDate;
 
 /**
  *
  * @author Kaled Rodriguez
  */
 public class ServiciosController implements Initializable {
+
     Alert alerta = new Alert(Alert.AlertType.WARNING);
     private Principal escenarioPrincipal;
     private ObservableList<Servicios> listaServicio;
     private ObservableList<Empresa> listaEmpresa;
-    private DatePicker fecha;
+//    private DatePicker fecha;
+
+    @FXML
+    private JFXDatePicker fecha;
+    @FXML
     private JFXTimePicker hora;
 //  Declaracion de Botones
     @FXML
@@ -104,12 +112,8 @@ public class ServiciosController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         cargarDatos();
         asignarBoton();
-        fecha = new DatePicker(Locale.ENGLISH);
-        fecha.setDateFormat(new SimpleDateFormat("yyyy-MM-dd"));
-        fecha.getCalendarView().todayButtonTextProperty().set("Today");
-        fecha.getCalendarView().setShowWeeks(false);
+        fecha = new JFXDatePicker(LocalDate.MAX);
         fecha.getStylesheets().add("/org/kaledrod/resourse/TonysKinal.css");
-        fecha.setAlignment(Pos.CENTER);
         hora = new JFXTimePicker();
         hora.getStylesheets().add("/org/kaledrod/resourse/TonysKinal.css");
         grpFechaHora.add(fecha, 3, 0);
@@ -138,7 +142,7 @@ public class ServiciosController implements Initializable {
             ResultSet resultado = procedimiento.executeQuery();
             while (resultado.next()) {
                 lista.add(new Servicios(resultado.getInt("codigoServicio"),
-                        resultado.getDate("fechaServicio"),
+                        resultado.getDate("fechaServicio").toLocalDate(),
                         resultado.getString("tipoServicio"),
                         resultado.getTime("horaServicio"),
                         resultado.getString("lugarServicio"),
@@ -172,7 +176,7 @@ public class ServiciosController implements Initializable {
     public void seleccionarElemento() {
         if (tblServicios.getSelectionModel().getSelectedItem() != null) {
             txtCodServicios.setText(String.valueOf(((Servicios) tblServicios.getSelectionModel().getSelectedItem()).getCodigoServicio()));
-            fecha.selectedDateProperty().set(((Servicios) tblServicios.getSelectionModel().getSelectedItem()).getFechaServicio());
+            fecha.setValue(((Servicios) tblServicios.getSelectionModel().getSelectedItem()).getFechaServicio());
         } else {
             alerta.setTitle("Advertencia");
             alerta.setHeaderText(null);
@@ -192,11 +196,10 @@ public class ServiciosController implements Initializable {
             activarTbl();
         });
         btnConfirmar.setOnAction(e -> {
-            String codServicios = txtCodServicios.getText().trim();
             String tipoServicio = txtTipoServicio.getText().trim();
             String lugarServicio = txtTipoServicio.getText().trim();
             String telefonoContacto = txtTelefonoContacto.getText().trim();
-            if (!codServicios.isEmpty() && !tipoServicio.isEmpty() && !lugarServicio.isEmpty() && !telefonoContacto.isEmpty()&&(cmbCodEmpresa.getSelectionModel().getSelectedItem()!= null)) {
+            if (!tipoServicio.isEmpty() && !lugarServicio.isEmpty() && !telefonoContacto.isEmpty()) {
                 guardar();
                 cargarDatos();
                 limpiarControles();
@@ -216,7 +219,7 @@ public class ServiciosController implements Initializable {
 
     public void guardar() {
         Servicios registro = new Servicios();
-        registro.setFechaServicio(fecha.getSelectedDate());
+        registro.setFechaServicio(fecha.getValue());
         registro.setTipoServicio(txtTipoServicio.getText());
         registro.setHoraServicio(Time.valueOf(hora.getValue()));
         registro.setLugarServicio(txtLugarServicio.getText());
@@ -224,7 +227,7 @@ public class ServiciosController implements Initializable {
         registro.setCodigoEmpresa(((Empresa) cmbCodEmpresa.getSelectionModel().getSelectedItem()).getCodigoEmpresa());
         try {
             PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_AgregarServicio(?,?,?,?,?,?)");
-            procedimiento.setDate(1, new java.sql.Date(registro.getFechaServicio().getTime()));
+            procedimiento.setDate(1, Date.valueOf(registro.getFechaServicio()));
             procedimiento.setString(2, registro.getTipoServicio());
             procedimiento.setTime(3, registro.getHoraServicio());
             procedimiento.setString(4, registro.getLugarServicio());
@@ -344,7 +347,7 @@ public class ServiciosController implements Initializable {
 
     public void limpiarControles() {
         txtCodServicios.clear();
-        fecha.setSelectedDate(null);
+        fecha.setValue(null);
         txtTipoServicio.clear();
         hora.setValue(null);
         txtLugarServicio.clear();
