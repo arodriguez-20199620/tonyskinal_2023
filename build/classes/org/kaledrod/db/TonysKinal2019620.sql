@@ -156,6 +156,14 @@ Delimiter $$
              from Usuario U;
 		End $$
 Delimiter ;
+call sp_AgregarUsuario('Angel','Rodriguez','arodriguez-2019620@kinal.edu.gt','1234');
+Call sp_ListarUsuarios();
+
+Create table Login(
+	usuarioMaster varchar(50) not null,
+    passwordLogin varchar(50) not null,
+    Primary key PK_usuarioMaster (usuarioMaster)
+);
 
 delimiter $$
 create procedure sp_ReporteFinal()
@@ -177,14 +185,7 @@ begin
 end $$
 delimiter ;
 call sp_ReporteFinal();
-call sp_AgregarUsuario('Angel','Rodriguez','arodriguez','1234');
-Call sp_ListarUsuarios();
 
-Create table Login(
-	usuarioMaster varchar(50) not null,
-    passwordLogin varchar(50) not null,
-    Primary key PK_usuarioMaster (usuarioMaster)
-);
 -- ------------------------------------PROCEDIMIENTOS ALMACENADOS ----------------------------------
 -- ------------------------------------------Agregar Empresa----------------------------------------------
 Delimiter $$

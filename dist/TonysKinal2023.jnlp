@@ -8,7 +8,8 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="TonysKinal2023.jar" size="3744678" download="eager" />
+    <jar href="TonysKinal2023.jar" size="3755559" download="eager" />
+    <jar href="lib\commons-codec-1.15.jar" size="353793" download="eager" />
     <jar href="lib\commons-collections-3.2.1.jar" size="575389" download="eager" />
     <jar href="lib\commons-digester-2.1.jar" size="196768" download="eager" />
     <jar href="lib\commons-logging-1.1.jar" size="52592" download="eager" />

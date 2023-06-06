@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -7,17 +13,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" style="-fx-background-color: #0D1117;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" style="-fx-background-color: #0D1117;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kaledrod.controller.LoginController">
    <children>
-      <AnchorPane layoutX="300.0" layoutY="100.0" prefHeight="440.0" prefWidth="400.0" style="-fx-background-color: #161B22; -fx-background-radius: 25;" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="100.0">
+      <AnchorPane layoutX="300.0" layoutY="100.0" prefHeight="440.0" prefWidth="400.0" style="-fx-background-color: #161B22; -fx-background-radius: 20;" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="100.0">
          <children>
-            <TextField layoutX="50.0" layoutY="166.0" prefHeight="50.0" prefWidth="300.0" promptText="Ingrese su usuario" style="-fx-background-color: #0D1117; -fx-text-fill: white;" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="170.0">
+            <TextField fx:id="txtUsuario" layoutX="50.0" layoutY="166.0" prefHeight="50.0" prefWidth="300.0" promptText="Ingrese su usuario" styleClass="text-field2" stylesheets="@../resourse/TonysKinal.css" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="170.0">
                <font>
                   <Font name="Garet Regular" size="14.0" />
                </font>
             </TextField>
-            <TextField layoutX="50.0" layoutY="296.0" prefHeight="50.0" prefWidth="300.0" promptText="Ingrese su contraseña" style="-fx-background-color: #0D1117; -fx-text-fill: white;" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="300.0">
+            <TextField fx:id="txtPassword" layoutX="50.0" layoutY="296.0" prefHeight="50.0" prefWidth="300.0" promptText="Ingrese su contraseña" styleClass="text-field2" stylesheets="@../resourse/TonysKinal.css" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="300.0">
                <font>
                   <Font name="Garet Regular" size="14.0" />
                </font>
@@ -37,6 +42,12 @@
                   <Font name="Garet Bold" size="18.0" />
                </font>
             </Label>
+            <Button layoutX="100.0" layoutY="403.0" mnemonicParsing="false" onAction="#sesion" prefHeight="170.0" styleClass="button2" stylesheets="@../resourse/TonysKinal.css" text="Iniciar sesión" AnchorPane.bottomAnchor="55.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Hyperlink layoutX="134.0" layoutY="483.0" onAction="#ventanaUsuario" text="¿No tienes una cuenta?" />
          </children>
       </AnchorPane>
       <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="420.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="410.0">

@@ -44,9 +44,7 @@ public class PresupuestoController implements Initializable {
 
     public PresupuestoController() {
     }
-
     private Principal escenarioPrincipal;
-
     private enum operaciones {
         GUARDAR, ELIMINAR, ACTUALIZAR, NINGUNO
     };

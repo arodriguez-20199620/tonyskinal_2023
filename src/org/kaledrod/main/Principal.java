@@ -2,8 +2,7 @@
 Angel Kaled Rodriguez Soc
 IN5BM
 2019620
-Fecha De Creacion 12/04/2023 Hora : 8:szw2ws    x54
-
+Fecha De Creacion 12/04/2023 Hora : 8:00
  */
 package org.kaledrod.main;
 
@@ -22,8 +21,10 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
 import javafx.util.Duration;
+import org.kaledrod.bean.Login;
 import org.kaledrod.controller.EmpleadoController;
 import org.kaledrod.controller.EmpresaController;
+import org.kaledrod.controller.LoginController;
 import org.kaledrod.controller.MenuPrincipalController;
 import org.kaledrod.controller.PlatoController;
 import org.kaledrod.controller.PresupuestoController;
@@ -32,6 +33,7 @@ import org.kaledrod.controller.ProgramadorController;
 import org.kaledrod.controller.ServiciosController;
 import org.kaledrod.controller.TipoEmpleadoController;
 import org.kaledrod.controller.TipoPlatoController;
+import org.kaledrod.controller.UsuarioController;
 
 public class Principal extends Application {
 
@@ -49,15 +51,13 @@ public class Principal extends Application {
         escenarioPrincipal.centerOnScreen();
         escenarioPrinciapal.setResizable(false);
         escenarioPrincipal.initStyle(StageStyle.UNDECORATED);
-//        Vista de Menu Principal
-//        Parent root = FXMLLoader.load(getClass().getResource("/org/kaledrod/view/MenuPrincipalView.fxml"));
-//        Vista de Vista Programador
-//        Parent root = FXMLLoader.load(getClass().getResource("/org/kaledrod/view/ProgramadorView.fxml"));
-//        Parent root = FXMLLoader.load(getClass().getResource("/org/kaledrod/view/EmpresaView.fxml"));
+//        Parent root = FXMLLoader.load(getClass().getResource("/org/kaledrod/view/LoginView.fxml"));
 //        escenarioPrinciapal.setScene(escena);
-        menuPrincipal();
-
+//        escenarioPrinciapal.show();
+        ventanaLogin();
+//        menuPrincipal();
         escenarioPrinciapal.show();
+
     }
 
     public void minimizarVentana() {
@@ -154,6 +154,24 @@ public class Principal extends Application {
         try {
             ProgramadorController programador = (ProgramadorController) cambiarEscena("ProgramadorView.fxml", 800, 500);
             programador.setEscenarioPrincipal(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void ventanaLogin() {
+        try {
+            LoginController login = (LoginController) cambiarEscena("LoginView.fxml", 1000, 650);
+            login.setEscenarioPrincipal(this);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void ventanaUsuario() {
+        try {
+            UsuarioController usuario = (UsuarioController) cambiarEscena("UsuarioView.fxml", 1000, 650);
+            usuario.setEscenarioPrincipal(this);
         } catch (Exception e) {
             e.printStackTrace();
         }

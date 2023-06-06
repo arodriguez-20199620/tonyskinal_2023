@@ -75,9 +75,17 @@ public class MenuPrincipalController implements Initializable {
     public void ventanaServicios() {
         escenarioPrincipal.ventanaServicios();
     }
-    
-        public void generarReporete() {
+
+    public void generarReporete() {
         imprimirReporte();
+    }
+
+    public void ventanaLogin() {
+        escenarioPrincipal.ventanaLogin();
+    }
+
+    public void ventanaUsuario() {
+      escenarioPrincipal.ventanaUsuario();
     }
 
     public void imprimirReporte() {

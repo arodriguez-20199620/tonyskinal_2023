@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.kaledrod.controller;
 
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,10 +13,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.kaledrod.bean.Plato;
 import org.kaledrod.bean.TipoPlato;
@@ -79,7 +77,10 @@ public class PlatoController implements Initializable {
         desactivarControles();
         cargarDatos();
         asiganarBtn();
-        
+        formatoNumero(txtCantidad);
+        formatoNumero(txtPrecioPlato);
+        cmbCodigoTipoPlato.setItems(getTipoPlato());
+
     }
 
     public void cargarDatos() {
@@ -111,6 +112,20 @@ public class PlatoController implements Initializable {
             e.printStackTrace();
         }
         return listaPlato = FXCollections.observableArrayList(lista);
+    }
+
+    public ObservableList<TipoPlato> getTipoPlato() {
+        ArrayList<TipoPlato> lista = new ArrayList<TipoPlato>();
+        try {
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_ListarTipoPlatos");
+            ResultSet resultado = procedimiento.executeQuery();
+            while (resultado.next()) {
+                lista.add(new TipoPlato(resultado.getInt("codigoTipoPlato"),
+                        resultado.getString("descripcionTipo")));
+            }
+        } catch (Exception e) {
+        }
+        return listaTipoPlato = FXCollections.observableArrayList(lista);
     }
 
     public TipoPlato buscarTipoPlato(int codigoTipoPlato) {
@@ -146,15 +161,115 @@ public class PlatoController implements Initializable {
     }
 
     public void nuevo() {
-
+        btnNuevo.setDisable(true);
+        btnEditar.setDisable(true);
+        btnReporte.setDisable(true);
+        tblPlatos.setOnMouseClicked(null);
+        limpiarControles();
+        activarControles();
+        deseleccionar();
+        btnCancelar.setOnAction(e -> {
+            limpiarControles();
+            desactivarControles();
+            activarTbl();
+            btnNuevo.setDisable(false);
+            btnEditar.setDisable(false);
+            btnReporte.setDisable(false);
+        });
+        btnConfirmar.setOnAction(e -> {
+            String cantidad = txtCantidad.getText().trim();
+            String nombrePlato = txtNombrePlato.getText().trim();
+            String descripcion = txtDescripcion.getText().trim();
+            String precioPlato = txtPrecioPlato.getText().trim();
+            if (!cantidad.isEmpty() && !nombrePlato.isEmpty() && !descripcion.isEmpty() && !precioPlato.isEmpty()) {
+                guardar();
+                cargarDatos();
+                limpiarControles();
+                desactivarControles();
+                activarTbl();
+                btnNuevo.setDisable(false);
+                btnEditar.setDisable(false);
+                btnReporte.setDisable(false);
+            } else {
+                limpiarControles();
+                desactivarControles();
+                activarTbl();
+                alerta.setTitle("Advertencia");
+                alerta.setHeaderText(null);
+                alerta.setContentText("Por favor, complete todos los campos.");
+                alerta.showAndWait();
+                btnNuevo.setDisable(false);
+                btnEditar.setDisable(false);
+                btnReporte.setDisable(false);
+            }
+        });
     }
 
     public void guardar() {
-
+        Plato registro = new Plato();
+        registro.setCantidad(Integer.parseInt(txtCantidad.getText()));
+        registro.setNombrePlato(txtNombrePlato.getText());
+        registro.setDescripcion(txtDescripcion.getText());
+        registro.setPrecioPlato(Double.parseDouble(txtPrecioPlato.getText()));
+        registro.setCodigoTipoPlato(((TipoPlato) cmbCodigoTipoPlato.getSelectionModel().getSelectedItem()).getCodigoTipoPlato());
+        try {
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_AgregarPlato(?,?,?,?,?)");
+            procedimiento.setInt(1, registro.getCantidad());
+            procedimiento.setString(2, registro.getNombrePlato());
+            procedimiento.setString(3, registro.getDescripcion());
+            procedimiento.setDouble(4, registro.getPrecioPlato());
+            procedimiento.setInt(5, registro.getCodigoTipoPlato());
+            procedimiento.execute();
+            listaPlato.add(registro);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void eliminar(ActionEvent event) {
+        for (int i = 0; i < listaPlato.size(); i++) {
+            if (event.getSource() == listaPlato.get(i).getEliminar()) {
+                Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+                confirmationAlert.setTitle("Confirmación");
+                confirmationAlert.setHeaderText("¿Está seguro de eliminar el registro?");
+                Optional<ButtonType> result = confirmationAlert.showAndWait();
+                if (result.isPresent() && result.get() == ButtonType.OK) {
+                    try {
+                        PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_EliminarPlato(?)");
+                        procedimiento.setInt(1, listaPlato.get(i).getCodigoPlato());
+                        procedimiento.execute();
+                        listaPlato.remove(tblPlatos.getItems().get(i));
+                        deseleccionar();
+                        limpiarControles();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    desactivarControles();
+                    deseleccionar();
+                    limpiarControles();
+                }
+            }
+        }
 
+    }
+
+    public void formatoNumero(TextField textField) {
+        // Crear un TextFormatter que solo permita dígitos
+        TextFormatter<String> textFormatter = new TextFormatter<>(change -> {
+            String newText = change.getControlNewText();
+            if (newText.matches("\\d*")) { // Verificar si solo contiene dígitos
+                return change; // Aceptar el cambio
+            } else {
+                alerta.setTitle("Advertencia");
+                alerta.setHeaderText(null);
+                alerta.setContentText("Debes ingresar numeros");
+                alerta.showAndWait();
+
+                return null; // Rechazar el cambio
+            }
+        });
+        textField.setTextFormatter(textFormatter);
     }
 
     public void editar() {
@@ -167,6 +282,16 @@ public class PlatoController implements Initializable {
 
     public void reporte() {
 
+    }
+
+    public void deseleccionar() {
+        tblPlatos.getSelectionModel().clearSelection();
+    }
+
+    public void activarTbl() {
+        tblPlatos.setOnMouseClicked(a -> {
+            seleccionarElementos();
+        });
     }
 
     public void asiganarBtn() {
