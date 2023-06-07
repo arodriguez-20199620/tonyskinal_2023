@@ -1,10 +1,10 @@
 .button2{
-    -fx-pref-width: 200px;
-    -fx-pref-height: 60px; 
+    -fx-pref-width: 300px;
+    -fx-pref-height: 50px; 
     -fx-background-color: #1dddbc;
     -fx-background-radius: 10;
-    -fx-font-size: 15px;
-    -fx-font-family: "Garet Regular";
+    -fx-font-size: 20px;
+    -fx-font-family: "Garet bold";
     -fx-text-fill: white;
 }
 
@@ -201,16 +201,63 @@
 }
 
 /* Estilo de fuente y color de texto */
-.text-field2 {
-    -fx-pref-width: 200px;
+.text-field3  {
+    -fx-pref-width: 250px;
     -fx-font-family: "Garet";
     -fx-font-size: 14px;
     -fx-text-fill: #333333;
 }
 /* Estilo de fondo y borde */
+.text-field3 {
+    -fx-background-color: transaparent;
+    -fx-background-radius: 3;
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1px;
+    -fx-border-radius: 3;
+}
+
+/* Estilo de borde resaltado al obtener el foco */
+.text-field3:focused {
+    -fx-border-color: #1dddbc;
+    -fx-border-width: 2px;
+}
+
+/* Estilo de borde y fondo al pasar el ratón por encima */
+.text-field3:hover {
+    -fx-border-color: #999999;
+    -fx-background-color: #ededed;
+}
+
+/* Estilo de texto de marcador de posición */
+.text-field3 .text {
+    -fx-fill: #a0a0a0;
+}
+
+/* Estilo de texto seleccionado */
+.text-field3 .text:selected {
+    -fx-background-color: #1dddbc;
+    -fx-text-fill: white;
+}
+
+/* Estilo de campo de texto deshabilitado */
+.text-field3:disabled {
+    -fx-opacity: 0.5;
+}
+
+/* Estilo de fuente y color de texto */
+.text-field2 {
+    -fx-font-family: "Garet";
+    -fx-font-size: 14px;
+    -fx-text-fill: white;
+
+}
+/* Estilo de fondo y borde */
 .text-field2 {
     -fx-background-color: #0D1117;
     -fx-background-radius: 3;
+    -fx-border-color: #0D1117;
+    -fx-border-width: 1px;
+    -fx-border-radius: 3;
 }
 
 /* Estilo de borde resaltado al obtener el foco */
@@ -232,18 +279,15 @@
     -fx-opacity: 0.5;
 }
 
-
-
-
 /* Estilo de fuente y color de texto */
-.text-field {
+.text-field1 {
     -fx-pref-width: 200px;
     -fx-font-family: "Garet";
     -fx-font-size: 14px;
     -fx-text-fill: #333333;
 }
 /* Estilo de fondo y borde */
-.text-field {
+.text-field1 {
     -fx-background-color: transaparent;
     -fx-background-radius: 3;
     -fx-border-color: #cccccc;
@@ -252,30 +296,30 @@
 }
 
 /* Estilo de borde resaltado al obtener el foco */
-.text-field:focused {
+.text-field1:focused {
     -fx-border-color: #1dddbc;
     -fx-border-width: 2px;
 }
 
 /* Estilo de borde y fondo al pasar el ratón por encima */
-.text-field:hover {
+.text-field1:hover {
     -fx-border-color: #999999;
     -fx-background-color: #ededed;
 }
 
 /* Estilo de texto de marcador de posición */
-.text-field .text {
+.text-field1 .text {
     -fx-fill: #a0a0a0;
 }
 
 /* Estilo de texto seleccionado */
-.text-field .text:selected {
+.text-field1 .text:selected {
     -fx-background-color: #1dddbc;
     -fx-text-fill: white;
 }
 
 /* Estilo de campo de texto deshabilitado */
-.text-field:disabled {
+.text-field1:disabled {
     -fx-opacity: 0.5;
 }
 

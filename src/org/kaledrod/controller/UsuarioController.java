@@ -17,17 +17,8 @@ public class UsuarioController implements Initializable {
 
     private Principal escenarioPrincipal;
 
-    private enum operaciones {
-        GUARDAR, NINGUNO
-    };
-    private operaciones tipoDeOperacion = operaciones.NINGUNO;
-    // BUTTONS
     @FXML
-    private Button btnNuevo;
-    @FXML
-    private Button btnConfirmar;
-    @FXML
-    private Button btnCancelar;
+    private Button btnCrear;
     // TEXTFIELDS
     @FXML
     private TextField txtCodUsuario;
@@ -44,33 +35,20 @@ public class UsuarioController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        desactivarControles();
+
     }
 
     public void nuevo() {
-        limpiarControles();
-        activarControles();
-        btnCancelar.setOnAction(e -> {
-            limpiarControles();
-            desactivarControles();
-
-        });
-        btnConfirmar.setOnAction(e -> {
             String nombreUsuario = txtNombreUsuario.getText().trim();
             String apellidoUsuario = txtApellidoUsuario.getText().trim();
             String usuario = txtUsuario.getText().trim();
             String contrasena = txtContrasena.getText().trim();
             if (!nombreUsuario.isEmpty() && !apellidoUsuario.isEmpty() && !usuario.isEmpty() && !contrasena.isEmpty()) {
                 guardar();
-                limpiarControles();
-                desactivarControles();
                 escenarioPrincipal.ventanaLogin();
             } else {
-                limpiarControles();
-                desactivarControles();
                 JOptionPane.showMessageDialog(null, "No se han ingresado datos", "Advertencia", JOptionPane.WARNING_MESSAGE);
             }
-        });
 
     }
 
@@ -97,8 +75,6 @@ public class UsuarioController implements Initializable {
     }
 
     public void desactivarControles() {
-        btnCancelar.setVisible(false);
-        btnConfirmar.setVisible(false);
         txtCodUsuario.setEditable(false);
         txtNombreUsuario.setEditable(false);
         txtApellidoUsuario.setEditable(false);
@@ -108,8 +84,6 @@ public class UsuarioController implements Initializable {
     }
 
     public void activarControles() {
-        btnCancelar.setVisible(true);
-        btnConfirmar.setVisible(true);
         txtCodUsuario.setEditable(false);
         txtNombreUsuario.setEditable(true);
         txtApellidoUsuario.setEditable(true);
@@ -132,6 +106,10 @@ public class UsuarioController implements Initializable {
 
     public void setEscenarioPrincipal(Principal escenarioPrincipal) {
         this.escenarioPrincipal = escenarioPrincipal;
+    }
+
+    public void ventanaLogin() {
+        escenarioPrincipal.ventanaLogin();
     }
 
     public void buttonAccionCerrar() {

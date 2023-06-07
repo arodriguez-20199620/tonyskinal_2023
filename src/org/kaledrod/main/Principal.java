@@ -31,7 +31,7 @@ import org.kaledrod.controller.PresupuestoController;
 import org.kaledrod.controller.ProductoController;
 import org.kaledrod.controller.ProgramadorController;
 import org.kaledrod.controller.ServiciosController;
-import org.kaledrod.controller.TipoEmpleadoController;
+import org.kaledrod.controller.TipoEmpleadoController;  
 import org.kaledrod.controller.TipoPlatoController;
 import org.kaledrod.controller.UsuarioController;
 

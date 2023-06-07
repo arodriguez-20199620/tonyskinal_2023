@@ -131,13 +131,13 @@
                   <Font name="Garet Regular" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="txtCodEmpleado" maxHeight="-Infinity" maxWidth="-Infinity" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="1" />
-            <TextField fx:id="txtApellidoEmpleado" maxHeight="-Infinity" maxWidth="-Infinity" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="txtDireccionEmpleado" maxHeight="-Infinity" maxWidth="-Infinity" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="txtGradoCocinero" maxHeight="-Infinity" maxWidth="-Infinity" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="txtNumeroEmpleado" maxHeight="-Infinity" maxWidth="-Infinity" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="3" />
-            <TextField fx:id="txtNombreEmpleado" maxHeight="-Infinity" maxWidth="-Infinity" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <TextField fx:id="txtTelefonoContacto" maxHeight="-Infinity" maxWidth="-Infinity" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <TextField fx:id="txtCodEmpleado" maxHeight="-Infinity" maxWidth="-Infinity" styleClass="text-field1" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="1" />
+            <TextField fx:id="txtApellidoEmpleado" maxHeight="-Infinity" maxWidth="-Infinity" styleClass="text-field1" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtDireccionEmpleado" maxHeight="-Infinity" maxWidth="-Infinity" styleClass="text-field1" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtGradoCocinero" maxHeight="-Infinity" maxWidth="-Infinity" styleClass="text-field1" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="txtNumeroEmpleado" maxHeight="-Infinity" maxWidth="-Infinity" styleClass="text-field1" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="3" />
+            <TextField fx:id="txtNombreEmpleado" maxHeight="-Infinity" maxWidth="-Infinity" styleClass="text-field1" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <TextField fx:id="txtTelefonoContacto" maxHeight="-Infinity" maxWidth="-Infinity" styleClass="text-field1" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="3" GridPane.rowIndex="2" />
             <ComboBox fx:id="cmbCodTipoEmpleado" prefHeight="30.0" prefWidth="226.0" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="3" GridPane.rowIndex="3" />
          </children>
       </GridPane>
