@@ -18,7 +18,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Time;
 import java.text.SimpleDateFormat;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Optional;
@@ -177,6 +176,11 @@ public class ServiciosController implements Initializable {
         if (tblServicios.getSelectionModel().getSelectedItem() != null) {
             txtCodServicios.setText(String.valueOf(((Servicios) tblServicios.getSelectionModel().getSelectedItem()).getCodigoServicio()));
             fecha.setValue(((Servicios) tblServicios.getSelectionModel().getSelectedItem()).getFechaServicio());
+            txtTipoServicio.setText(((Servicios) tblServicios.getSelectionModel().getSelectedItem()).getTipoServicio());
+            hora.setValue(((Servicios) tblServicios.getSelectionModel().getSelectedItem()).getHoraServicio().toLocalTime());
+            txtLugarServicio.setText(((Servicios) tblServicios.getSelectionModel().getSelectedItem()).getLugarServicio());
+            txtTelefonoContacto.setText(((Servicios) tblServicios.getSelectionModel().getSelectedItem()).getTelefonoContacto());
+            cmbCodEmpresa.getSelectionModel().select(buscarEmpresa(((Servicios) tblServicios.getSelectionModel().getSelectedItem()).getCodigoEmpresa()));
         } else {
             alerta.setTitle("Advertencia");
             alerta.setHeaderText(null);
@@ -281,6 +285,63 @@ public class ServiciosController implements Initializable {
                     limpiarControles();
                 }
             }
+        }
+    }
+
+    public void editar() {
+        if (tblServicios.getSelectionModel().getSelectedItem() != null) {
+            btnNuevo.setDisable(true);
+            btnEditar.setDisable(true);
+            btnReporte.setDisable(true);
+            activarControles();
+            btnCancelar.setOnAction(e -> {
+                limpiarControles();
+                desactivarControles();
+                deseleccionar();
+                btnNuevo.setDisable(false);
+                btnEditar.setDisable(false);
+                btnReporte.setDisable(false);
+            });
+            btnConfirmar.setOnAction(e -> {
+                actualizar();
+                deseleccionar();
+                limpiarControles();
+                desactivarControles();
+                cargarDatos();
+                btnNuevo.setDisable(false);
+                btnEditar.setDisable(false);
+                btnReporte.setDisable(false);
+            });
+        } else {
+            alerta.setTitle("Advertencia");
+            alerta.setHeaderText(null);
+            alerta.setContentText("Es importante que seleccione un elemento para poder editar");
+            alerta.showAndWait();
+            btnNuevo.setDisable(false);
+            btnEditar.setDisable(false);
+            btnReporte.setDisable(false);
+        }
+    }
+
+    public void actualizar() {
+        Servicios registro = (Servicios) tblServicios.getSelectionModel().getSelectedItem();
+        registro.setFechaServicio(fecha.getValue());
+        registro.setTipoServicio(txtTipoServicio.getText());
+        registro.setHoraServicio(Time.valueOf(hora.getValue()));
+        registro.setLugarServicio(txtLugarServicio.getText());
+        registro.setTelefonoContacto(txtTelefonoContacto.getText());
+        registro.setCodigoEmpresa(((Empresa) cmbCodEmpresa.getSelectionModel().getSelectedItem()).getCodigoEmpresa());
+        try {
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_EditarServicio(?,?,?,?,?,?,?);");
+            procedimiento.setInt(1, registro.getCodigoServicio());
+            procedimiento.setDate(2, Date.valueOf(registro.getFechaServicio()));
+            procedimiento.setString(3, registro.getTipoServicio());
+            procedimiento.setTime(4, registro.getHoraServicio());
+            procedimiento.setString(5, registro.getLugarServicio());
+            procedimiento.setString(6, registro.getTelefonoContacto());
+            procedimiento.setInt(7, registro.getCodigoEmpresa());
+            procedimiento.execute();
+        } catch (Exception e) {
         }
 
     }

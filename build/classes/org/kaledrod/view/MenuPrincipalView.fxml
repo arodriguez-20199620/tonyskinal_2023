@@ -21,9 +21,9 @@
             <Rectangle2D />
          </viewport>
       </ImageView>
-      <AnchorPane layoutX="494.0" layoutY="-3.0" prefHeight="50.0" prefWidth="235.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane layoutX="494.0" layoutY="-3.0" prefHeight="50.0" prefWidth="300.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="0.0">
          <children>
-            <MenuBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="35.0" prefWidth="235.0" stylesheets="@../resourse/TonysKinal.css" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <MenuBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="35.0" prefWidth="300.0" stylesheets="@../resourse/TonysKinal.css" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <menus>
                   <Menu mnemonicParsing="false" text="Modulos">
                     <items>
@@ -35,15 +35,19 @@
                         <MenuItem mnemonicParsing="false" onAction="#ventanEmpleado" text="Empleados" />
                         <MenuItem mnemonicParsing="false" onAction="#ventanaPlato" text="Platos" />
                         <MenuItem mnemonicParsing="false" onAction="#ventanaServicios" text="Servicios" />
-                        <MenuItem mnemonicParsing="false" text="Productos_has_plato" />
-                        <MenuItem mnemonicParsing="false" text="Servicios_Has_Empleados" />
-                        <MenuItem mnemonicParsing="false" text="Servicios_Has_Platos" />
                     </items>
                   </Menu>
                   <Menu mnemonicParsing="false" text="Reportes">
                     <items>
                       <MenuItem mnemonicParsing="false" onAction="#generarReporete" text="Reporte de general" />
                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Has">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#ventanaProductos_has_platos" text="Productos_has_plato" />
+                        <MenuItem mnemonicParsing="false" onAction="#ventanaServicios_has_Platos" text="Servicios_Has_Platos" />
+                        <MenuItem mnemonicParsing="false" text="Servicios_Has_Empleados" />
+                     </items>
                   </Menu>
                   <Menu mnemonicParsing="false" text=" ?">
                     <items>

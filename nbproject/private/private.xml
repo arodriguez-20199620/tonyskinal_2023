@@ -5,7 +5,7 @@
             <url>src/org/kaledrod/main/Principal.java</url>
             <bookmark id="1">
                 <name/>
-                <line>175</line>
+                <line>167</line>
                 <key/>
             </bookmark>
         </file>
@@ -13,12 +13,16 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/User/Documentos/NetBeansProjects/tonyskinal_2023/src/org/kaledrod/main/Principal.java</file>
+            <file>file:/D:/User/Documentos/NetBeansProjects/tonyskinal_2023/src/org/kaledrod/controller/Productos_has_platoController.java</file>
             <file>file:/D:/User/Documentos/NetBeansProjects/tonyskinal_2023/src/org/kaledrod/bean/Servicios.java</file>
-            <file>file:/D:/User/Documentos/NetBeansProjects/tonyskinal_2023/src/org/kaledrod/controller/ServiciosController.java</file>
             <file>file:/D:/User/Documentos/NetBeansProjects/tonyskinal_2023/src/org/kaledrod/controller/UsuarioController.java</file>
+            <file>file:/D:/User/Documentos/NetBeansProjects/tonyskinal_2023/src/org/kaledrod/controller/ServiciosController.java</file>
+            <file>file:/D:/User/Documentos/NetBeansProjects/tonyskinal_2023/src/org/kaledrod/bean/Plato.java</file>
             <file>file:/D:/User/Documentos/NetBeansProjects/tonyskinal_2023/src/org/kaledrod/resourse/TonysKinal.css</file>
-            <file>file:/D:/User/Documentos/NetBeansProjects/tonyskinal_2023/src/org/kaledrod/report/GenerarReporte.java</file>
+            <file>file:/D:/User/Documentos/NetBeansProjects/tonyskinal_2023/src/org/kaledrod/bean/TipoPlato.java</file>
+            <file>file:/D:/User/Documentos/NetBeansProjects/tonyskinal_2023/src/org/kaledrod/bean/Producto.java</file>
             <file>file:/D:/User/Documentos/NetBeansProjects/tonyskinal_2023/src/org/kaledrod/controller/EmpresaController.java</file>
+            <file>file:/D:/User/Documentos/NetBeansProjects/tonyskinal_2023/src/org/kaledrod/report/GenerarReporte.java</file>
         </group>
     </open-files>
 </project-private>

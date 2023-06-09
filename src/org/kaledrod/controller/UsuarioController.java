@@ -5,7 +5,10 @@ import java.sql.PreparedStatement;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -29,27 +32,69 @@ public class UsuarioController implements Initializable {
     @FXML
     private TextField txtUsuario;
     @FXML
-    private TextField txtContrasena;
+    private PasswordField txtContrasena;
     @FXML
-    private TextField txtConfrimarContrasena;
+    private PasswordField txtConfrimarContrasena;
+    @FXML
+    private CheckBox cbxVerContrasena;
+    Alert alerta = new Alert(Alert.AlertType.WARNING);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        txtCodUsuario.setEditable(false);
     }
 
     public void nuevo() {
-            String nombreUsuario = txtNombreUsuario.getText().trim();
-            String apellidoUsuario = txtApellidoUsuario.getText().trim();
-            String usuario = txtUsuario.getText().trim();
-            String contrasena = txtContrasena.getText().trim();
-            if (!nombreUsuario.isEmpty() && !apellidoUsuario.isEmpty() && !usuario.isEmpty() && !contrasena.isEmpty()) {
-                guardar();
-                escenarioPrincipal.ventanaLogin();
+        System.out.println(confirmarContrasena());
+        String nombreUsuario = txtNombreUsuario.getText().trim();
+        String apellidoUsuario = txtApellidoUsuario.getText().trim();
+        String usuario = txtUsuario.getText().trim();
+        String contrasena = txtContrasena.getText().trim();
+        if (!nombreUsuario.isEmpty() && !apellidoUsuario.isEmpty() && !usuario.isEmpty() && !contrasena.isEmpty()) {
+            if (usuario.contains("@")) {
+                if (confirmarContrasena()) {
+                    guardar();
+                    escenarioPrincipal.ventanaLogin();
+                } else {
+                    alerta.setTitle("Advertencia");
+                    alerta.setHeaderText(null);
+                    alerta.setContentText("La contraseña no coincide");
+                    alerta.showAndWait();
+                }
             } else {
-                JOptionPane.showMessageDialog(null, "No se han ingresado datos", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                alerta.setTitle("Advertencia");
+                alerta.setHeaderText(null);
+                alerta.setContentText("El usuario ingresado no es apoto");
+                alerta.showAndWait();
             }
+        } else {
+            alerta.setTitle("Advertencia");
+            alerta.setHeaderText(null);
+            alerta.setContentText("No se han ingresado datos");
+            alerta.showAndWait();
+        }
 
+    }
+
+    public boolean confirmarContrasena() {
+        if (txtContrasena.getText().equals(txtConfrimarContrasena.getText())) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void verContrsena() {
+        cbxVerContrasena.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                txtContrasena.setPromptText(txtContrasena.getText());
+                txtContrasena.setStyle("-fx-prompt-text-fill: white;");
+                txtContrasena.setText("");
+            } else {
+                txtContrasena.setText(txtContrasena.getPromptText());
+                txtContrasena.setPromptText("");
+            }
+        });
     }
 
     public void guardar() {

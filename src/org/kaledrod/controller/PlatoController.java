@@ -78,7 +78,6 @@ public class PlatoController implements Initializable {
         cargarDatos();
         asiganarBtn();
         formatoNumero(txtCantidad);
-        formatoNumero(txtPrecioPlato);
         cmbCodigoTipoPlato.setItems(getTipoPlato());
 
     }
@@ -273,11 +272,59 @@ public class PlatoController implements Initializable {
     }
 
     public void editar() {
-
+        if (tblPlatos.getSelectionModel().getSelectedItem() != null) {
+            btnNuevo.setDisable(true);
+            btnEditar.setDisable(true);
+            btnReporte.setDisable(true);
+            activarControles();
+            btnCancelar.setOnAction(e -> {
+                limpiarControles();
+                desactivarControles();
+                deseleccionar();
+                btnNuevo.setDisable(false);
+                btnEditar.setDisable(false);
+                btnReporte.setDisable(false);
+            });
+            btnConfirmar.setOnAction(e -> {
+                actualizar();
+                deseleccionar();
+                limpiarControles();
+                desactivarControles();
+                cargarDatos();
+                btnNuevo.setDisable(false);
+                btnEditar.setDisable(false);
+                btnReporte.setDisable(false);
+            });
+        } else {
+            alerta.setTitle("Advertencia");
+            alerta.setHeaderText(null);
+            alerta.setContentText("Es importante que seleccione un elemento para poder editar");
+            alerta.showAndWait();
+            btnNuevo.setDisable(false);
+            btnEditar.setDisable(false);
+            btnReporte.setDisable(false);
+        }
     }
 
     public void actualizar() {
-
+        Plato registro = (Plato) tblPlatos.getSelectionModel().getSelectedItem();
+        registro.setCantidad(Integer.parseInt(txtCantidad.getText()));
+        registro.setNombrePlato(txtNombrePlato.getText());
+        registro.setDescripcion(txtDescripcion.getText());
+        registro.setPrecioPlato(Double.parseDouble(txtPrecioPlato.getText()));
+        registro.setCodigoTipoPlato(((TipoPlato) cmbCodigoTipoPlato.getSelectionModel().getSelectedItem()).getCodigoTipoPlato());
+        try {
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_EditarPlato(?,?,?,?,?,?)");
+            procedimiento.setInt(1, registro.getCodigoPlato());
+            procedimiento.setInt(2, registro.getCantidad());
+            procedimiento.setString(3, registro.getNombrePlato());
+            procedimiento.setString(4, registro.getDescripcion());
+            procedimiento.setDouble(5, registro.getPrecioPlato());
+            procedimiento.setInt(6, registro.getCodigoTipoPlato());
+            procedimiento.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void reporte() {

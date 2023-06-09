@@ -159,6 +159,7 @@ Delimiter ;
 call sp_AgregarUsuario('Angel','Rodriguez','arodriguez-2019620@kinal.edu.gt','1234');
 Call sp_ListarUsuarios();
 
+
 Create table Login(
 	usuarioMaster varchar(50) not null,
     passwordLogin varchar(50) not null,
@@ -605,6 +606,7 @@ Delimiter //
 	Create procedure sp_BuscarProducto(in codProducto int)
 		Begin
 			Select 
+				P.codigoProducto,
 				P.nombreProducto, 
                 P.cantidad
                 From Productos P

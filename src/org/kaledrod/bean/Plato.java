@@ -86,4 +86,8 @@ public class Plato {
         this.eliminar = eliminar;
     }
 
+    @Override
+    public String toString() {
+        return codigoPlato + " | " + nombrePlato;
+    }
 }

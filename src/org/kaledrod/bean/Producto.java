@@ -57,4 +57,8 @@ public class Producto {
         this.eliminar = eliminar;
     }
 
+    @Override
+    public String toString() {
+        return codigoProducto + " | " + nombreProducto;
+    }
 }

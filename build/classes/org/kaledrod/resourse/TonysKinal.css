@@ -1,7 +1,7 @@
 .button2{
-    -fx-pref-width: 300px;
-    -fx-pref-height: 50px; 
-    -fx-background-color: #1dddbc;
+    -fx-pref-width: 300;
+    -fx-pref-height: 50px;
+    -fx-background-color:#1dddbc;
     -fx-background-radius: 10;
     -fx-font-size: 20px;
     -fx-font-family: "Garet bold";
@@ -93,7 +93,7 @@
     -fx-pref-width: 150px;
     -fx-pref-height: 50px;
     -fx-background-radius: 0;
-    -fx-background-color: #121212;
+    -fx-background-color:  #1dddbc;
     -fx-background-radius: 5;
     -fx-border-radius: 2;
     -fx-text-fill: white;
@@ -245,6 +245,48 @@
 }
 
 /* Estilo de fuente y color de texto */
+.combo-box2 {
+    -fx-font-family: "Garet";
+    -fx-font-size: 14px;
+    -fx-text-fill: white;
+}
+
+/* Estilo de fondo y borde */
+.combo-box2 .arrow-button,
+.combo-box2 .arrow,
+.combo-box2 .list-cell {
+    -fx-background-color: #0D1117;
+    -fx-background-radius: 3;
+    -fx-border-color: #0D1117;
+    -fx-border-width: 1px;
+    -fx-border-radius: 3;
+}
+/* Estilo de borde resaltado al obtener el foco */
+.combo-box2:focused {
+    -fx-border-color: #1dddbc;
+    -fx-border-width: 2px;
+}
+
+.combo-box2 .list-cell {
+    -fx-text-fill: #a0a0a0;
+}
+
+/* Estilo de opción seleccionada */
+.combo-box2 .list-cell:selected {
+    -fx-background-color: #0D1117;
+    -fx-text-fill: white;
+}
+
+/* Estilo de opción resaltada al pasar el ratón */
+.combo-box2 .list-cell:hover {
+    -fx-background-color: #1dddbc;
+    -fx-text-fill: white;
+}
+
+.combo-box2:disabled {
+    -fx-opacity: 0.5;
+}
+/* Estilo de fuente y color de texto */
 .text-field2 {
     -fx-font-family: "Garet";
     -fx-font-size: 14px;
@@ -323,7 +365,10 @@
     -fx-opacity: 0.5;
 }
 
-.combo-box {
+
+
+
+.combo-box1 {
     -fx-opacity: 1;
     -fx-pref-width: 200px;
     -fx-font-family: "Arial";
@@ -332,7 +377,7 @@
 }
 
 /* Estilo de fondo y borde */
-.combo-box {
+.combo-box1 {
     -fx-background-color: #f4f4f4;
     -fx-background-radius: 3;
     -fx-border-color: #cccccc;
@@ -341,19 +386,19 @@
 }
 
 /* Estilo de borde resaltado al obtener el foco */
-.combo-box:focused {
+.combo-box1:focused {
     -fx-border-color: #1dddbc;
     -fx-border-width: 2px;
 }
 
 /* Estilo de borde y fondo al pasar el ratón por encima */
-.combo-box:hover {
+.combo-box1:hover {
     -fx-border-color: #999999;
     -fx-background-color: #ededed;
 }
 
 /* Estilo de texto de marcador de posición */
-.combo-box .text {
+.combo-box1 .text {
     -fx-fill: #a0a0a0;
 }
 
@@ -367,7 +412,7 @@
     -fx-font: 13px "Garet Regular";
     -fx-border-insets: 0;
     -fx-alignment: CENTER;
-    -fx-background-color: derive(#121212, 30%); /* Fondo transparente blanco */
+    -fx-background-color:  #161B22;
     -fx-text-fill: white;
 }
 
@@ -394,7 +439,7 @@
 }
 
 .table-view:row-selection .table-row-cell:filled:selected {
-    -fx-background-color: derive(#1dddbc, 50%);
+    -fx-background-color: derive(#1dddbc, 30%);
     -fx-text-fill: black;
 }
 
@@ -407,8 +452,8 @@
 }
 
 .table-view .column-header .label {
-    -fx-text-fill: black; /* Cambio de color de letras a blanco */
-    -fx-font: 12px "Garet";
+    -fx-text-fill: white; /* Cambio de color de letras a blanco */
+    -fx-font: 12px "Garet Medium";
     -fx-alignment: CENTER;
 }
 

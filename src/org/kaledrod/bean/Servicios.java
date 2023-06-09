@@ -101,5 +101,9 @@ public class Servicios {
     public void setEliminar(Button eliminar) {
         this.eliminar = eliminar;
     }
-    
+
+    @Override
+    public String toString() {
+        return codigoEmpresa + " | " + tipoServicio;
+    }
 }

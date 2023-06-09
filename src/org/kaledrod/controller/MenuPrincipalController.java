@@ -85,7 +85,15 @@ public class MenuPrincipalController implements Initializable {
     }
 
     public void ventanaUsuario() {
-      escenarioPrincipal.ventanaUsuario();
+        escenarioPrincipal.ventanaUsuario();
+    }
+
+    public void ventanaProductos_has_platos() {
+        escenarioPrincipal.ventanaProductos_has_Platos();
+    }
+
+    public void ventanaServicios_has_Platos() {
+        escenarioPrincipal.ventanaServicios_has_Platos();
     }
 
     public void imprimirReporte() {

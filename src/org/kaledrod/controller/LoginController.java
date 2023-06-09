@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.control.PasswordField;
 import javax.swing.JOptionPane;
 import org.kaledrod.bean.Login;
 import org.kaledrod.bean.Usuario;
@@ -19,13 +20,13 @@ import org.kaledrod.main.Principal;
 
 public class LoginController implements Initializable {
 
-    Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+    Alert confirmacion = new Alert(Alert.AlertType.INFORMATION);
     private Principal escenarioPrincipal;
     private ObservableList<Usuario> listaUsuario;
     @FXML
     private TextField txtUsuario;
     @FXML
-    private TextField txtPassword;
+    private PasswordField txtPassword;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -57,23 +58,34 @@ public class LoginController implements Initializable {
         boolean bandera = false;
         login.setUsuarioMaster(txtUsuario.getText());
         login.setPasswordLogin(txtPassword.getText());
-        while (x < getUsuario().size()) {
-            String user = getUsuario().get(x).getUsuarioLogin();
-            String pass = getUsuario().get(x).getContrasena();
-            if (user.equals(login.getUsuarioMaster()) && pass.equals(login.getPasswordLogin())) {
-                alerta.setTitle("Advertencia");
-                alerta.setHeaderText("Sesión iniciada");
-                alerta.setContentText("Bienvenido \n" + getUsuario().get(x).getNombreUsuario() + " "
-                        + getUsuario().get(x).getApellidoUsuario());
-                alerta.showAndWait();
-                escenarioPrincipal.menuPrincipal();
-                x = getUsuario().size();
-                bandera = true;
+        String user = txtUsuario.getText().trim();
+        String pass = txtPassword.getText().trim();
+        if (!user.isEmpty() && !pass.isEmpty()) {
+            while (x < getUsuario().size()) {
+                user = getUsuario().get(x).getUsuarioLogin();
+                pass = getUsuario().get(x).getContrasena();
+                if (user.equals(login.getUsuarioMaster()) && pass.equals(login.getPasswordLogin())) {
+                    confirmacion.setTitle("Confirmacion");
+                    confirmacion.setHeaderText("Sesión iniciada");
+                    confirmacion.setContentText("Bienvenido \n" + getUsuario().get(x).getNombreUsuario() + " "
+                            + getUsuario().get(x).getApellidoUsuario());
+                    confirmacion.showAndWait();
+                    escenarioPrincipal.menuPrincipal();
+                    x = getUsuario().size();
+                    bandera = true;
+                }
+                x++; //  x+= x =x+1 ++x 
             }
-            x++; //  x+= x =x+1 ++x 
-        }
-        if (bandera == false) {
-            JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
+            if (bandera == false) {
+                JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
+            }
+
+        } else {
+            Alert alerta = new Alert(Alert.AlertType.WARNING);
+            alerta.setTitle("Advertencia");
+            alerta.setHeaderText(null);
+            alerta.setContentText("Uno de los campos esta vacio");
+            alerta.showAndWait();
         }
 
     }

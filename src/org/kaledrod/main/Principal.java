@@ -29,9 +29,11 @@ import org.kaledrod.controller.MenuPrincipalController;
 import org.kaledrod.controller.PlatoController;
 import org.kaledrod.controller.PresupuestoController;
 import org.kaledrod.controller.ProductoController;
+import org.kaledrod.controller.Productos_has_platoController;
 import org.kaledrod.controller.ProgramadorController;
 import org.kaledrod.controller.ServiciosController;
-import org.kaledrod.controller.TipoEmpleadoController;  
+import org.kaledrod.controller.Servicios_has_platosController;
+import org.kaledrod.controller.TipoEmpleadoController;
 import org.kaledrod.controller.TipoPlatoController;
 import org.kaledrod.controller.UsuarioController;
 
@@ -47,15 +49,11 @@ public class Principal extends Application {
     public void start(Stage escenarioPrinciapal) throws Exception {
         this.escenarioPrincipal = escenarioPrinciapal;
         this.escenarioPrincipal.setTitle("Tonys Kinal");
-        escenarioPrinciapal.getIcons().add(new Image("org/kaledrod/image/Logo2Forma2.png"));
+        escenarioPrinciapal.getIcons().add(new Image("org/kaledrod/image/Logo2Forma3.png"));
         escenarioPrincipal.centerOnScreen();
         escenarioPrinciapal.setResizable(false);
         escenarioPrincipal.initStyle(StageStyle.UNDECORATED);
-//        Parent root = FXMLLoader.load(getClass().getResource("/org/kaledrod/view/LoginView.fxml"));
-//        escenarioPrinciapal.setScene(escena);
-//        escenarioPrinciapal.show();
         ventanaLogin();
-//        menuPrincipal();
         escenarioPrinciapal.show();
 
     }
@@ -79,8 +77,7 @@ public class Principal extends Application {
             EmpresaController empresa = (EmpresaController) cambiarEscena("EmpresaView.fxml", 1000, 650);
             empresa.setEscenarioPrincipal(this);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
-//            e.printStackTrace();
+            e.printStackTrace();
         }
     }
 
@@ -108,7 +105,6 @@ public class Principal extends Application {
             tipoEmlpeado.setEscenarioPrincipal(this);
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println(e.getMessage());
         }
     }
 
@@ -135,8 +131,7 @@ public class Principal extends Application {
             ServiciosController servicios = (ServiciosController) cambiarEscena("ServiciosView.fxml", 1000, 650);
             servicios.setEscenarioPrincipal(this);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
-//            e.printStackTrace();
+            e.printStackTrace();
         }
     }
 
@@ -145,8 +140,7 @@ public class Principal extends Application {
             PlatoController plato = (PlatoController) cambiarEscena("PlatoView.fxml", 1000, 650);
             plato.setEscenarioPrincipal(this);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
-//         e.printStackTrace();
+            e.printStackTrace();
         }
     }
 
@@ -172,6 +166,24 @@ public class Principal extends Application {
         try {
             UsuarioController usuario = (UsuarioController) cambiarEscena("UsuarioView.fxml", 1000, 650);
             usuario.setEscenarioPrincipal(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void ventanaProductos_has_Platos() {
+        try {
+            Productos_has_platoController productos_Has_Platos = (Productos_has_platoController) cambiarEscena("Productos_has_platosView.fxml", 1000, 650);
+            productos_Has_Platos.setEscenarioPrincipal(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void ventanaServicios_has_Platos() {
+        try {
+            Servicios_has_platosController servicios_Has_Platos = (Servicios_has_platosController) cambiarEscena("Servicios_Has_Platos.fxml", 1000, 650);
+            servicios_Has_Platos.setEscenarioPrincipal(this);
         } catch (Exception e) {
             e.printStackTrace();
         }
