@@ -31,14 +31,15 @@
 
 .menu-bar,
 .menu-bar .label {
+    -fx-alignment: center;
     -fx-background-color: transparent;
     -fx-border-width: 0 0 2 0;
     -fx-border-color: transparent;
-    -fx-pref-height: 100px;
+    -fx-pref-width: 200px;
     -fx-pref-height: 50px;
     -fx-font-size: 15px;
     -fx-font-family: "Garet Regular";
-    -fx-text-fill: white;
+    -fx-text-fill: #1dddbc;
 }
 
 .menu-bar .menu-button:hover,
@@ -51,7 +52,9 @@
 
 .menu-item,
 .menu-item .label {
-    -fx-background-color: transparent;
+    -fx-alignment: TOP_LEFT;
+    -fx-pref-width: 200px;
+    -fx-background-color:  #0D1117;
     -fx-border-width: 0 0 0 5;
     -fx-border-color: transparent;
     -fx-pref-height: 30px;
@@ -61,7 +64,6 @@
 }
 
 .menu-item:hover {
-    -fx-background-color: linear-gradient(to right, #363636, #121212);
     /*    -fx-background-color: #363636;*/
     -fx-border-width: 0 0 0 5;
     -fx-border-color: derive(#1dddbc, 30%);
@@ -75,9 +77,9 @@
 }
 .context-menu {
     -fx-skin: "com.sun.javafx.scene.control.skin.ContextMenuSkin";
-    -fx-background-color: #121212;
+    -fx-background-color:  #0D1117;
     -fx-border-width: 0 2 2 2;
-    -fx-border-color: derive(#121212, 10%);
+    -fx-border-color:  #0D1117;
     /*-fx-border-color: rgba(225, 225, 225, 0.9);*/
 
     /*    * -fx-background-insets: 0.0, 1.0, 2.0;
@@ -244,48 +246,7 @@
     -fx-opacity: 0.5;
 }
 
-/* Estilo de fuente y color de texto */
-.combo-box2 {
-    -fx-font-family: "Garet";
-    -fx-font-size: 14px;
-    -fx-text-fill: white;
-}
 
-/* Estilo de fondo y borde */
-.combo-box2 .arrow-button,
-.combo-box2 .arrow,
-.combo-box2 .list-cell {
-    -fx-background-color: #0D1117;
-    -fx-background-radius: 3;
-    -fx-border-color: #0D1117;
-    -fx-border-width: 1px;
-    -fx-border-radius: 3;
-}
-/* Estilo de borde resaltado al obtener el foco */
-.combo-box2:focused {
-    -fx-border-color: #1dddbc;
-    -fx-border-width: 2px;
-}
-
-.combo-box2 .list-cell {
-    -fx-text-fill: #a0a0a0;
-}
-
-/* Estilo de opción seleccionada */
-.combo-box2 .list-cell:selected {
-    -fx-background-color: #0D1117;
-    -fx-text-fill: white;
-}
-
-/* Estilo de opción resaltada al pasar el ratón */
-.combo-box2 .list-cell:hover {
-    -fx-background-color: #1dddbc;
-    -fx-text-fill: white;
-}
-
-.combo-box2:disabled {
-    -fx-opacity: 0.5;
-}
 /* Estilo de fuente y color de texto */
 .text-field2 {
     -fx-font-family: "Garet";
@@ -320,6 +281,36 @@
 .text-field2:disabled {
     -fx-opacity: 0.5;
 }
+.combo-box2 {
+    -fx-font-family: "Garet";
+    -fx-font-size: 14px;
+    -fx-text-fill: white;
+}
+
+/* Estilo de fondo y borde */
+.combo-box2 .list-cell {
+    -fx-background-color: #0D1117;
+    -fx-background-radius: 3;
+    -fx-border-color: #0D1117;
+    -fx-border-width: 1px;
+    -fx-border-radius: 3;
+}
+
+.combo-box2 .text {
+    -fx-fill: white;
+}
+
+/* Estilo de borde resaltado al obtener el foco */
+.combo-box2:focused {
+    -fx-border-color: #1dddbc;
+    -fx-border-width: 2px;
+}
+
+/* Estilo de borde y fondo al pasar el ratón por encima */
+.combo-box2:hover {
+    -fx-background-color: #1dddbc;
+    -fx-text-fill: white;
+}
 
 /* Estilo de fuente y color de texto */
 .text-field1 {
@@ -349,11 +340,6 @@
     -fx-background-color: #ededed;
 }
 
-/* Estilo de texto de marcador de posición */
-.text-field1 .text {
-    -fx-fill: #a0a0a0;
-}
-
 /* Estilo de texto seleccionado */
 .text-field1 .text:selected {
     -fx-background-color: #1dddbc;
@@ -365,11 +351,7 @@
     -fx-opacity: 0.5;
 }
 
-
-
-
 .combo-box1 {
-    -fx-opacity: 1;
     -fx-pref-width: 200px;
     -fx-font-family: "Arial";
     -fx-font-size: 14px;
@@ -378,7 +360,7 @@
 
 /* Estilo de fondo y borde */
 .combo-box1 {
-    -fx-background-color: #f4f4f4;
+    -fx-background-color: transaparent;
     -fx-background-radius: 3;
     -fx-border-color: #cccccc;
     -fx-border-width: 1px;
@@ -395,11 +377,6 @@
 .combo-box1:hover {
     -fx-border-color: #999999;
     -fx-background-color: #ededed;
-}
-
-/* Estilo de texto de marcador de posición */
-.combo-box1 .text {
-    -fx-fill: #a0a0a0;
 }
 
 .table-view {
@@ -477,136 +454,87 @@
     -fx-border-insets: 0;
 }
 
-/*Calendario */
-
-.root {
-    -fx-base: #121212;
-}
-
-.datepicker-invalid {
-    -fx-border-color: red;
-}
-
-.datepicker-valid {
-    -fx-border-color: null;
-}
-
-.calendar {
-}
-
-.calendar-header {
-    -fx-background-color: linear-gradient(to bottom, #121212, #1dddbc);
-    -fx-padding: 0.5em;
-}
-
-.calendar-footer {
-    -fx-background-color: linear-gradient(to top, #121212, #1dddbc);
-    -fx-padding: 0.2em;
-}
-
-.calendar-month-view,
-.calendar-year-view,
-.calendar-decades-view {
-    -fx-background-color: linear-gradient(to bottom, #121212, #1dddbc);
-    -fx-padding: 0;
-}
-
-.calendar-cell-current-month,
-.calendar-year-button,
-.calendar-month-button {
-    -fx-background-color: null;
-    -fx-background-radius: 0;
-    -fx-background-insets: 0, 0, 0, 0;
-    -fx-cursor: hand;
-    -fx-padding: 0.7em;
-    -fx-font-weight: bold;
-    -fx-background-radius: 8;
-    -fx-text-fill: white;
-}
-
-.calendar-cell-current-month:hover,
-.calendar-year-button:hover,
-.calendar-month-button:hover {
-    -fx-background-color: #ffffff;
-}
-
-.calendar-cell-other-month {
-    -fx-background-color: null;
-    -fx-background-radius: 0;
-    -fx-background-insets: 0, 0, 0, 0;
-    -fx-opacity: 0.7;
-    -fx-cursor: hand;
-    -fx-padding: 0.7em;
-    -fx-background-radius: 8;
-}
-
-.calendar-cell-other-month:hover {
-    -fx-background-color: #ffffff;
-}
-
-.calendar-cell-today {
-    -fx-background-color: #ffffff;
-}
-
-.calendar-navigation-button,
-.calendar-navigation-title,
-.calendar-today-button {
-    -fx-background-color: null;
-    -fx-cursor: hand;
-    -fx-text-fill: white;
-}
-
-.calendar-navigation-title:disabled {
-    -fx-opacity: 1;
-}
-
-.calendar-navigation-arrow {
-    -fx-padding: 4 3.5 4 3.5;
-    -fx-padding: 0.333333em 0.333333em 0.333333em 0.333333em;
-    -fx-shape: "M 100 100 L 300 100 L 200 300 z";
-    -fx-background-color: #ffffff;
-}
-
-.calendar-weekdays {
-    -fx-background-radius: -fx-body-color;
-    -fx-background-color: -fx-body-color;
-    -fx-padding: 3px;
-}
-
-.calendar-week-number {
-    -fx-font-size: 0.8em;
-    -fx-padding: 4px;
-}
-
-.jfx-time-picker {
+.jfx-time-picker1 {
     -fx-opacity: 1;
     -fx-pref-width: 200px;
-    -fx-font-family: "Arial";
+    -fx-font-family: "Garet Regular";
     -fx-font-size: 14px;
     -fx-text-fill: #333333;
 }
 
 /* Estilo de fondo y borde */
-.jfx-time-picker {
+.jfx-time-picker1 {
+    -fx-background-color: transaparent;
+    -fx-background-radius: 3;
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1px;
+    -fx-border-radius: 3;
     -jfx-default-color: #1dddbc;
     -jfx-focus-color: #1dddbc;
     -jfx-unfocus-color: #1dddbc;
 }
 
-/* Estilo de borde resaltado al obtener el foco 
-.jfx-time-picker .spinner .increment-arrow-button:focused,
-.jfx-time-picker .spinner .decrement-arrow-button:focused {
-    -fx-border-color: #1dddbc;
-    -fx-border-width: 2px;
+.jfx-date-picker1 {
+    -fx-opacity: 1;
+    -fx-pref-width: 200px;
+    -fx-font-family: "Garet Regular";
+    -fx-font-size: 14px;
+}
+/* Estilo de fondo y borde */
+.jfx-date-picker1 {
+    -fx-background-color: transaparent;
+    -fx-background-radius: 3;
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1px;
+    -fx-border-radius: 3;
+    -jfx-default-color: #1dddbc;
+    -jfx-focus-color: #1dddbc;
+    -jfx-unfocus-color: #1dddbc;
 }
 
- Estilo de borde y fondo al pasar el ratón por encima 
-.jfx-time-picker:hover {
-    -fx-border-color: #999999;
-    -jfx-default-color: #ededed;
+
+.jfx-time-picker2 {
+    -fx-opacity: 1;
+    -fx-pref-width: 250px;
+    -fx-font-family: "Garet Regular";
+    -fx-font-size: 14px;
+    -fx-text-fill: white;
 }
 
- Estilo de texto de marcador de posición 
-.jfx-time-picker .text-field .text {
-    -fx-text-fill: #a0a0a0;
-}*/
+.jfx-time-picker2 .text-field {
+    -fx-text-fill: white;
+}
+
+/* Estilo de fondo y borde */
+.jfx-time-picker2 {
+    -fx-background-color: #0D1117;
+    -fx-background-radius: 3;
+    -fx-border-color: #0D1117;
+    -fx-border-width: 1px;
+    -fx-border-radius: 3;
+    -jfx-default-color: #1dddbc;
+    -jfx-focus-color: #1dddbc;
+    -jfx-unfocus-color: #1dddbc;
+}
+.jfx-date-picker2 {
+    -fx-opacity: 1;
+    -fx-pref-width: 250px;
+    -fx-font-family: "Garet Regular";
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333;
+}
+
+.jfx-date-picker2 .text-field {
+    -fx-text-fill: white;
+}
+/* Estilo de fondo y borde */
+.jfx-date-picker2 {
+    -fx-background-color: #0D1117;
+    -fx-background-radius: 3;
+    -fx-border-color: #0D1117;
+    -fx-border-width: 1px;
+    -fx-border-radius: 3;
+    -jfx-default-color: #1dddbc;
+    -jfx-focus-color: #1dddbc;
+    -jfx-unfocus-color: #1dddbc;
+}

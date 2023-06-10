@@ -42,8 +42,8 @@
                         <Font name="Arial" size="18.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="cmbCodPlato" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: #0D1117;" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="1" GridPane.valignment="BOTTOM" />
-                  <ComboBox fx:id="cmbCodProducto" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: #0D1117;" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="2" GridPane.valignment="BOTTOM" />
+                  <ComboBox fx:id="cmbCodPlato" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: #0D1117;" styleClass="combo-box2" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="1" GridPane.valignment="BOTTOM" />
+                  <ComboBox fx:id="cmbCodProducto" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: #0D1117;" styleClass="combo-box2" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="2" GridPane.valignment="BOTTOM" />
                   <Label text="Codigo Producto" textFill="WHITE" GridPane.columnIndex="2" GridPane.valignment="CENTER">
                      <font>
                         <Font name="Arial" size="16.0" />
@@ -55,7 +55,7 @@
       </AnchorPane>
       <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="1000.0" text="Productos_has_plato" textFill="#1dddbc" AnchorPane.bottomAnchor="620.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <font>
-            <Font name="Arial" size="20.0" />
+            <Font name="Garet Medium" size="20.0" />
          </font>
       </Label>
       <TableView fx:id="tblHasProductos" layoutX="250.0" layoutY="200.0" onKeyReleased="#seleccionarElemento" onMouseClicked="#seleccionarElemento" prefHeight="350.0" prefWidth="900.0" stylesheets="@../resourse/TonysKinal.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">

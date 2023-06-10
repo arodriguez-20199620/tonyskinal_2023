@@ -66,15 +66,15 @@
       </HBox>
       <TableView fx:id="tblEmpleados" layoutX="50.0" layoutY="280.0" onKeyReleased="#seleccionarElemento" onMouseClicked="#seleccionarElemento" prefHeight="350.0" prefWidth="900.0" stylesheets="@../resourse/TonysKinal.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
         <columns>
-          <TableColumn fx:id="colCodEmpleado" prefWidth="150.0" text="Cod Empleado" />
-          <TableColumn fx:id="colNumeroEmpleado" prefWidth="150.0" text="No . Empleado" />
-            <TableColumn fx:id="colApellidosEmpleado" prefWidth="150.0" text="Apellidos del empleado" />
-            <TableColumn fx:id="colNombreEmpleado" prefWidth="150.0" text="Nombre del empleado" />
-            <TableColumn fx:id="colDireccionEmpleado" prefWidth="150.0" text="Direccion del empleado" />
-            <TableColumn fx:id="colTelefonoContacto" prefWidth="150.0" text="Telefono de contacto" />
-            <TableColumn fx:id="colGradoCocinero" prefWidth="150.0" text="Grado de cocinero" />
-            <TableColumn fx:id="colCodTipoEmpleado" prefWidth="150.0" text="Cod Tipo Empleado" />
-            <TableColumn fx:id="colAccion" prefWidth="150.0" text="Accion" />
+          <TableColumn fx:id="colCodEmpleado" prefWidth="170.0" text="Cod Empleado" />
+          <TableColumn fx:id="colNumeroEmpleado" prefWidth="170.0" text="No . Empleado" />
+            <TableColumn fx:id="colApellidosEmpleado" prefWidth="170.0" text="Apellidos del empleado" />
+            <TableColumn fx:id="colNombreEmpleado" prefWidth="170.0" text="Nombre del empleado" />
+            <TableColumn fx:id="colDireccionEmpleado" prefWidth="170.0" text="Direccion del empleado" />
+            <TableColumn fx:id="colTelefonoContacto" prefWidth="170.0" text="Telefono de contacto" />
+            <TableColumn fx:id="colGradoCocinero" prefWidth="170.0" text="Grado de cocinero" />
+            <TableColumn fx:id="colCodTipoEmpleado" prefWidth="170.0" text="Cod Tipo Empleado" />
+            <TableColumn fx:id="colAccion" prefWidth="170.0" text="Accion" />
         </columns>
       </TableView>
       <GridPane layoutX="111.0" layoutY="120.0" prefHeight="150.0" prefWidth="900.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
@@ -138,7 +138,7 @@
             <TextField fx:id="txtNumeroEmpleado" maxHeight="-Infinity" maxWidth="-Infinity" styleClass="text-field1" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="3" />
             <TextField fx:id="txtNombreEmpleado" maxHeight="-Infinity" maxWidth="-Infinity" styleClass="text-field1" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <TextField fx:id="txtTelefonoContacto" maxHeight="-Infinity" maxWidth="-Infinity" styleClass="text-field1" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <ComboBox fx:id="cmbCodTipoEmpleado" prefHeight="30.0" prefWidth="226.0" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cmbCodTipoEmpleado" prefHeight="30.0" prefWidth="226.0" styleClass="combo-box1" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="3" GridPane.rowIndex="3" />
          </children>
       </GridPane>
       <HBox layoutX="607.0" layoutY="207.0" prefHeight="30.0" prefWidth="470.0" style="-fx-spacing: 10;" AnchorPane.bottomAnchor="380.0" AnchorPane.rightAnchor="50.0">
@@ -181,7 +181,7 @@
             </Button>
          </children>
       </HBox>
-      <HBox layoutX="60.0" layoutY="230.0" prefHeight="35.0" prefWidth="250.0" style="-fx-spacing: 20;" AnchorPane.bottomAnchor="380.0" AnchorPane.leftAnchor="50.0">
+      <HBox layoutX="60.0" layoutY="230.0" prefHeight="35.0" prefWidth="250.0" style="-fx-spacing: 10;" AnchorPane.bottomAnchor="380.0" AnchorPane.leftAnchor="50.0">
          <children>
             <Button fx:id="btnCancelar" mnemonicParsing="false" styleClass="cancelar" stylesheets="@../resourse/TonysKinal.css" text="Cancelar" />
             <Button fx:id="btnConfirmar" mnemonicParsing="false" styleClass="confirmar" stylesheets="@../resourse/TonysKinal.css" text="Confirmar" />

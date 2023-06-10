@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -21,7 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#deseleccionar" prefHeight="650.0" prefWidth="1000.0" style="-fx-border-color: black; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kaledrod.controller.EmpresaController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#deseleccionar" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kaledrod.controller.EmpresaController">
    <children>
       <GridPane layoutX="50.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="150.0" prefWidth="900.0">
         <columnConstraints>
@@ -37,31 +31,31 @@
          <children>
             <Label text="Codigo Empresa">
                <font>
-                  <Font name="Arial" size="18.0" />
+                  <Font name="Garet Regular" size="18.0" />
                </font>
             </Label>
             <Label text="Teléfono" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
-                  <Font name="Arial" size="18.0" />
+                  <Font name="Garet Regular" size="18.0" />
                </font>
             </Label>
             <Label text="Nombre Empresa" GridPane.columnIndex="2">
                <font>
-                  <Font name="Arial" size="18.0" />
+                  <Font name="Garet Regular" size="18.0" />
                </font>
             </Label>
             <Label text="Dirección" GridPane.rowIndex="1">
                <font>
-                  <Font name="Arial" size="18.0" />
+                  <Font name="Garet Regular" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="txtCodEmpresa" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="172.0" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="1" />
-            <TextField fx:id="txtDireccion" maxHeight="-Infinity" maxWidth="-Infinity" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="txtNombreEmpresa" maxHeight="-Infinity" maxWidth="-Infinity" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="3" />
-            <TextField fx:id="txtTelefono" maxHeight="-Infinity" maxWidth="-Infinity" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <TextField fx:id="txtCodEmpresa" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="177.0" styleClass="text-field1" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="1" />
+            <TextField fx:id="txtDireccion" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="163.0" styleClass="text-field1" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtNombreEmpresa" maxHeight="-Infinity" maxWidth="-Infinity" styleClass="text-field1" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="3" />
+            <TextField fx:id="txtTelefono" maxHeight="-Infinity" maxWidth="-Infinity" styleClass="text-field1" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="3" GridPane.rowIndex="1" />
          </children>
       </GridPane>
-      <TableView fx:id="tblEmpresas" layoutX="104.0" onKeyReleased="#seleccionarElemento" onMouseClicked="#seleccionarElemento" prefHeight="350.0" prefWidth="900.0" stylesheets="@../resourse/TonysKinal.css" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+      <TableView fx:id="tblEmpresas" layoutX="104.0" onKeyReleased="#seleccionarElemento" onMouseClicked="#seleccionarElemento" prefHeight="350.0" prefWidth="900.0" stylesheets="@../resourse/TonysKinal.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
         <columns>
           <TableColumn fx:id="colCodEmpresa" prefWidth="180.0" text="Cod. Empresa" />
           <TableColumn fx:id="colNombreEmpresa" prefWidth="180.0" text="Nombre Empresa" />
@@ -72,16 +66,11 @@
       </TableView>
       <AnchorPane prefHeight="30.0" prefWidth="1000.0" style="-fx-background-color: #1DDDBC;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="1000.0" text="Empresa" textFill="#0c0c0c" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="1000.0" text="Empresa" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <font>
-                  <Font name="Arial" size="20.0" />
+                  <Font name="Garet Medium" size="20.0" />
                </font>
             </Label>
-            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="251.0" layoutY="-61.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <image>
-                  <Image url="@../image/Logo2Forma2.png" />
-               </image>
-            </ImageView>
             <HBox prefHeight="30.0" prefWidth="90.0" AnchorPane.rightAnchor="0.0">
                <children>
                   <Button fx:id="btnRegresar" mnemonicParsing="false" onAction="#menuPrincipal" prefWidth="68.0" styleClass="back" stylesheets="@../resourse/TonysKinal.css">
@@ -121,10 +110,10 @@
             </HBox>
          </children>
       </AnchorPane>
-      <HBox layoutX="369.0" layoutY="184.0" prefHeight="40.0" prefWidth="220.0" style="-fx-spacing: 20;" AnchorPane.bottomAnchor="390.0" AnchorPane.leftAnchor="100.0">
+      <HBox layoutX="369.0" layoutY="184.0" prefHeight="35.0" prefWidth="250.0" style="-fx-spacing: 10;" AnchorPane.bottomAnchor="380.0" AnchorPane.leftAnchor="50.0">
          <children>
-            <Button fx:id="btnConfirmar" mnemonicParsing="false" styleClass="confirmar" stylesheets="@../resourse/TonysKinal.css" text="Confirmar" />
             <Button fx:id="btnCancelar" mnemonicParsing="false" styleClass="cancelar" stylesheets="@../resourse/TonysKinal.css" text="Cancelar" />
+            <Button fx:id="btnConfirmar" mnemonicParsing="false" styleClass="confirmar" stylesheets="@../resourse/TonysKinal.css" text="Confirmar" />
          </children>
       </HBox>
       <HBox layoutX="597.0" layoutY="197.0" prefHeight="30.0" prefWidth="470.0" style="-fx-spacing: 10;" AnchorPane.bottomAnchor="390.0" AnchorPane.rightAnchor="50.0">

@@ -32,6 +32,7 @@ import org.kaledrod.controller.ProductoController;
 import org.kaledrod.controller.Productos_has_platoController;
 import org.kaledrod.controller.ProgramadorController;
 import org.kaledrod.controller.ServiciosController;
+import org.kaledrod.controller.Servicios_has_empleadoController;
 import org.kaledrod.controller.Servicios_has_platosController;
 import org.kaledrod.controller.TipoEmpleadoController;
 import org.kaledrod.controller.TipoPlatoController;
@@ -69,6 +70,7 @@ public class Principal extends Application {
             menu.setEscenarioPrincipal(this);
         } catch (Exception e) {
             e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -110,10 +112,11 @@ public class Principal extends Application {
 
     public void ventanaPresupuesto() {
         try {
-            PresupuestoController presupuesto = (PresupuestoController) cambiarEscena("PresupuestoView.fxml", 1000, 600);
+            PresupuestoController presupuesto = (PresupuestoController) cambiarEscena("PresupuestoView.fxml", 1000, 650);
             presupuesto.setEscenarioPrincipal(this);
         } catch (Exception e) {
             e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -171,7 +174,7 @@ public class Principal extends Application {
         }
     }
 
-    public void ventanaProductos_has_Platos() {
+    public void ventanaProductos_has_platos() {
         try {
             Productos_has_platoController productos_Has_Platos = (Productos_has_platoController) cambiarEscena("Productos_has_platosView.fxml", 1000, 650);
             productos_Has_Platos.setEscenarioPrincipal(this);
@@ -180,12 +183,23 @@ public class Principal extends Application {
         }
     }
 
-    public void ventanaServicios_has_Platos() {
+    public void ventanaServicios_has_platos() {
         try {
-            Servicios_has_platosController servicios_Has_Platos = (Servicios_has_platosController) cambiarEscena("Servicios_Has_Platos.fxml", 1000, 650);
+            Servicios_has_platosController servicios_Has_Platos = (Servicios_has_platosController) cambiarEscena("Servicios_has_PlatosView.fxml", 1000, 650);
             servicios_Has_Platos.setEscenarioPrincipal(this);
         } catch (Exception e) {
             e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void ventanaServicios_has_empleados() {
+        try {
+            Servicios_has_empleadoController servicios_Has_Empleados = (Servicios_has_empleadoController) cambiarEscena("Servicios_has_Empleados.fxml", 1000, 650);
+            servicios_Has_Empleados.setEscenarioPrincipal(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 

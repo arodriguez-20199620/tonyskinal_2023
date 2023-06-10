@@ -51,20 +51,13 @@ public class UsuarioController implements Initializable {
         String usuario = txtUsuario.getText().trim();
         String contrasena = txtContrasena.getText().trim();
         if (!nombreUsuario.isEmpty() && !apellidoUsuario.isEmpty() && !usuario.isEmpty() && !contrasena.isEmpty()) {
-            if (usuario.contains("@")) {
-                if (confirmarContrasena()) {
-                    guardar();
-                    escenarioPrincipal.ventanaLogin();
-                } else {
-                    alerta.setTitle("Advertencia");
-                    alerta.setHeaderText(null);
-                    alerta.setContentText("La contraseña no coincide");
-                    alerta.showAndWait();
-                }
+            if (confirmarContrasena()) {
+                guardar();
+                escenarioPrincipal.ventanaLogin();
             } else {
                 alerta.setTitle("Advertencia");
                 alerta.setHeaderText(null);
-                alerta.setContentText("El usuario ingresado no es apoto");
+                alerta.setContentText("La contraseña no coincide");
                 alerta.showAndWait();
             }
         } else {

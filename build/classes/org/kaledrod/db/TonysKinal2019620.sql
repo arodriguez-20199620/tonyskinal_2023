@@ -95,7 +95,7 @@ Create table Productos_has_Platos(
     codigoProducto int not null, 
     primary key PK_Productos_codigoProducto (Productos_codigoProducto),
 	constraint FK_Productos_has_Platos_Productos foreign key (codigoProducto) 
-		references Productos(codigoProducto), 
+		references Productos(codigoProducto) on delete cascade, 
 	constraint FK_Productos_has_Platos_Platos foreign key (codigoPlato)
 		references Platos(codigoPlato) on delete cascade
 ); 
@@ -106,7 +106,7 @@ Create table Servicios_has_Platos(
     codigoServicio int not null, 
     primary key PK_Servicios_codigoServicio (Servicios_codigoServicio), 
     constraint FK_Servicios_has_Platos_Servicios foreign key (codigoServicio)
-		references Servicios(codigoServicio), 
+		references Servicios(codigoServicio) on delete cascade, 
 	constraint FK_Servicios_has_Platos_Platos foreign key (codigoPlato) 
 		references Platos(codigoPlato) on delete cascade
 );
@@ -120,7 +120,7 @@ Create table Servicios_has_Empleados(
     lugarEvento varchar(150) not null, 
     primary key PK_Servicios_codigoServicio (Servicios_codigoServicio), 
     constraint FK_Servicios_has_Empleados_Servicios foreign key (codigoServicio)
-		references Servicios(codigoServicio), 
+		references Servicios(codigoServicio) on delete cascade, 
 	constraint FK_Servicios_has_Empleados_Empleados foreign key (codigoEmpleado) 
 		references Empleados(codigoEmpleado) on delete cascade
 ); 
@@ -158,6 +158,7 @@ Delimiter $$
 Delimiter ;
 call sp_AgregarUsuario('Angel','Rodriguez','arodriguez-2019620@kinal.edu.gt','1234');
 Call sp_ListarUsuarios();
+use dbtonyskinal2019620;
 
 
 Create table Login(
@@ -817,6 +818,7 @@ Delimiter //
 	Create procedure sp_BuscarServicio_has_Empleado(in Servicio_codServicio int)
 		Begin
 			Select
+            SHE.Servicios_codigoServicio,
             SHE.codigoServicio, 
             SHE.codigoEmpleado,
             SHE.fechaEvento,

@@ -9,6 +9,7 @@ import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -16,10 +17,13 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -35,10 +39,7 @@ import org.kaledrod.main.Principal;
  */
 public class ProductoController implements Initializable {
 
-    private enum operaciones {
-        NUEVO, GUARDAR, ELIMINAR, ACTUALIZAR, CANCELAR, NINGUNO
-    };
-    private operaciones tipoOperacion = operaciones.NINGUNO;
+    Alert alerta = new Alert(Alert.AlertType.WARNING);
     private Principal escenarioPrincipal;
     private ObservableList<Producto> listaProducto;
 
@@ -74,25 +75,13 @@ public class ProductoController implements Initializable {
     private TableColumn colCantidad;
     @FXML
     private TableColumn colAccion;
-// ImageView
-    @FXML
-    private ImageView imgRegresar;
-    @FXML
-    private ImageView imgCerrar;
-    @FXML
-    private ImageView imgNuevo;
-    @FXML
-    private ImageView imgEliminar;
-    @FXML
-    private ImageView imgEditar;
-    @FXML
-    private ImageView imgReporte;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         desactivarControles();
         cargarDatos();
         asignarBoton();
+        formatoNumero(txtCantidad); 
     }
 //  Cargar los datos en ls columnas de la tabla
 
@@ -129,12 +118,18 @@ public class ProductoController implements Initializable {
             txtNombreProducto.setText(((Producto) tblProductos.getSelectionModel().getSelectedItem()).getNombreProducto());
             txtCantidad.setText(String.valueOf(((Producto) tblProductos.getSelectionModel().getSelectedItem()).getCantidad()));
         } else {
-            JOptionPane.showMessageDialog(null, "Selecciona un campo que tenga datos.");
+            alerta.setTitle("Advertencia");
+            alerta.setHeaderText(null);
+            alerta.setContentText("Selecciona un campo que tenga datos");
+            alerta.showAndWait();
         }
     }
 
 //  Cambio de botones de cancelar y guardar   
     public void nuevo() {
+        btnNuevo.setDisable(true);
+        btnEditar.setDisable(true);
+        btnReporte.setDisable(true);
         tblProductos.setOnMouseClicked(null);
         limpiarControles();
         activarControles();
@@ -143,22 +138,34 @@ public class ProductoController implements Initializable {
             limpiarControles();
             desactivarControles();
             activarTbl();
+            btnNuevo.setDisable(false);
+            btnEditar.setDisable(false);
+            btnReporte.setDisable(false);
         });
         btnConfirmar.setOnAction(e -> {
             String nombreProducto = txtNombreProducto.getText().trim();
             String cantidad = txtCantidad.getText().trim();
             if (!nombreProducto.isEmpty() && !cantidad.isEmpty()) {
                 guardar();
+                cargarDatos();
                 limpiarControles();
                 desactivarControles();
                 activarTbl();
-                btnNuevo.setStyle("");
+                btnNuevo.setDisable(false);
+                btnEditar.setDisable(false);
+                btnReporte.setDisable(false);
                 cargarDatos();
             } else {
                 limpiarControles();
                 desactivarControles();
                 activarTbl();
-                JOptionPane.showMessageDialog(null, "No se han ingresado datos", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                alerta.setTitle("Advertencia");
+                alerta.setHeaderText(null);
+                alerta.setContentText("Por favor, complete todos los campos.");
+                alerta.showAndWait();
+                btnNuevo.setDisable(false);
+                btnEditar.setDisable(false);
+                btnReporte.setDisable(false);
             }
         });
     }
@@ -181,11 +188,17 @@ public class ProductoController implements Initializable {
 
     public void editar() {
         if (tblProductos.getSelectionModel().getSelectedItem() != null) {
+            btnNuevo.setDisable(true);
+            btnEditar.setDisable(true);
+            btnReporte.setDisable(true);
             activarControles();
             btnCancelar.setOnAction(e -> {
                 limpiarControles();
                 desactivarControles();
                 deseleccionar();
+                btnNuevo.setDisable(false);
+                btnEditar.setDisable(false);
+                btnReporte.setDisable(false);
             });
             btnConfirmar.setOnAction(e -> {
                 actualizar();
@@ -193,10 +206,18 @@ public class ProductoController implements Initializable {
                 limpiarControles();
                 desactivarControles();
                 cargarDatos();
-
+                btnNuevo.setDisable(false);
+                btnEditar.setDisable(false);
+                btnReporte.setDisable(false);
             });
         } else {
-            JOptionPane.showMessageDialog(null, "Debe seleccionar un elemento;)", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            alerta.setTitle("Advertencia");
+            alerta.setHeaderText(null);
+            alerta.setContentText("Es importante que seleccione un elemento para poder editar");
+            alerta.showAndWait();
+            btnNuevo.setDisable(false);
+            btnEditar.setDisable(false);
+            btnReporte.setDisable(false);
         }
     }
 
@@ -216,11 +237,13 @@ public class ProductoController implements Initializable {
     }
 
     public void eliminar(ActionEvent event) {
-        int respuesta;
         for (int i = 0; i < listaProducto.size(); i++) {
             if (event.getSource() == listaProducto.get(i).getEliminar()) {
-                respuesta = JOptionPane.showConfirmDialog(null, "Está seguro de eliminar el registro?", "Eliminar Producto", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-                if (respuesta == JOptionPane.YES_OPTION) {
+                Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+                confirmationAlert.setTitle("Confirmación");
+                confirmationAlert.setHeaderText("¿Está seguro de eliminar el registro?");
+                Optional<ButtonType> result = confirmationAlert.showAndWait();
+                if (result.isPresent() && result.get() == ButtonType.OK) {
                     try {
                         PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_EliminarProducto(?)");
                         procedimiento.setInt(1, listaProducto.get(i).getCodigoProducto());
@@ -231,7 +254,7 @@ public class ProductoController implements Initializable {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                } else if (respuesta == JOptionPane.NO_OPTION) {
+                } else {
                     desactivarControles();
                     deseleccionar();
                     limpiarControles();
@@ -241,21 +264,25 @@ public class ProductoController implements Initializable {
     }
 
     public void reporte() {
-        switch (tipoOperacion) {
-            case ACTUALIZAR:
-                limpiarControles();
-                desactivarControles();
-                deseleccionar();
-                btnEditar.setText("Editar");
-                btnReporte.setText("Reporte");
-                btnNuevo.setDisable(false);
-                btnEliminar.setDisable(false);
-                imgEditar.setImage(new Image("/org/kaledrod/image/Editar.png"));
-                imgReporte.setImage(new Image("/org/kaledrod/image/Reporte.png"));
-                tipoOperacion = ProductoController.operaciones.NINGUNO;
-                tblProductos.getSelectionModel().clearSelection();
-                break;
-        }
+
+    }
+
+    public void formatoNumero(TextField textField) {
+        // Crear un TextFormatter que solo permita dígitos
+        TextFormatter<String> textFormatter = new TextFormatter<>(change -> {
+            String newText = change.getControlNewText();
+            if (newText.matches("\\d*")) { // Verificar si solo contiene dígitos
+                return change; // Aceptar el cambio
+            } else {
+                alerta.setTitle("Advertencia");
+                alerta.setHeaderText(null);
+                alerta.setContentText("Debes ingresar numeros");
+                alerta.showAndWait();
+
+                return null; // Rechazar el cambio
+            }
+        });
+        textField.setTextFormatter(textFormatter);
     }
 
     public void deseleccionar() {
@@ -287,7 +314,7 @@ public class ProductoController implements Initializable {
 
 //  habilitar los texfield
     public void activarControles() {
-          btnConfirmar.setVisible(true);
+        btnConfirmar.setVisible(true);
         btnCancelar.setVisible(true);
         txtCodProducto.setEditable(false);
         txtNombreProducto.setEditable(true);

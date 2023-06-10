@@ -8,14 +8,15 @@ package org.kaledrod.bean;
 import javafx.scene.control.Button;
 
 public class Empleado {
-    private int codigoEmpleado; 
-    private int numeroEmpleado; 
-    private String apellidosEmpleado; 
-    private String nombresEmpleado; 
-    private String direccionEmpleado; 
-    private String telefonoContacto; 
-    private String gradoCocinero; 
-    private int codigoTipoEmpleado; 
+
+    private int codigoEmpleado;
+    private int numeroEmpleado;
+    private String apellidosEmpleado;
+    private String nombresEmpleado;
+    private String direccionEmpleado;
+    private String telefonoContacto;
+    private String gradoCocinero;
+    private int codigoTipoEmpleado;
     private Button eliminar;
 
     public Empleado() {
@@ -95,7 +96,7 @@ public class Empleado {
 
     public void setCodigoTipoEmpleado(int codigoTipoEmpleado) {
         this.codigoTipoEmpleado = codigoTipoEmpleado;
-    }    
+    }
 
     public Button getEliminar() {
         return eliminar;
@@ -104,5 +105,10 @@ public class Empleado {
     public void setEliminar(Button eliminar) {
         this.eliminar = eliminar;
     }
-    
+
+    @Override
+    public String toString() {
+        return  codigoEmpleado + " | " + nombresEmpleado;
+    }
+
 }

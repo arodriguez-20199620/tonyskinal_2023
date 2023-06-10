@@ -10,13 +10,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -34,10 +37,7 @@ import org.kaledrod.main.Principal;
  */
 public class TipoEmpleadoController implements Initializable {
 
-    private enum operaciones {
-        NUEVO, GUARDAR, ELIMINAR, ACTUALIZAR, CANCELAR, NINGUNO
-    };
-    private operaciones tipoOperacion = operaciones.NINGUNO;
+    Alert alerta = new Alert(Alert.AlertType.WARNING);
     private Principal escenarioPrincipal;
     private ObservableList<TipoEmpleado> listaTipoEmpleado;
 
@@ -117,11 +117,17 @@ public class TipoEmpleadoController implements Initializable {
             txtCodTipoEmpleado.setText(String.valueOf(((TipoEmpleado) tblTipoEmpleados.getSelectionModel().getSelectedItem()).getCodigoTipoEmpleado()));
             txtDescripcion.setText(((TipoEmpleado) tblTipoEmpleados.getSelectionModel().getSelectedItem()).getDescripcion());
         } else {
-            JOptionPane.showMessageDialog(null, "Selecciona un campo que tenga datos");
+            alerta.setTitle("Advertencia");
+            alerta.setHeaderText(null);
+            alerta.setContentText("Selecciona un campo que tenga datos");
+            alerta.showAndWait();
         }
     }
 
     public void nuevo() {
+        btnNuevo.setDisable(true);
+        btnEditar.setDisable(true);
+        btnReporte.setDisable(true);
         tblTipoEmpleados.setOnMouseClicked(null);
         limpiarControles();
         activarControles();
@@ -130,20 +136,33 @@ public class TipoEmpleadoController implements Initializable {
             limpiarControles();
             desactivarControles();
             activarTbl();
+            btnNuevo.setDisable(false);
+            btnEditar.setDisable(false);
+            btnReporte.setDisable(false);
         });
         btnConfirmar.setOnAction(e -> {
             String descripcion = txtDescripcion.getText().trim();
             if (!descripcion.isEmpty()) {
                 guardar();
+                cargarDatos();
                 limpiarControles();
                 desactivarControles();
                 activarTbl();
-                cargarDatos();
+                btnNuevo.setDisable(false);
+                btnEditar.setDisable(false);
+                btnReporte.setDisable(false);
             } else {
                 limpiarControles();
                 desactivarControles();
                 activarTbl();
-                JOptionPane.showMessageDialog(null, "No se han ingresado datos", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                alerta.setTitle("Advertencia");
+                alerta.setHeaderText(null);
+                alerta.setContentText("Por favor, complete todos los campos.");
+                alerta.showAndWait();
+                btnNuevo.setDisable(false);
+                btnEditar.setDisable(false);
+                btnReporte.setDisable(false);
+
             }
         });
     }
@@ -166,13 +185,15 @@ public class TipoEmpleadoController implements Initializable {
     }
 
     public void eliminar(ActionEvent event) {
-        int respuesta;
         for (int i = 0; i < listaTipoEmpleado.size(); i++) {
             if (event.getSource() == listaTipoEmpleado.get(i).getEliminar()) {
 
-                respuesta = JOptionPane.showConfirmDialog(null, "Está seguro de eliminar el registro?", "Eliminar Empresa", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+                confirmationAlert.setTitle("Confirmación");
+                confirmationAlert.setHeaderText("¿Está seguro de eliminar el registro?");
 
-                if (respuesta == JOptionPane.YES_OPTION) {
+                Optional<ButtonType> result = confirmationAlert.showAndWait();
+                if (result.isPresent() && result.get() == ButtonType.OK) {
                     try {
                         PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_EliminarTipoEmpleado(?)");
                         procedimiento.setInt(1, listaTipoEmpleado.get(i).getCodigoTipoEmpleado());
@@ -183,7 +204,7 @@ public class TipoEmpleadoController implements Initializable {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                } else if (respuesta == JOptionPane.NO_OPTION) {
+                } else {
                     desactivarControles();
                     deseleccionar();
                     limpiarControles();
@@ -195,11 +216,19 @@ public class TipoEmpleadoController implements Initializable {
 
     public void editar() {
         if (tblTipoEmpleados.getSelectionModel().getSelectedItem() != null) {
+            btnNuevo.setDisable(true);
+            btnEditar.setDisable(true);
+            btnReporte.setDisable(true);
             activarControles();
             btnCancelar.setOnAction(e -> {
+                actualizar();
+                deseleccionar();
                 limpiarControles();
                 desactivarControles();
-                deseleccionar();
+                cargarDatos();
+                btnNuevo.setDisable(false);
+                btnEditar.setDisable(false);
+                btnReporte.setDisable(false);
             });
             btnConfirmar.setOnAction(e -> {
                 actualizar();
@@ -207,10 +236,18 @@ public class TipoEmpleadoController implements Initializable {
                 limpiarControles();
                 desactivarControles();
                 cargarDatos();
-
+                btnNuevo.setDisable(false);
+                btnEditar.setDisable(false);
+                btnReporte.setDisable(false);
             });
         } else {
-            JOptionPane.showMessageDialog(null, "Debe seleccionar un elemento;)", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            alerta.setTitle("Advertencia");
+            alerta.setHeaderText(null);
+            alerta.setContentText("Es importante que seleccione un elemento para poder editar");
+            alerta.showAndWait();
+            btnNuevo.setDisable(false);
+            btnEditar.setDisable(false);
+            btnReporte.setDisable(false);
         }
     }
 
@@ -228,20 +265,7 @@ public class TipoEmpleadoController implements Initializable {
     }
 
     public void reporte() {
-        switch (tipoOperacion) {
-            case ACTUALIZAR:
-                limpiarControles();
-                desactivarControles();
-                deseleccionar();
-                btnEditar.setText("Editar");
-                btnReporte.setText("Reporte");
-                btnNuevo.setDisable(false);
-                imgEditar.setImage(new Image("/org/kaledrod/image/Editar.png"));
-                imgReporte.setImage(new Image("/org/kaledrod/image/Reporte.png"));
-                tipoOperacion = TipoEmpleadoController.operaciones.NINGUNO;
-                tblTipoEmpleados.getSelectionModel().clearSelection();
-                break;
-        }
+
     }
 
     public void deseleccionar() {

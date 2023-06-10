@@ -104,6 +104,6 @@ public class Servicios {
 
     @Override
     public String toString() {
-        return codigoEmpresa + " | " + tipoServicio;
+        return codigoServicio + " | " + tipoServicio;
     }
 }

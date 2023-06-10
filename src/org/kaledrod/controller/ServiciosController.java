@@ -5,7 +5,6 @@
  */
 package org.kaledrod.controller;
 
-import eu.schudt.javafx.controls.calendar.DatePicker;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
@@ -23,7 +22,6 @@ import java.util.Locale;
 import java.util.Optional;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
-import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
@@ -59,8 +57,6 @@ public class ServiciosController implements Initializable {
 //  Declaracion de Botones
     @FXML
     private Button btnNuevo;
-    @FXML
-    private Button btnEliminar;
     @FXML
     private Button btnEditar;
     @FXML
@@ -111,10 +107,12 @@ public class ServiciosController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         cargarDatos();
         asignarBoton();
-        fecha = new JFXDatePicker(LocalDate.MAX);
+        fecha = new JFXDatePicker();
         fecha.getStylesheets().add("/org/kaledrod/resourse/TonysKinal.css");
+        fecha.getStyleClass().add("jfx-date-picker1");
         hora = new JFXTimePicker();
         hora.getStylesheets().add("/org/kaledrod/resourse/TonysKinal.css");
+        hora.getStyleClass().add("jfx-time-picker1");
         grpFechaHora.add(fecha, 3, 0);
         grpFechaHora.add(hora, 3, 1);
         cmbCodEmpresa.setItems(getEmpresa());
@@ -190,6 +188,9 @@ public class ServiciosController implements Initializable {
     }
 
     public void nuevo() {
+        btnNuevo.setDisable(true);
+        btnEditar.setDisable(true);
+        btnReporte.setDisable(true);
         tblServicios.setOnMouseClicked(null);
         limpiarControles();
         activarControles();
@@ -198,17 +199,24 @@ public class ServiciosController implements Initializable {
             limpiarControles();
             desactivarControles();
             activarTbl();
+            btnNuevo.setDisable(false);
+            btnEditar.setDisable(false);
+            btnReporte.setDisable(false);
         });
         btnConfirmar.setOnAction(e -> {
             String tipoServicio = txtTipoServicio.getText().trim();
             String lugarServicio = txtTipoServicio.getText().trim();
             String telefonoContacto = txtTelefonoContacto.getText().trim();
-            if (!tipoServicio.isEmpty() && !lugarServicio.isEmpty() && !telefonoContacto.isEmpty()) {
+            if (!tipoServicio.isEmpty() && !lugarServicio.isEmpty() && !telefonoContacto.isEmpty() && (cmbCodEmpresa.getSelectionModel().getSelectedItem() != null
+                    && (fecha.getValue() != null) && (hora.getValue() != null))) {
                 guardar();
                 cargarDatos();
                 limpiarControles();
                 desactivarControles();
                 activarTbl();
+                btnNuevo.setDisable(false);
+                btnEditar.setDisable(false);
+                btnReporte.setDisable(false);
             } else {
                 limpiarControles();
                 desactivarControles();
@@ -217,6 +225,9 @@ public class ServiciosController implements Initializable {
                 alerta.setHeaderText(null);
                 alerta.setContentText("Por favor, complete todos los campos.");
                 alerta.showAndWait();
+                btnNuevo.setDisable(false);
+                btnEditar.setDisable(false);
+                btnReporte.setDisable(false);
             }
         });
     }

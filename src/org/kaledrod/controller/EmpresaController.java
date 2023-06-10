@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,6 +18,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -35,13 +37,9 @@ import org.kaledrod.report.GenerarReporte;
  * @author Kaled Rodriguez
  */
 public class EmpresaController implements Initializable {
-    
+
     Alert alerta = new Alert(Alert.AlertType.WARNING);
 
-    private enum operaciones {
-        NUEVO, GUARDAR, ELIMINAR, ACTUALIZAR, CANCELAR, NINGUNO
-    };
-    private operaciones tipoOperacion = operaciones.NINGUNO;
     private Principal escenarioPrincipal;
 
     private ObservableList<Empresa> listaEmpresa;
@@ -79,15 +77,6 @@ public class EmpresaController implements Initializable {
     private TableColumn colTelefono;
     @FXML
     private TableColumn colAccion;
-// ImageView
-    @FXML
-    private ImageView imgNuevo;
-    @FXML
-    private ImageView imgEliminar;
-    @FXML
-    private ImageView imgEditar;
-    @FXML
-    private ImageView imgReporte;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -125,20 +114,24 @@ public class EmpresaController implements Initializable {
     }
 
     public void seleccionarElemento() {
-        if (tblEmpresas.getSelectionModel().getSelectedItem() == null) {
-            alerta.setTitle("Advertencia");
-            alerta.setHeaderText(null);
-            alerta.setContentText("Selecciona un campo que tenga datos");
-            alerta.showAndWait();
-        } else {
+        if (tblEmpresas.getSelectionModel().getSelectedItem() != null) {
             txtCodEmpresa.setText(String.valueOf(((Empresa) tblEmpresas.getSelectionModel().getSelectedItem()).getCodigoEmpresa()));
             txtNombreEmpresa.setText(((Empresa) tblEmpresas.getSelectionModel().getSelectedItem()).getNombreEmpresa());
             txtDireccion.setText(((Empresa) tblEmpresas.getSelectionModel().getSelectedItem()).getDireccion());
             txtTelefono.setText(((Empresa) tblEmpresas.getSelectionModel().getSelectedItem()).getTelefono());
+        } else {
+            alerta.setTitle("Advertencia");
+            alerta.setHeaderText(null);
+            alerta.setContentText("Selecciona un campo que tenga datos");
+            alerta.showAndWait();
+
         }
     }
 
     public void nuevo() {
+        btnNuevo.setDisable(true);
+        btnEditar.setDisable(true);
+        btnReporte.setDisable(true);
         tblEmpresas.setOnMouseClicked(null);
         limpiarControles();
         activarControles();
@@ -154,18 +147,24 @@ public class EmpresaController implements Initializable {
             String telefono = txtTelefono.getText().trim();
             if (!nombreEmpresa.isEmpty() && !direccion.isEmpty() && !telefono.isEmpty()) {
                 guardar();
+                cargarDatos();
                 limpiarControles();
                 desactivarControles();
                 activarTbl();
-                cargarDatos();
+                btnNuevo.setDisable(false);
+                btnEditar.setDisable(false);
+                btnReporte.setDisable(false);
             } else {
                 limpiarControles();
                 desactivarControles();
                 activarTbl();
                 alerta.setTitle("Advertencia");
-                alerta.setHeaderText("Datos faltantes");
+                alerta.setHeaderText(null);
                 alerta.setContentText("Por favor, complete todos los campos.");
                 alerta.showAndWait();
+                btnNuevo.setDisable(false);
+                btnEditar.setDisable(false);
+                btnReporte.setDisable(false);
             }
         });
 
@@ -206,11 +205,17 @@ public class EmpresaController implements Initializable {
 
     public void editar() {
         if (tblEmpresas.getSelectionModel().getSelectedItem() != null) {
+            btnNuevo.setDisable(true);
+            btnEditar.setDisable(true);
+            btnReporte.setDisable(true);
             activarControles();
             btnCancelar.setOnAction(e -> {
                 limpiarControles();
                 desactivarControles();
                 deseleccionar();
+                btnNuevo.setDisable(false);
+                btnEditar.setDisable(false);
+                btnReporte.setDisable(false);
             });
             btnConfirmar.setOnAction(e -> {
                 actualizar();
@@ -218,13 +223,19 @@ public class EmpresaController implements Initializable {
                 limpiarControles();
                 desactivarControles();
                 cargarDatos();
+                btnNuevo.setDisable(false);
+                btnEditar.setDisable(false);
+                btnReporte.setDisable(false);
 
             });
         } else {
             alerta.setTitle("Advertencia");
-            alerta.setHeaderText("Seleccione un elemento");
+            alerta.setHeaderText(null);
             alerta.setContentText("Es importante que seleccione un elemento para poder editar");
             alerta.showAndWait();
+            btnNuevo.setDisable(false);
+            btnEditar.setDisable(false);
+            btnReporte.setDisable(false);
         }
     }
 
@@ -247,15 +258,13 @@ public class EmpresaController implements Initializable {
     }
 
     public void eliminar(ActionEvent event) {
-        int respuesta;
         for (int i = 0; i < listaEmpresa.size(); i++) {
             if (event.getSource() == listaEmpresa.get(i).getEliminar()) {
-                if (buscarPresupuesto(listaEmpresa.get(i).getCodigoEmpresa())) {
-                    respuesta = JOptionPane.showConfirmDialog(null, "Está seguro de eliminar el registro? Ya que esta conectado con otros datos de presupuesto", "Eliminar Empresa", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-                } else {
-                    respuesta = JOptionPane.showConfirmDialog(null, "Está seguro de eliminar el registro?", "Advertencia", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-                }
-                if (respuesta == JOptionPane.YES_OPTION) {
+                Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+                confirmationAlert.setTitle("Confirmación");
+                confirmationAlert.setHeaderText("¿Está seguro de eliminar el registro?");
+                Optional<ButtonType> result = confirmationAlert.showAndWait();
+                if (result.isPresent() && result.get() == ButtonType.OK) {
                     try {
                         PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_EliminarEmpresa(?)");
                         procedimiento.setInt(1, listaEmpresa.get(i).getCodigoEmpresa());
@@ -266,7 +275,7 @@ public class EmpresaController implements Initializable {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                } else if (respuesta == JOptionPane.NO_OPTION) {
+                } else {
                     desactivarControles();
                     deseleccionar();
                     limpiarControles();
@@ -287,21 +296,7 @@ public class EmpresaController implements Initializable {
     }
 
     public void reporte() {
-        switch (tipoOperacion) {
-            case ACTUALIZAR:
-                desactivarControles();
-                deseleccionar();
-                limpiarControles();
-                btnEditar.setText("Editar");
-                btnReporte.setText("Reporte");
-                btnNuevo.setDisable(false);
-
-                imgEditar.setImage(new Image("/org/kaledrod/image/Editar.png"));
-                imgReporte.setImage(new Image("/org/kaledrod/image/Reporte.png"));
-                tipoOperacion = operaciones.NINGUNO;
-                tblEmpresas.getSelectionModel().clearSelection();
-                break;
-        }
+       
     }
 
     public void deseleccionar() {

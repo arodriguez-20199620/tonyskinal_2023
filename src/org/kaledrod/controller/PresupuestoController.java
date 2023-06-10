@@ -5,6 +5,7 @@
  */
 package org.kaledrod.controller;
 
+import com.jfoenix.controls.JFXDatePicker;
 import eu.schudt.javafx.controls.calendar.DatePicker;
 import java.net.URL;
 import java.sql.PreparedStatement;
@@ -24,7 +25,6 @@ import javafx.scene.layout.GridPane;
 import org.kaledrod.bean.Empresa;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import javafx.collections.FXCollections;
@@ -34,6 +34,11 @@ import javax.swing.JOptionPane;
 import org.kaledrod.bean.Presupuesto;
 import org.kaledrod.db.Conexion;
 import org.kaledrod.main.Principal;
+import java.sql.Date;
+import java.util.Optional;
+import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import org.kaledrod.report.GenerarReporte;
 
 /**
@@ -42,16 +47,13 @@ import org.kaledrod.report.GenerarReporte;
  */
 public class PresupuestoController implements Initializable {
 
-    public PresupuestoController() {
-    }
+    Alert alerta = new Alert(Alert.AlertType.WARNING);
     private Principal escenarioPrincipal;
-    private enum operaciones {
-        GUARDAR, ELIMINAR, ACTUALIZAR, NINGUNO
-    };
-    private operaciones tipoOperacion = operaciones.NINGUNO;
     private ObservableList<Presupuesto> listaPresupuesto;
     private ObservableList<Empresa> listaEmpresa;
-    private DatePicker fecha;
+
+    @FXML
+    private JFXDatePicker fecha;
     @FXML
     private TextField txtCodigoPresupuesto;
     @FXML
@@ -71,6 +73,8 @@ public class PresupuestoController implements Initializable {
     @FXML
     private TableColumn colCodigoEmpresa;
     @FXML
+    private TableColumn colAccion;
+    @FXML
     private Button btnNuevo;
     @FXML
     private Button btnEliminar;
@@ -79,22 +83,17 @@ public class PresupuestoController implements Initializable {
     @FXML
     private Button btnReporte;
     @FXML
-    private ImageView imgNuevo;
+    private Button btnConfirmar;
     @FXML
-    private ImageView imgEliminar;
-    @FXML
-    private ImageView imgEditar;
-    @FXML
-    private ImageView imgReporte;
+    private Button btnCancelar;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cargarDatos();
-        fecha = new DatePicker(Locale.ENGLISH);
-        fecha.setDateFormat(new SimpleDateFormat("yyyy-MM-dd"));
-        fecha.getCalendarView().todayButtonTextProperty().set("Today");
-        fecha.getCalendarView().setShowWeeks(false);
+        asignarBoton();
+        fecha = new JFXDatePicker();
         fecha.getStylesheets().add("/org/kaledrod/resourse/TonysKinal.css");
+        fecha.getStyleClass().add("jfx-date-picker1");
         grpFecha.add(fecha, 3, 0);
         cmbCodigoEmpresa.setItems(getEmpresa());
         desactivarControles();
@@ -107,6 +106,8 @@ public class PresupuestoController implements Initializable {
         colFechaSolicitud.setCellValueFactory(new PropertyValueFactory<Presupuesto, String>("fechaSolicitud"));
         colCantidadPresupuesto.setCellValueFactory(new PropertyValueFactory<Presupuesto, String>("cantidadPresupuesto"));
         colCodigoEmpresa.setCellValueFactory(new PropertyValueFactory<Presupuesto, String>("codigoEmpresa"));
+        colAccion.setCellValueFactory(new PropertyValueFactory<Presupuesto, String>("eliminar"));
+        asignarBoton();
     }
 
     public ObservableList<Presupuesto> getPresupuesto() {
@@ -116,7 +117,7 @@ public class PresupuestoController implements Initializable {
             ResultSet resultado = procedimiento.executeQuery();
             while (resultado.next()) {
                 lista.add(new Presupuesto(resultado.getInt("codigoPresupuesto"),
-                        resultado.getDate("fechaSolicitud"),
+                        resultado.getDate("fechaSolicitud").toLocalDate(),
                         resultado.getDouble("cantidadPresupuesto"),
                         resultado.getInt("codigoEmpresa")));
             }
@@ -165,139 +166,134 @@ public class PresupuestoController implements Initializable {
     public void seleccionarElemento() {
         if (tblPresupuestos.getSelectionModel().getSelectedItem() != null) {
             txtCodigoPresupuesto.setText(String.valueOf(((Presupuesto) tblPresupuestos.getSelectionModel().getSelectedItem()).getCodigoPresupuesto()));
-            fecha.selectedDateProperty().set(((Presupuesto) tblPresupuestos.getSelectionModel().getSelectedItem()).getFechaSolicitud());
+            fecha.setValue(((Presupuesto) tblPresupuestos.getSelectionModel().getSelectedItem()).getFechaSolicitud());
             txtCantidadPresupuesto.setText(String.valueOf(((Presupuesto) tblPresupuestos.getSelectionModel().getSelectedItem()).getCantidadPresupuesto()));
             cmbCodigoEmpresa.getSelectionModel().select(buscarEmpresa(((Presupuesto) tblPresupuestos.getSelectionModel().getSelectedItem()).getCodigoEmpresa()));
         } else {
-            JOptionPane.showMessageDialog(null, "Selecciona un campo que tenga datos.");
+            alerta.setTitle("Advertencia");
+            alerta.setHeaderText(null);
+            alerta.setContentText("Selecciona un campo que tenga datos");
+            alerta.showAndWait();
         }
     }
 
     public void nuevo() {
-        switch (tipoOperacion) {
-            case NINGUNO:
-                deseleccionar();
-                activarControles();
-                btnNuevo.setText("Guardar");
-                btnEliminar.setText("Cancelar");
-                btnEditar.setDisable(true);
-                btnReporte.setDisable(true);
-                imgNuevo.setImage(new Image("/org/kaledrod/image/Guardar.png"));
-                imgEliminar.setImage(new Image("/org/kaledrod/image/Cancelar.png"));
-                tipoOperacion = operaciones.GUARDAR;
-                break;
-            case GUARDAR:
+        btnNuevo.setDisable(true);
+        btnEditar.setDisable(true);
+        btnReporte.setDisable(true);
+        tblPresupuestos.setOnMouseClicked(null);
+        limpiarControles();
+        activarControles();
+        deseleccionar();
+        btnCancelar.setOnAction(e -> {
+            limpiarControles();
+            desactivarControles();
+            activarTbl();
+            btnNuevo.setDisable(false);
+            btnEditar.setDisable(false);
+            btnReporte.setDisable(false);
+        });
+        btnConfirmar.setOnAction(e -> {
+            String cantidadPresupuesto = txtCantidadPresupuesto.getText().trim();
+            if (!cantidadPresupuesto.isEmpty() && (cmbCodigoEmpresa.getSelectionModel().getSelectedItem() != null) && (fecha.getValue() != null)) {
                 guardar();
-                desactivarControles();
-                btnNuevo.setText("Nuevo");
-                btnEliminar.setText("Eliminar");
-                btnEditar.setDisable(false);
-                btnReporte.setDisable(false);
-                imgNuevo.setImage(new Image("/org/kaledrod/image/Nuevo.png"));
-                imgEliminar.setImage(new Image("/org/kaledrod/image/Eliminar.png"));
-                tipoOperacion = operaciones.NINGUNO;
                 cargarDatos();
                 limpiarControles();
-                break;
-        }
-    }
-
-    public void eliminar() {
-        switch (tipoOperacion) {
-            case GUARDAR:
-                limpiarControles();
                 desactivarControles();
-                btnNuevo.setText("Nuevo");
-                btnEliminar.setText("Eliminar");
+                activarTbl();
+                btnNuevo.setDisable(false);
                 btnEditar.setDisable(false);
                 btnReporte.setDisable(false);
-                imgNuevo.setImage(new Image("/org/kaledrod/image/Nuevo.png"));
-                imgEliminar.setImage(new Image("/org/kaledrod/image/Eliminar.png"));
-                tipoOperacion = operaciones.NINGUNO;
-                break;
-            default:
-                if (tblPresupuestos.getSelectionModel().getSelectedItem() != null) {
-                    int respuesta = JOptionPane.showConfirmDialog(null, "Está seguro de eliminar el registro?", "Eliminar Empresa", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-                    if (respuesta == JOptionPane.YES_OPTION) {
-                        try {
-                            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_EliminarPresupuesto(?)");
-                            procedimiento.setInt(1, ((Presupuesto) tblPresupuestos.getSelectionModel().getSelectedItem()).getCodigoPresupuesto());
-                            procedimiento.execute();
-                            listaPresupuesto.remove(tblPresupuestos.getSelectionModel().getFocusedIndex());
-                            limpiarControles();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
+            } else {
+                limpiarControles();
+                desactivarControles();
+                activarTbl();
+                alerta.setTitle("Advertencia");
+                alerta.setHeaderText(null);
+                alerta.setContentText("Por favor, complete todos los campos.");
+                alerta.showAndWait();
+                btnNuevo.setDisable(false);
+                btnEditar.setDisable(false);
+                btnReporte.setDisable(false);
+            }
+        });
+    }
 
-                    } else if (respuesta == JOptionPane.NO_OPTION) {
-                        desactivarControles();
+    public void eliminar(ActionEvent event) {
+        for (int i = 0; i < listaPresupuesto.size(); i++) {
+            if (event.getSource() == listaPresupuesto.get(i).getEliminar()) {
+                Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+                confirmationAlert.setTitle("Confirmación");
+                confirmationAlert.setHeaderText("¿Está seguro de eliminar el registro?");
+                Optional<ButtonType> result = confirmationAlert.showAndWait();
+                if (result.isPresent() && result.get() == ButtonType.OK) {
+                    try {
+                        PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_EliminarPresupuesto(?)");
+                        procedimiento.setInt(1, listaPresupuesto.get(i).getCodigoPresupuesto());
+                        procedimiento.execute();
+                        listaPresupuesto.remove(tblPresupuestos.getItems().get(i));
                         deseleccionar();
+                        limpiarControles();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 } else {
-                    JOptionPane.showMessageDialog(null, "Debe seleccionar un elemnto :0");
+                    desactivarControles();
+                    deseleccionar();
+                    limpiarControles();
                 }
+            }
         }
     }
 
     public void editar() {
-        switch (tipoOperacion) {
-            case NINGUNO:
-                if (tblPresupuestos.getSelectionModel().getSelectedItem() != null) {
-                    btnNuevo.setDisable(true);
-                    btnEliminar.setDisable(true);
-                    btnEditar.setText("Actualizar");
-                    btnReporte.setText("Cancelar");
-                    imgEditar.setImage(new Image("/org/kaledrod/image/Actualizar.png"));
-                    imgReporte.setImage(new Image("/org/kaledrod/image/Cancelar.png"));
-                    activarControles();
-                    tipoOperacion = operaciones.ACTUALIZAR;
-                } else {
-                    JOptionPane.showMessageDialog(null, "Debe seleccionar un elemento;) ");
-                }
-                break;
-            case ACTUALIZAR:
-                actualizar();
-                btnNuevo.setDisable(false);
-                btnEliminar.setDisable(false);
-                btnEditar.setText("Editar");
-                btnReporte.setText("Reporte");
-                imgEditar.setImage(new Image("/org/kaledrod/image/Editar.png"));
-                imgReporte.setImage(new Image("/org/kaledrod/image/Reporte.png"));
-                tipoOperacion = operaciones.NINGUNO;
-                cargarDatos();
+        if (tblPresupuestos.getSelectionModel().getSelectedItem() != null) {
+            btnNuevo.setDisable(true);
+            btnEditar.setDisable(true);
+            btnReporte.setDisable(true);
+            activarControles();
+            btnCancelar.setOnAction(e -> {
+                limpiarControles();
                 desactivarControles();
                 deseleccionar();
-                break;
+                btnNuevo.setDisable(false);
+                btnEditar.setDisable(false);
+                btnReporte.setDisable(false);
+            });
+            btnConfirmar.setOnAction(e -> {
+                actualizar();
+                deseleccionar();
+                limpiarControles();
+                desactivarControles();
+                cargarDatos();
+                btnNuevo.setDisable(false);
+                btnEditar.setDisable(false);
+                btnReporte.setDisable(false);
+            });
+        } else {
+            alerta.setTitle("Advertencia");
+            alerta.setHeaderText(null);
+            alerta.setContentText("Es importante que seleccione un elemento para poder editar");
+            alerta.showAndWait();
+            btnNuevo.setDisable(false);
+            btnEditar.setDisable(false);
+            btnReporte.setDisable(false);
         }
     }
 
     public void reporte() {
-        switch (tipoOperacion) {
-            case ACTUALIZAR:
-                limpiarControles();
-                desactivarControles();
-                deseleccionar();
-                btnEditar.setText("Editar");
-                btnReporte.setText("Reporte");
-                btnNuevo.setDisable(false);
-                btnEliminar.setDisable(false);
-                imgEditar.setImage(new Image("/org/kaledrod/image/Editar.png"));
-                imgReporte.setImage(new Image("/org/kaledrod/image/Reporte.png"));
-                tipoOperacion = operaciones.NINGUNO;
-                tblPresupuestos.getSelectionModel().clearSelection();
-                break;
-        }
+
     }
 
     public void actualizar() {
         Presupuesto registro = (Presupuesto) tblPresupuestos.getSelectionModel().getSelectedItem();
-        registro.setFechaSolicitud(fecha.getSelectedDate());
+        registro.setFechaSolicitud(fecha.getValue());
         registro.setCantidadPresupuesto(Double.parseDouble(txtCantidadPresupuesto.getText()));
         registro.setCodigoEmpresa(((Empresa) cmbCodigoEmpresa.getSelectionModel().getSelectedItem()).getCodigoEmpresa());
         try {
             PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_EditarPresupuesto(?, ?, ?, ?)");
             procedimiento.setInt(1, registro.getCodigoPresupuesto());
-            procedimiento.setDate(2, new java.sql.Date(registro.getFechaSolicitud().getTime()));
+            procedimiento.setDate(2, Date.valueOf(registro.getFechaSolicitud()));
             procedimiento.setDouble(3, registro.getCantidadPresupuesto());
             procedimiento.setInt(4, registro.getCodigoEmpresa());
             procedimiento.execute();
@@ -308,12 +304,12 @@ public class PresupuestoController implements Initializable {
 
     public void guardar() {
         Presupuesto registro = new Presupuesto();
-        registro.setFechaSolicitud(fecha.getSelectedDate());
+        registro.setFechaSolicitud(fecha.getValue());
         registro.setCantidadPresupuesto(Double.parseDouble(txtCantidadPresupuesto.getText()));
         registro.setCodigoEmpresa(((Empresa) cmbCodigoEmpresa.getSelectionModel().getSelectedItem()).getCodigoEmpresa());
         try {
             PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_AgregarPresupuesto(?,?,?)");
-            procedimiento.setDate(1, new java.sql.Date(registro.getFechaSolicitud().getTime()));
+            procedimiento.setDate(1, Date.valueOf(registro.getFechaSolicitud()));
             procedimiento.setDouble(2, registro.getCantidadPresupuesto());
             procedimiento.setInt(3, registro.getCodigoEmpresa());
             procedimiento.execute();
@@ -339,7 +335,23 @@ public class PresupuestoController implements Initializable {
         limpiarControles();
     }
 
+    public void activarTbl() {
+        tblPresupuestos.setOnMouseClicked(a -> {
+            seleccionarElemento();
+        });
+    }
+
+    public void asignarBoton() {
+        for (int i = 0; i < listaPresupuesto.size(); i++) {
+            listaPresupuesto.get(i).getEliminar().setOnAction(this::eliminar);
+            listaPresupuesto.get(i).getEliminar().getStylesheets().add("/org/kaledrod/resourse/TonysKinal.css");
+            listaPresupuesto.get(i).getEliminar().getStyleClass().add("eliminar");
+        }
+    }
+
     public void desactivarControles() {
+        btnCancelar.setVisible(false);
+        btnConfirmar.setVisible(false);
         txtCodigoPresupuesto.setEditable(false);
         txtCantidadPresupuesto.setEditable(false);
         fecha.setDisable(true);
@@ -347,6 +359,8 @@ public class PresupuestoController implements Initializable {
     }
 
     public void activarControles() {
+        btnCancelar.setVisible(true);
+        btnConfirmar.setVisible(true);
         txtCodigoPresupuesto.setEditable(false);
         txtCantidadPresupuesto.setEditable(true);
         fecha.setDisable(false);
@@ -356,7 +370,7 @@ public class PresupuestoController implements Initializable {
     public void limpiarControles() {
         txtCodigoPresupuesto.clear();
         txtCantidadPresupuesto.clear();
-        fecha.setSelectedDate(null);
+        fecha.setValue(null);
         cmbCodigoEmpresa.setValue(null);
     }
 
@@ -368,7 +382,7 @@ public class PresupuestoController implements Initializable {
         this.escenarioPrincipal = escenarioPrincipal;
     }
 
-    public void regresar() {
+    public void menuPrincipal() {
         escenarioPrincipal.menuPrincipal();
     }
 

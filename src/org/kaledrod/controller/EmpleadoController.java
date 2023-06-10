@@ -227,7 +227,7 @@ public class EmpleadoController implements Initializable {
             String direccionEmpleado = txtDireccionEmpleado.getText().trim();
             String telefonoContacto = txtTelefonoContacto.getText().trim();
             String gradoCocinero = txtGradoCocinero.getText().trim();
-            if (!numeroEmpleado.isEmpty() && !apellidosEmpleado.isEmpty() && !nombresEmpleado.isEmpty() && !direccionEmpleado.isEmpty() && !telefonoContacto.isEmpty() && !gradoCocinero.isEmpty()) {
+            if (!numeroEmpleado.isEmpty() && !apellidosEmpleado.isEmpty() && !nombresEmpleado.isEmpty() && !direccionEmpleado.isEmpty() && !telefonoContacto.isEmpty() && !gradoCocinero.isEmpty()&&(cmbCodTipoEmpleado.getSelectionModel().getSelectedItem() != null)) {
                 guardar();
                 cargarDatos();
                 limpiarControles();

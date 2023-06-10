@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" style="-fx-background-color: #0D1117;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kaledrod.controller.Productos_has_platoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" style="-fx-background-color: #0D1117;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kaledrod.controller.Servicios_has_platosController">
    <children>
       <AnchorPane layoutX="14.0" layoutY="105.0" prefHeight="196.0" prefWidth="900.0" style="-fx-background-color: #161B22; -fx-background-radius: 20;" AnchorPane.bottomAnchor="440.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="40.0">
          <children>
@@ -31,20 +31,20 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TextField fx:id="txtProdCodProducto" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="20.0" prefWidth="250.0" styleClass="text-field2" stylesheets="@../resourse/TonysKinal.css" GridPane.valignment="BOTTOM" />
+                  <TextField fx:id="txtServicioCodPlato" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="20.0" prefWidth="250.0" styleClass="text-field2" stylesheets="@../resourse/TonysKinal.css" GridPane.valignment="BOTTOM" />
                   <Label text="Codigo Plato" textFill="WHITE" GridPane.columnIndex="1" GridPane.valignment="CENTER">
                      <font>
                         <Font name="Arial" size="16.0" />
                      </font>
                   </Label>
-                  <Label text="Productos_codigoProducto" textFill="WHITE" GridPane.valignment="CENTER">
+                  <Label text="Servicios_codigoServicio" textFill="WHITE" GridPane.valignment="CENTER">
                      <font>
                         <Font name="Arial" size="18.0" />
                      </font>
                   </Label>
                   <ComboBox fx:id="cmbCodPlato" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: #0D1117;" styleClass="combo-box2" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="1" GridPane.valignment="BOTTOM" />
-                  <ComboBox fx:id="cmbCodProducto" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: #0D1117;" styleClass="combo-box2" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="2" GridPane.valignment="BOTTOM" />
-                  <Label text="Codigo Producto" textFill="WHITE" GridPane.columnIndex="2" GridPane.valignment="CENTER">
+                  <ComboBox fx:id="cmbCodServicio" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: #0D1117;" styleClass="combo-box2" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="2" GridPane.valignment="BOTTOM" />
+                  <Label text="Codigo  Servicio" textFill="WHITE" GridPane.columnIndex="2" GridPane.valignment="CENTER">
                      <font>
                         <Font name="Arial" size="16.0" />
                      </font>
@@ -53,16 +53,16 @@
             </GridPane>
          </children>
       </AnchorPane>
-      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="1000.0" text="Productos_has_plato" textFill="#1dddbc" AnchorPane.bottomAnchor="620.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="1000.0" text="Servicios_has_Platos" textFill="#1dddbc" AnchorPane.bottomAnchor="620.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <font>
             <Font name="Garet Medium" size="20.0" />
          </font>
       </Label>
-      <TableView fx:id="tblHasProductos" layoutX="250.0" layoutY="200.0" onKeyReleased="#seleccionarElemento" onMouseClicked="#seleccionarElemento" prefHeight="350.0" prefWidth="900.0" stylesheets="@../resourse/TonysKinal.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+      <TableView fx:id="tblHasServvicios" layoutX="250.0" layoutY="200.0" prefHeight="350.0" prefWidth="900.0" stylesheets="@../resourse/TonysKinal.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
         <columns>
-          <TableColumn fx:id="colProdCodProducto" prefWidth="300.0" text="Productos_codigoProducto" />
+          <TableColumn fx:id="colServiciosCodPlato" prefWidth="300.0" text="Productos_codigoProducto" />
             <TableColumn fx:id="colCodPlato" prefWidth="300.0" text="Codigo Plato" />
-            <TableColumn fx:id="colCodProducto" prefWidth="300.0" text="Codigo Producto" />
+            <TableColumn fx:id="colCodServicio" prefWidth="300.0" text="Codigo  Servicio" />
         </columns>
          <columnResizePolicy>
          
@@ -120,7 +120,7 @@
             </Button>
          </children>
       </HBox>
-      <Button layoutX="24.0" layoutY="25.0" mnemonicParsing="false" onAction="#menuPrincipal" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: transparen;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Button layoutX="14.0" layoutY="15.0" mnemonicParsing="false" onAction="#menuPrincipal" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: transparen;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

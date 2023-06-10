@@ -180,8 +180,8 @@ public class PlatoController implements Initializable {
             String nombrePlato = txtNombrePlato.getText().trim();
             String descripcion = txtDescripcion.getText().trim();
             String precioPlato = txtPrecioPlato.getText().trim();
-            if (!cantidad.isEmpty() && !nombrePlato.isEmpty() && !descripcion.isEmpty() && !precioPlato.isEmpty()) {
-                guardar();
+            if (!cantidad.isEmpty() && !nombrePlato.isEmpty() && !descripcion.isEmpty() && !precioPlato.isEmpty()&&(cmbCodigoTipoPlato.getSelectionModel().getSelectedItem() != null)){
+               guardar();
                 cargarDatos();
                 limpiarControles();
                 desactivarControles();
@@ -190,7 +190,7 @@ public class PlatoController implements Initializable {
                 btnEditar.setDisable(false);
                 btnReporte.setDisable(false);
             } else {
-                limpiarControles();
+               limpiarControles();
                 desactivarControles();
                 activarTbl();
                 alerta.setTitle("Advertencia");

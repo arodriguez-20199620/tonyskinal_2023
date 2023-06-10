@@ -9,11 +9,16 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 import org.kaledrod.main.Principal;
 import org.kaledrod.controller.PresupuestoController;
 import org.kaledrod.report.GenerarReporte;
@@ -27,9 +32,55 @@ public class MenuPrincipalController implements Initializable {
     private Principal escenarioPrincipal;
     private PresupuestoController prespuestosC;
 
+    @FXML
+    private AnchorPane pane1;
+
+    @FXML
+    private AnchorPane pane2;
+
+    @FXML
+    private AnchorPane pane3;
+    @FXML
+    private Label num;
+
+    public void transicion(double duration, Node node, double width) {
+        TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(duration), node);
+        translateTransition.setByX(width);
+        translateTransition.play();
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        transicion(0.5, pane2, 1000);
+        transicion(0.5, pane3, 1000);
+    }
 
+    int show = 0;
+
+    @FXML
+    public void next(ActionEvent event) {
+        if (show == 0) {
+            transicion(0.5, pane2, -1000);
+            show++;
+            num.setText("2/3");
+        } else if (show == 1) {
+            transicion(0.5, pane3, -1000);
+            show++;
+            num.setText("3/3");
+        }
+    }
+
+    @FXML
+    public void back(ActionEvent event) {
+        if (show == 1) {
+            transicion(0.5, pane2, 1000);
+            show--;
+            num.setText("1/3");
+        } else if (show == 2) {
+            transicion(0.5, pane3, 1000);
+            show--;
+            num.setText("2/3");
+        }
     }
 
     public Principal getEscenarioPrincipal() {
@@ -89,11 +140,19 @@ public class MenuPrincipalController implements Initializable {
     }
 
     public void ventanaProductos_has_platos() {
-        escenarioPrincipal.ventanaProductos_has_Platos();
+        escenarioPrincipal.ventanaProductos_has_platos();
     }
 
-    public void ventanaServicios_has_Platos() {
-        escenarioPrincipal.ventanaServicios_has_Platos();
+    public void ventanaServicios_has_platos() {
+        escenarioPrincipal.ventanaServicios_has_platos();
+    }
+
+    public void ventanaServicios_has_empleados() {
+        escenarioPrincipal.ventanaServicios_has_empleados();
+    }
+
+    public void cerrarSesion() {
+        escenarioPrincipal.ventanaLogin();
     }
 
     public void imprimirReporte() {

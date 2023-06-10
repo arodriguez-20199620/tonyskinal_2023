@@ -5,7 +5,8 @@
  */
 package org.kaledrod.bean;
 
-import java.util.Date;
+import java.time.LocalDate;
+import javafx.scene.control.Button;
 
 /**
  *
@@ -14,18 +15,20 @@ import java.util.Date;
 public class Presupuesto {
 
     private int codigoPresupuesto;
-    private Date fechaSolicitud;
+    private LocalDate fechaSolicitud;
     private double cantidadPresupuesto;
     private int codigoEmpresa;
+    private Button eliminar;
 
     public Presupuesto() {
     }
 
-    public Presupuesto(int codigoPresupuesto, Date fechaSolicitud, double cantidadPresupuesto, int codigoEmpresa) {
+    public Presupuesto(int codigoPresupuesto, LocalDate fechaSolicitud, double cantidadPresupuesto, int codigoEmpresa) {
         this.codigoPresupuesto = codigoPresupuesto;
         this.fechaSolicitud = fechaSolicitud;
         this.cantidadPresupuesto = cantidadPresupuesto;
         this.codigoEmpresa = codigoEmpresa;
+        this.eliminar = new Button("Borrar");
     }
 
     public int getCodigoPresupuesto() {
@@ -36,11 +39,11 @@ public class Presupuesto {
         this.codigoPresupuesto = codigoPresupuesto;
     }
 
-    public Date getFechaSolicitud() {
+    public LocalDate getFechaSolicitud() {
         return fechaSolicitud;
     }
 
-    public void setFechaSolicitud(Date fechaSolicitud) {
+    public void setFechaSolicitud(LocalDate fechaSolicitud) {
         this.fechaSolicitud = fechaSolicitud;
     }
 
@@ -59,6 +62,13 @@ public class Presupuesto {
     public void setCodigoEmpresa(int codigoEmpresa) {
         this.codigoEmpresa = codigoEmpresa;
     }
-    
-    
+
+    public Button getEliminar() {
+        return eliminar;
+    }
+
+    public void setEliminar(Button eliminar) {
+        this.eliminar = eliminar;
+    }
+
 }
