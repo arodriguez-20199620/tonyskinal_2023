@@ -143,7 +143,6 @@ Delimiter $$
 		End $$
 Delimiter ;
 
-
 Delimiter $$
 	Create procedure sp_ListarUsuarios()
 		Begin
@@ -156,10 +155,18 @@ Delimiter $$
              from Usuario U;
 		End $$
 Delimiter ;
-call sp_AgregarUsuario('Angel','Rodriguez','arodriguez-2019620@kinal.edu.gt','1234');
-Call sp_ListarUsuarios();
-use dbtonyskinal2019620;
 
+Delimiter $$
+	Create procedure sp_BuscarUsuarios(in usuario varchar(50))
+		Begin
+			Select 
+             U.usuarioLogin
+             from Usuario U Where U.usuarioLogin = usuario ;
+		End $$
+Delimiter ;
+call sp_AgregarUsuario('Angel','Rodriguez','arodriguez-2019620@kinal.edu.gt','1234');
+call sp_BuscarUsuarios("arodriguez-2019620@kinal.edu.gt");
+Call sp_ListarUsuarios();
 
 Create table Login(
 	usuarioMaster varchar(50) not null,
@@ -874,8 +881,12 @@ Delimiter //
 			Select 
 				SHP.Servicios_codigoServicio,
                 SHP.codigoPlato, 
-                SHP.codigoServicio
-                From Servicios_has_Platos SHP; 
+                P.nombrePlato,
+                SHP.codigoServicio,
+                S.tipoServicio
+                From Servicios_has_Platos SHP
+					inner join Plato P on SHP.codigoPlato = P.codigoPlato
+						inner join Servicios S on SHP.codigoServicio = S.codigoServicio; 
         End//
 Delimiter ;
 -- ---------------------------------------------Buscar SERVICIO_HAS_PLATO----------------------------------------------

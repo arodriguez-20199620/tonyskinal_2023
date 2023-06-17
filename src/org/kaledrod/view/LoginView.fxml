@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -37,12 +37,12 @@
                   <Font name="Garet Bold" size="18.0" />
                </font>
             </Label>
-            <Button layoutX="50.0" layoutY="407.0" mnemonicParsing="false" onAction="#sesion" prefHeight="50.0" prefWidth="300.0" styleClass="button2" stylesheets="@../resourse/TonysKinal.css" text="Iniciar sesión" AnchorPane.bottomAnchor="53.0">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
             <Hyperlink layoutX="134.0" layoutY="483.0" onAction="#ventanaUsuario" text="¿No tienes una cuenta?" />
+            <JFXButton fx:id="btnCrear" layoutX="50.0" layoutY="393.0" onAction="#sesion" prefHeight="50.0" prefWidth="300.0" ripplerFill="WHITE" style="-fx-background-color: #1dddbc; -fx-background-radius: 5;" text="Iniciar sesión" textFill="WHITE" AnchorPane.bottomAnchor="75.0">
+               <font>
+                  <Font name="Garet Bold" size="20.0" />
+               </font>
+            </JFXButton>
          </children>
       </AnchorPane>
       <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="420.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="410.0">
@@ -55,38 +55,32 @@
             <Font name="Garet Medium" size="24.0" />
          </font>
       </Label>
-      <HBox layoutX="875.0" layoutY="10.0" prefHeight="30.0" prefWidth="60.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox layoutX="784.0" layoutY="10.0" prefHeight="30.0" prefWidth="60.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#buttonAccionMinimizar" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: transparen;">
+            <JFXButton buttonType="RAISED" contentDisplay="CENTER" onAction="#buttonAccionMinimizar" prefHeight="30.0" prefWidth="30.0" text=" ">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
                      <image>
                         <Image url="@../image/Min.png" />
                      </image>
-                  </ImageView>
-               </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#buttonAccionCerrar" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: transparen;">
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" contentDisplay="CENTER" onAction="#buttonAccionCerrar" prefHeight="30.0" prefWidth="30.0" text=" ">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../image/Cerrar.png" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
                </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
+            </JFXButton>
          </children>
       </HBox>
    </children>

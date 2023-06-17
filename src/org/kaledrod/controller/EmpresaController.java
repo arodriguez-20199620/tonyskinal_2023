@@ -96,7 +96,7 @@ public class EmpresaController implements Initializable {
     }
 
     public ObservableList<Empresa> getEmpresa() {
-        ArrayList<Empresa> lista = new ArrayList<Empresa>();
+        ArrayList<Empresa> lista = new ArrayList<>();
         try {
             PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_ListarEmpresas");
             ResultSet resultado = procedimiento.executeQuery();

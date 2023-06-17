@@ -1,3 +1,7 @@
+.progress-bar-custom {
+    -fx-accent: red; /* Cambia "green" por el color deseado */
+}
+
 .button2{
     -fx-pref-width: 300;
     -fx-pref-height: 50px;
