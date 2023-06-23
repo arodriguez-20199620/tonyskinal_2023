@@ -46,6 +46,11 @@ public class Principal extends Application {
     private double xOffset = 0;
     private double yOffset = 0;
 
+    /**
+     * Método principal que se ejecuta al iniciar la aplicación JavaFX.
+     * @param escenarioPrinciapal El escenario principal de la aplicación.
+     * @throws Exception Si ocurre algún error durante la carga de la ventana de inicio de sesión.
+     */
     @Override
     public void start(Stage escenarioPrinciapal) throws Exception {
         this.escenarioPrincipal = escenarioPrinciapal;
@@ -56,63 +61,81 @@ public class Principal extends Application {
         escenarioPrincipal.initStyle(StageStyle.UNDECORATED);
         ventanaLogin();
         escenarioPrinciapal.show();
-
     }
 
+    /**
+     * Minimiza la ventana principal.
+     */
     public void minimizarVentana() {
         escenarioPrincipal.setIconified(true);
-
     }
 
+    /**
+     * Abre la ventana del menú principal.
+     */
     public void menuPrincipal() {
         try {
-            MenuPrincipalController menu = (MenuPrincipalController) cambiarEscena("MenuPrincipalView.fxml", 1000, 600);
+            MenuPrincipalController menu = (MenuPrincipalController) cargarEscena("MenuPrincipalView.fxml", 1000, 600);
             menu.setEscenarioPrincipal(this);
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println(e.getMessage());
         }
     }
 
+    /**
+     * Abre la ventana de empresa.
+     */
     public void ventanaEmpresa() {
         try {
-            EmpresaController empresa = (EmpresaController) cambiarEscena("EmpresaView.fxml", 1000, 650);
+            EmpresaController empresa = (EmpresaController) cargarEscena("EmpresaView.fxml", 1000, 650);
             empresa.setEscenarioPrincipal(this);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * Abre la ventana de empleado.
+     */
     public void ventanaEmpleado() {
         try {
-            EmpleadoController empleado = (EmpleadoController) cambiarEscena("EmpleadoView.fxml", 1000, 650);
+            EmpleadoController empleado = (EmpleadoController) cargarEscena("EmpleadoView.fxml", 1000, 650);
             empleado.setEscenarioPrincipal(this);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * Abre la ventana de producto.
+     */
     public void ventanaProducto() {
         try {
-            ProductoController producto = (ProductoController) cambiarEscena("ProductoView.fxml", 1000, 650);
+            ProductoController producto = (ProductoController) cargarEscena("ProductoView.fxml", 1000, 650);
             producto.setEscenarioPrincipal(this);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
 
+    /**
+     * Abre la ventana de tipo de empleado.
+     */
     public void ventanaTipoEmpleado() {
         try {
-            TipoEmpleadoController tipoEmlpeado = (TipoEmpleadoController) cambiarEscena("TipoEmpleadoView.fxml", 1000, 650);
-            tipoEmlpeado.setEscenarioPrincipal(this);
+            TipoEmpleadoController tipoEmpleado = (TipoEmpleadoController) cargarEscena("TipoEmpleadoView.fxml", 1000, 650);
+            tipoEmpleado.setEscenarioPrincipal(this);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * Abre la ventana de presupuesto.
+     */
     public void ventanaPresupuesto() {
         try {
-            PresupuestoController presupuesto = (PresupuestoController) cambiarEscena("PresupuestoView.fxml", 1000, 650);
+            PresupuestoController presupuesto = (PresupuestoController) cargarEscena("PresupuestoView.fxml", 1000, 650);
             presupuesto.setEscenarioPrincipal(this);
         } catch (Exception e) {
             e.printStackTrace();
@@ -120,83 +143,97 @@ public class Principal extends Application {
         }
     }
 
+    /**
+     * Abre la ventana de tipo de plato.
+     */
     public void ventanaTipoPlato() {
         try {
-            TipoPlatoController tipoPlato = (TipoPlatoController) cambiarEscena("TipoPlato.fxml", 1000, 650);
+            TipoPlatoController tipoPlato = (TipoPlatoController) cargarEscena("TipoPlato.fxml", 1000, 650);
             tipoPlato.setEscenarioPrincipal(this);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * Abre la ventana de servicios.
+     */
     public void ventanaServicios() {
         try {
-            ServiciosController servicios = (ServiciosController) cambiarEscena("ServiciosView.fxml", 1000, 650);
+            ServiciosController servicios = (ServiciosController) cargarEscena("ServiciosView.fxml", 1000, 650);
             servicios.setEscenarioPrincipal(this);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * Abre la ventana de plato.
+     */
     public void ventanaPlato() {
         try {
-            PlatoController plato = (PlatoController) cambiarEscena("PlatoView.fxml", 1000, 650);
+            PlatoController plato = (PlatoController) cargarEscena("PlatoView.fxml", 1000, 650);
             plato.setEscenarioPrincipal(this);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * Abre la ventana de programador.
+     */
     public void ventanaProgramador() {
         try {
-            ProgramadorController programador = (ProgramadorController) cambiarEscena("ProgramadorView.fxml", 800, 500);
+            ProgramadorController programador = (ProgramadorController) cargarEscena("ProgramadorView.fxml", 1000, 650);
             programador.setEscenarioPrincipal(this);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * Abre la ventana de inicio de sesión.
+     */
     public void ventanaLogin() {
         try {
-            LoginController login = (LoginController) cambiarEscena("LoginView.fxml", 1000, 650);
+            LoginController login = (LoginController) cargarEscena("LoginView.fxml", 1000, 650);
             login.setEscenarioPrincipal(this);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
 
+    /**
+     * Abre la ventana de usuario.
+     */
     public void ventanaUsuario() {
         try {
-            UsuarioController usuario = (UsuarioController) cambiarEscena("UsuarioView.fxml", 1000, 650);
+            UsuarioController usuario = (UsuarioController) cargarEscena("UsuarioView.fxml", 1000, 650);
             usuario.setEscenarioPrincipal(this);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * Abre la ventana de productos_has_platos.
+     */
     public void ventanaProductos_has_platos() {
         try {
-            Productos_has_platoController productos_Has_Platos = (Productos_has_platoController) cambiarEscena("Productos_has_platosView.fxml", 1000, 650);
-            productos_Has_Platos.setEscenarioPrincipal(this);
+            Productos_has_platoController productosHasPlatos = (Productos_has_platoController) cargarEscena("Productos_has_platosView.fxml", 1000, 650);
+            productosHasPlatos.setEscenarioPrincipal(this);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * Abre la ventana de servicios_has_platos.
+     */
     public void ventanaServicios_has_platos() {
         try {
-            Servicios_has_platosController servicios_Has_Platos = (Servicios_has_platosController) cambiarEscena("Servicios_has_PlatosView.fxml", 1000, 650);
-            servicios_Has_Platos.setEscenarioPrincipal(this);
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println(e.getMessage());
-        }
-    }
-
-    public void ventanaServicios_has_empleados() {
-        try {
-            Servicios_has_empleadoController servicios_Has_Empleados = (Servicios_has_empleadoController) cambiarEscena("Servicios_has_Empleados.fxml", 1000, 650);
-            servicios_Has_Empleados.setEscenarioPrincipal(this);
+            Servicios_has_platosController serviciosHasPlatos = (Servicios_has_platosController) cargarEscena("Servicios_has_PlatosView.fxml", 1000, 650);
+            serviciosHasPlatos.setEscenarioPrincipal(this);
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println(e.getMessage());
@@ -204,13 +241,37 @@ public class Principal extends Application {
     }
 
     /**
-     * @param args the command line arguments
+     * Abre la ventana de servicios_has_empleados.
+     */
+    public void ventanaServicios_has_empleados() {
+        try {
+            Servicios_has_empleadoController serviciosHasEmpleados = (Servicios_has_empleadoController) cargarEscena("Servicios_has_Empleados.fxml", 1000, 650);
+            serviciosHasEmpleados.setEscenarioPrincipal(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+    }
+
+    /**
+     * Método principal para ejecutar la aplicación.
+     *
+     * @param args los argumentos de la línea de comandos
      */
     public static void main(String[] args) {
         launch(args);
     }
 
-    public Initializable cambiarEscena(String fxml, int ancho, int alto) throws Exception {
+    /**
+     * Carga una escena FXML y devuelve su controlador inicializable.
+     *
+     * @param fxml el nombre del archivo FXML
+     * @param ancho el ancho de la escena
+     * @param alto  el alto de la escena
+     * @return el controlador inicializable de la escena cargada
+     * @throws Exception si ocurre algún error durante la carga de la escena
+     */
+    public Initializable cargarEscena(String fxml, int ancho, int alto) throws Exception {
         Initializable resultado = null;
         FXMLLoader cargadorFXML = new FXMLLoader();
         InputStream archivo = Principal.class.getResourceAsStream(PAQUETE_VISTA + fxml);
@@ -230,5 +291,4 @@ public class Principal extends Application {
         resultado = (Initializable) cargadorFXML.getController();
         return resultado;
     }
-
 }

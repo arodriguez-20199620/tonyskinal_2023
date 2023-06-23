@@ -1,92 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kaledrod.controller.ProgramadorController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" style="-fx-background-color: #0D1117;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kaledrod.controller.ProgramadorController">
    <children>
-      <Pane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #0C0C0C;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SVGPath blendMode="SRC_ATOP" cache="true" content="M0,224L60,202.7C120,181,240,139,360,122.7C480,107,600,117,720,138.7C840,160,960,192,1080,181.3C1200,171,1320,117,1380,90.7L1440,64L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z" fill="#1dddbc" layoutX="-361.0" layoutY="309.0" nodeOrientation="LEFT_TO_RIGHT" AnchorPane.bottomAnchor="-120.0" />
+      <HBox layoutX="784.0" layoutY="10.0" prefHeight="30.0" prefWidth="60.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Separator layoutX="300.0" layoutY="100.0" orientation="VERTICAL" prefHeight="250.0" />
-            <Label layoutX="307.0" layoutY="105.0" prefHeight="50.0" prefWidth="180.0" text="Angel Kaled" textFill="#1dddbc">
+            <JFXButton buttonType="RAISED" contentDisplay="CENTER" onAction="#buttonAccionMinimizar" prefHeight="30.0" prefWidth="30.0" text=" " textFill="#1dddbc">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/Min.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" contentDisplay="CENTER" onAction="#buttonAccionCerrar" prefHeight="30.0" prefWidth="30.0" text=" " textFill="#1dddbc">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/Cerrar.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+      </HBox>
+      <AnchorPane layoutX="401.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+         <children>
+            <Label layoutX="46.0" layoutY="64.0" prefHeight="50.0" text="ANGEL KALED" textFill="WHITE" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="100.0">
                <font>
-                  <Font name="Segoe UI" size="34.0" />
+                  <Font name="Garet Light" size="40.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutY="58.0" prefHeight="42.0" prefWidth="300.0" text="Programador" textFill="WHITE">
+            <Label layoutX="67.0" layoutY="105.0" minHeight="50.0" prefHeight="50.0" text="RODRIGUEZ SOC" textFill="#1dddbc" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="150.0">
                <font>
-                  <Font name="Agency FB" size="32.0" />
+                  <Font name="Garet Light" size="40.0" />
                </font>
             </Label>
-            <ImageView fitHeight="175.0" fitWidth="187.0" layoutX="69.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+            <Label layoutX="65.0" layoutY="194.0" prefHeight="50.0" text="2019620" textFill="WHITE" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="200.0">
+               <font>
+                  <Font name="Garet Light" size="40.0" />
+               </font>
+            </Label>
+            <Label prefHeight="50.0" text="IN5BM" textFill="WHITE" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="250.0">
+               <font>
+                  <Font name="Garet Light" size="40.0" />
+               </font>
+            </Label>
+            <JFXButton layoutX="60.0" layoutY="329.0" onAction="#descargarPdf" prefHeight="20.0" prefWidth="200.0" style="-fx-border-color: #1dddbc;" text="Descargar CV" textFill="#1dddbc" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="350.0">
+               <font>
+                  <Font name="Garet Light" size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <JFXButton buttonType="RAISED" contentDisplay="CENTER" layoutX="19.0" layoutY="37.0" onAction="#menuPrincipal" prefHeight="30.0" prefWidth="30.0" text=" " textFill="#1dddbc" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/back.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <AnchorPane layoutX="69.0" layoutY="149.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="600.0" AnchorPane.topAnchor="100.0">
+         <children>
+            <ImageView fitHeight="250.0" fitWidth="250.0" layoutX="59.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="1000.0" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="100.0">
                <image>
                   <Image url="@../image/Foto.jpg" />
                </image>
             </ImageView>
-            <Label alignment="CENTER" layoutY="300.0" prefHeight="50.0" prefWidth="300.0" text="Contacto:" textFill="WHITE">
-               <font>
-                  <Font name="Arial" size="36.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" layoutY="350.0" prefHeight="42.0" prefWidth="300.0" text="arodriguez-2019620@kina.edu.gt" textFill="WHITE">
-               <font>
-                  <Font name="Arial" size="18.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="234.0" fitWidth="243.0" layoutX="480.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/Logo1.png" />
-               </image>
-            </ImageView>
-            <Pane layoutY="-1.0" prefHeight="30.0" prefWidth="800.0" style="-fx-background-color: #1DDDBC;">
-               <children>
-                  <Button fx:id="btnCerrar" contentDisplay="RIGHT" layoutX="768.0" layoutY="1.0" mnemonicParsing="false" onAction="#buttonAccionCerrar" styleClass="back" stylesheets="@../resourse/TonysKinal.css">
-                     <graphic>
-                        <ImageView fx:id="imgCerrar" fitHeight="20.0" fitWidth="259.0" pickOnBounds="true" preserveRatio="true" styleClass="back">
-                           <image>
-                              <Image url="@../image/Closed.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="btnRegresar" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#menuPrincipal" styleClass="back" stylesheets="@../resourse/TonysKinal.css">
-                     <graphic>
-                        <ImageView fx:id="imgRegresar" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" styleClass="back">
-                           <image>
-                              <Image url="@../image/Regresar.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-               </children>
-            </Pane>
-            <Label layoutX="306.0" layoutY="155.0" prefHeight="50.0" prefWidth="220.0" text="Rodriguez Soc" textFill="WHITE">
-               <font>
-                  <Font name="Segoe UI" size="34.0" />
-               </font>
-            </Label>
-            <Label layoutX="306.0" layoutY="200.0" prefHeight="50.0" prefWidth="140.0" text="2019620" textFill="WHITE">
-               <font>
-                  <Font name="Segoe UI" size="34.0" />
-               </font>
-            </Label>
-            <Label layoutX="306.0" layoutY="250.0" prefHeight="50.0" prefWidth="140.0" text="IN5BM" textFill="WHITE">
-               <font>
-                  <Font name="Segoe UI" size="34.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="150.0" fitWidth="800.0" layoutY="430.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/Onda.png" />
-               </image>
-            </ImageView>
          </children>
-      </Pane>
+      </AnchorPane>
    </children>
 </AnchorPane>

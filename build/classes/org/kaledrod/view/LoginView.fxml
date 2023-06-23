@@ -14,7 +14,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" style="-fx-background-color: #0D1117;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kaledrod.controller.LoginController">
    <children>
-      <AnchorPane layoutX="300.0" layoutY="100.0" prefHeight="440.0" prefWidth="400.0" style="-fx-background-color: #161B22; -fx-background-radius: 20;" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="100.0">
+      <AnchorPane layoutX="456.0" layoutY="96.0" prefHeight="440.0" prefWidth="400.0" style="-fx-background-color: #161B22; -fx-background-radius: 20;" AnchorPane.bottomAnchor="34.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="96.0">
          <children>
             <TextField fx:id="txtUsuario" layoutX="50.0" layoutY="166.0" prefHeight="50.0" prefWidth="300.0" promptText="Ingrese su usuario" styleClass="text-field2" stylesheets="@../resourse/TonysKinal.css" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="170.0">
                <font>
@@ -22,23 +22,23 @@
                </font>
             </TextField>
             <PasswordField fx:id="txtPassword" layoutX="111.0" layoutY="368.0" prefHeight="50.0" promptText="Ingrese su contraseña" styleClass="text-field2" stylesheets="@../resourse/TonysKinal.css" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="300.0" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="7.0" layoutY="14.0" text="Iniciar sesión" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="7.0" layoutY="14.0" text="INICIAR SESIÓN" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
                <font>
                   <Font name="Garet Bold" size="36.0" />
                </font>
             </Label>
-            <Label layoutX="50.0" layoutY="145.0" prefHeight="20.0" text="Usuario" textFill="WHITE" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="140.0">
+            <Label layoutX="50.0" layoutY="145.0" prefHeight="20.0" text="USUARIO" textFill="WHITE" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="140.0">
                <font>
                   <Font name="Garet Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="55.0" layoutY="275.0" prefHeight="20.0" text="Contraseña" textFill="WHITE" AnchorPane.topAnchor="270.0">
+            <Label layoutX="55.0" layoutY="275.0" prefHeight="20.0" text="CONTRASEÑA" textFill="WHITE" AnchorPane.topAnchor="270.0">
                <font>
                   <Font name="Garet Bold" size="18.0" />
                </font>
             </Label>
-            <Hyperlink layoutX="134.0" layoutY="483.0" onAction="#ventanaUsuario" text="¿No tienes una cuenta?" />
-            <JFXButton fx:id="btnCrear" layoutX="50.0" layoutY="393.0" onAction="#sesion" prefHeight="50.0" prefWidth="300.0" ripplerFill="WHITE" style="-fx-background-color: #1dddbc; -fx-background-radius: 5;" text="Iniciar sesión" textFill="WHITE" AnchorPane.bottomAnchor="75.0">
+            <Hyperlink layoutX="134.0" layoutY="483.0" onAction="#abrirVentanaUsuario" text="¿No tienes una cuenta?" />
+            <JFXButton fx:id="btnCrear" layoutX="50.0" layoutY="393.0" onAction="#iniciarSesion" prefHeight="50.0" prefWidth="300.0" ripplerFill="WHITE" style="-fx-background-color: #1dddbc; -fx-background-radius: 5;" text="INICIAR SESIÓN" textFill="WHITE" AnchorPane.bottomAnchor="75.0">
                <font>
                   <Font name="Garet Bold" size="20.0" />
                </font>
@@ -57,7 +57,7 @@
       </Label>
       <HBox layoutX="784.0" layoutY="10.0" prefHeight="30.0" prefWidth="60.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <JFXButton buttonType="RAISED" contentDisplay="CENTER" onAction="#buttonAccionMinimizar" prefHeight="30.0" prefWidth="30.0" text=" ">
+            <JFXButton buttonType="RAISED" contentDisplay="CENTER" prefHeight="30.0" prefWidth="30.0" text=" " textFill="#1dddbc">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -69,7 +69,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton buttonType="RAISED" contentDisplay="CENTER" onAction="#buttonAccionCerrar" prefHeight="30.0" prefWidth="30.0" text=" ">
+            <JFXButton buttonType="RAISED" contentDisplay="CENTER" onAction="#cerrarAplicacion" prefHeight="30.0" prefWidth="30.0" text=" " textFill="#1dddbc">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
