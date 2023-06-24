@@ -84,7 +84,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="btnReporte" mnemonicParsing="false" prefWidth="234.0" styleClass="button1" stylesheets="@../resourse/TonysKinal.css" text="Reporte">
+            <Button fx:id="btnReporte" mnemonicParsing="false" onAction="#generarReporte" prefWidth="234.0" styleClass="button1" stylesheets="@../resourse/TonysKinal.css" text="Reporte">
                <graphic>
                   <ImageView fx:id="imgReporte" fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>

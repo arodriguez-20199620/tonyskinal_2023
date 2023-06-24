@@ -16,7 +16,7 @@
    <children>
       <AnchorPane layoutX="494.0" layoutY="-3.0" prefHeight="50.0" prefWidth="800.0" AnchorPane.bottomAnchor="550.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <MenuBar layoutX="-7.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="35.0" prefWidth="800.0" stylesheets="@../resourse/TonysKinal.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="0.0">
+            <MenuBar layoutX="-7.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="35.0" prefWidth="800.0" stylesheets="@../resourse/TonysKinal.css" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="0.0">
                <menus>
                   <Menu mnemonicParsing="false" text="Modulos">
                     <items>
@@ -106,7 +106,7 @@
       </AnchorPane>
       <AnchorPane fx:id="pane3" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
          <children>
-            <ImageView fitHeight="550.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="550.0" fitWidth="1000.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/Fondo3.png" />
                </image>

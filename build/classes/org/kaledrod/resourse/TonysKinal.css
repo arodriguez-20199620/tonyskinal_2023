@@ -50,7 +50,6 @@
 .menu-bar .menu-button:focused,
 .menu-bar .menu-button:showing {
     -fx-background-color: #0D1117;
-    -fx-translate-y: 5;
     -fx-border-width: 0 0 2 0;
     -fx-border-color: derive(#1DDDBC, 30%);
 }

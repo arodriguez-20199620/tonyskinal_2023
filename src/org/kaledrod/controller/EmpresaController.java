@@ -289,7 +289,6 @@ public class EmpresaController implements Initializable {
     }
 
     public void imprimirReporte() {
-        String ruta = "ola";
         Map parametros = new HashMap();
         parametros.put("codigoEmpresa", null);
         parametros.put("RUTA_IMAGEN", EmpleadoController.class.getResource("/org/kaledrod/image/Logo2Forma2.png"));
