@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportePresupuesto" language="groovy" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1c6ba915-724f-4d35-b256-97ecf2b3ffcc">
-	<property name="ireport.zoom" value="1.0514816984441773"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="275"/>
+	<property name="ireport.zoom" value="1.272292855117455"/>
+	<property name="ireport.x" value="15"/>
+	<property name="ireport.y" value="349"/>
+	<subDataset name="dataset1" uuid="db42522e-4b3e-4eb3-90ad-6428181e9cb6"/>
 	<parameter name="codEmpresa" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -10,40 +11,19 @@
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["D:\\User\\Documentos\\NetBeansProjects\\tonyskinal_2023\\src\\org\\kaledrod\\report\\"]]></defaultValueExpression>
 	</parameter>
+	<parameter name="RUTA_SUBREPORT" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[select * from Empresas E Inner join Servicios S on
-E.codigoEmpresa = S.codigoEmpresa where E.codigoEmpresa = $P{codEmpresa}]]>
+		<![CDATA[CALL sp_ListarPresupuestosEmpresa($P{codEmpresa});]]>
 	</queryString>
-	<field name="codigoEmpresa" class="java.lang.Integer">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="nombreEmpresa" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="direccion" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="telefono" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="codigoServicio" class="java.lang.Integer">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="fechaServicio" class="java.sql.Date">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="tipoServicio" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="horaServicio" class="java.sql.Time">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="lugarServicio" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="telefonoContacto" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
+	<field name="fechaSolicitud" class="java.sql.Date"/>
+	<field name="cantidadPresupuesto" class="java.math.BigDecimal"/>
+	<field name="fechaServicio" class="java.sql.Date"/>
+	<field name="horaServicio" class="java.sql.Time"/>
+	<field name="lugarServicio" class="java.lang.String"/>
+	<field name="telefonoContacto" class="java.lang.String"/>
+	<field name="nombreEmpresa" class="java.lang.String"/>
+	<field name="direccion" class="java.lang.String"/>
+	<field name="telefono" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -108,7 +88,7 @@ E.codigoEmpresa = S.codigoEmpresa where E.codigoEmpresa = $P{codEmpresa}]]>
 		</band>
 	</pageHeader>
 	<detail>
-		<band height="210" splitType="Stretch">
+		<band height="150" splitType="Stretch">
 			<textField>
 				<reportElement x="0" y="50" width="143" height="20" uuid="064b5b24-3429-4ff6-b559-e72b8eada265"/>
 				<textFieldExpression><![CDATA[$F{fechaServicio}]]></textFieldExpression>
@@ -202,14 +182,33 @@ E.codigoEmpresa = S.codigoEmpresa where E.codigoEmpresa = $P{codEmpresa}]]>
 				</textElement>
 				<textFieldExpression><![CDATA["No. De Presupuesto "+$V{REPORT_COUNT}]]></textFieldExpression>
 			</textField>
-			<subreport>
-				<reportElement x="0" y="110" width="572" height="100" uuid="59e30fad-6eea-44e5-bac2-bbab250cbfec"/>
-				<subreportParameter name="codEmpresa">
-					<subreportParameterExpression><![CDATA[$F{codigoEmpresa}]]></subreportParameterExpression>
-				</subreportParameter>
-				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "SubReportePresupuesto.jasper"]]></subreportExpression>
-			</subreport>
+			<textField>
+				<reportElement x="0" y="130" width="286" height="20" uuid="86ac9398-82b9-46df-81b1-63fe821b5242"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{fechaSolicitud}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="286" y="130" width="286" height="20" uuid="7046d6ad-3c54-4751-bc45-4c48b89cf127"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cantidadPresupuesto}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="110" width="572" height="20" forecolor="#FFFFFF" backcolor="#1DDDBC" uuid="fdb904ed-9d5a-408f-abd5-611ea2cd7a1e"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="110" width="286" height="20" forecolor="#FFFFFF" uuid="551ef1cf-26a1-44c1-88c9-383bc2fc5807"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Rounded MT Bold"/>
+				</textElement>
+				<text><![CDATA[Fecha de solicitud]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="286" y="110" width="286" height="20" forecolor="#FFFFFF" uuid="65ec01b1-5842-4f0c-b287-00931268545e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Rounded MT Bold"/>
+				</textElement>
+				<text><![CDATA[Cantidad Presupuesto]]></text>
+			</staticText>
 		</band>
 	</detail>
 	<columnFooter>

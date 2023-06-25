@@ -167,7 +167,7 @@ Delimiter ;
 call sp_AgregarUsuario('Angel','Rodriguez','arodriguez-2019620@kinal.edu.gt','1234');
 call sp_BuscarUsuarios("arodriguez-2019620@kinal.edu.gt");
 Call sp_ListarUsuarios();
-use dbtonyskinal2019620;
+
 Create table Login(
 	usuarioMaster varchar(50) not null,
     passwordLogin varchar(50) not null,
@@ -257,7 +257,7 @@ call sp_AgregarEmpresa('Burger King','Zona 7 Colonia Landivar', '98761723');
 call sp_ListarEmpresas();
 call sp_BuscarEmpresa(1);
 -- call sp_EliminarEmpresa(2);
-call sp_EditarEmpresa(3,'Tonys Kinal 3', 'Zona 1 Sexta Avenida 18 calle', '45122014'); 
+-- call sp_EditarEmpresa(3,'Tonys Kinal 3', 'Zona 1 Sexta Avenida 18 calle', '45122014'); 
 
 -- ------------------------------------PROCEDIMIENTOS ALMACENADOS DE PRESUPUESTO ----------------------------------
 -- ---------------------------------------------Agregar Presupuesto----------------------------------------------
@@ -323,7 +323,7 @@ call sp_AgregarPresupuesto('2023-05-28','3320.00', 5);
 call sp_ListarPresupuestos();
 call sp_BuscarPresupuesto(1);
 -- call sp_EliminarPresupuesto(2);
-call sp_EditarPresupuesto(3,'2021-02-12', '1000.00',1);
+-- call sp_EditarPresupuesto(3,'2021-02-12', '1000.00',1);
 
 -- ------------------------------------PROCEDIMIENTOS ALMACENADOS DE TIPOEMPLEADO ----------------------------------
 -- ---------------------------------------------Agregar TipoEmpleado----------------------------------------------
@@ -382,7 +382,7 @@ call sp_AgregarTipoEmpleado('Host o anfitrión');
 call sp_ListarTipoEmpleados();
 call sp_BuscarTipoEmpleado(1);
 -- call sp_EliminarTipoEmpleado(2);
-call sp_EditarTipoEmpleado(3,'Ayudante');
+-- call sp_EditarTipoEmpleado(3,'Ayudante');
 -- ------------------------------------PROCEDIMIENTOS ALMACENADOS DE TIPOPLATO ----------------------------------
 -- ---------------------------------------------Agregar TipoPlato----------------------------------------------
 Delimiter $$
@@ -440,7 +440,7 @@ call sp_AgregarTipoPlato('Plato de mariscos');
 call sp_ListarTipoPlatos();
 call sp_BuscarTipoPlato(1);
 -- call sp_EliminarTipoPlato(2);
-call sp_EditarTipoPlato(3,'Plato fuerte');
+-- call sp_EditarTipoPlato(3,'Plato fuerte');
 
 -- ------------------------------------PROCEDIMIENTOS ALMACENADOS DE SERVICIOS ----------------------------------
 -- ---------------------------------------------Agregar Servicio----------------------------------------------
@@ -508,14 +508,14 @@ Delimiter $$
 Delimiter ;
 -- ---------------DATOS
 call sp_AgregarServicio('2023-06-18', 'Boda', '12:30:00', 'Kilometro 13.5 Carretera al Salvador', '78419852', 1);
-call sp_AgregarServicio('2023-06-18', 'Boda', '12:30:00', 'Kilometro 13.5 Carretera al Salvador', '78419852', 1);
-call sp_AgregarServicio('2023-06-18', '15 años', '12:30:00', 'Kilometro 13.5 Carretera al Salvador', '78419852', 1);
-call sp_AgregarServicio('2023-06-18', 'Boda', '12:30:00', 'Kilometro 13.5 Carretera al Salvador', '78419852', 1);
-call sp_AgregarServicio('2023-06-18', '15 años', '12:30:00', 'Kilometro 13.5 Carretera al Salvador', '78419852', 1);
+call sp_AgregarServicio('2023-06-18', 'Boda', '12:30:00', 'Kilometro 13.5 Carretera al Salvador', '78419852', 2);
+call sp_AgregarServicio('2023-06-18', '15 años', '12:30:00', 'Kilometro 13.5 Carretera al Salvador', '78419852', 3);
+call sp_AgregarServicio('2023-06-18', 'Boda', '12:30:00', 'Kilometro 13.5 Carretera al Salvador', '78419852', 4);
+call sp_AgregarServicio('2023-06-18', '15 años', '12:30:00', 'Kilometro 13.5 Carretera al Salvador', '78419852', 5);
 call sp_ListarServicios();
 call sp_BuscarServicio(1);
 -- call sp_EliminarServicio(2);
-call sp_EditarServicio(3, '2023-04-20', 'Boda', '14:00:00', 'Zona 10, diagonal 6', '8623 1931');
+-- call sp_EditarServicio(3, '2023-04-20', 'Boda', '14:00:00', 'Zona 10, diagonal 6', '8623 1931');
 
 -- ------------------------------------PROCEDIMIENTOS ALMACENADOS DE PLATOS ----------------------------------
 -- ---------------------------------------------Agregar Platos----------------------------------------------
@@ -579,15 +579,15 @@ Delimiter //
         End//
 Delimiter ;
 -- ---------------DATOS
-call sp_AgregarPlato(100, 'Lasagna de carne:', 'Capas de pasta intercaladas con carne molida sazonada', '80.00', 3);
-call sp_AgregarPlato(100, 'Sushi de salmón', 'Deliciosos rollos de arroz sushi rellenos de salmón fresco', '100.00', 3);
+call sp_AgregarPlato(100, 'Lasagna de carne:', 'Capas de pasta intercaladas con carne molida sazonada', '80.00', 1);
+call sp_AgregarPlato(100, 'Sushi de salmón', 'Deliciosos rollos de arroz sushi rellenos de salmón fresco', '100.00', 2);
 call sp_AgregarPlato(100, 'Tacos al pastor', 'Tortillas de maíz rellenas de carne de cerdo marinada con especias', '45.00', 3);
-call sp_AgregarPlato(100, 'Pad Thai', 'Fideos de arroz salteados con camarones', '65.00', 3);
-call sp_AgregarPlato(100, 'Pollo al curry', 'Trozos de pollo tierno cocinados en una salsa aromática de curry', '40.00', 3);
+call sp_AgregarPlato(100, 'Pad Thai', 'Fideos de arroz salteados con camarones', '65.00', 4);
+call sp_AgregarPlato(100, 'Pollo al curry', 'Trozos de pollo tierno cocinados en una salsa aromática de curry', '40.00', 5);
 call sp_ListarPlatos();
 call sp_BuscarPlato(1);
 -- call sp_EliminarPlato(2);
-call sp_EditarPlato(3, 200, 'Carne a las brazas', 'Carne a las brazas con arroz y ensalada', '40.00');
+-- call sp_EditarPlato(3, 200, 'Carne a las brazas', 'Carne a las brazas con arroz y ensalada', '40.00');
 
 -- ------------------------------------PROCEDIMIENTOS ALMACENADOS DE PRODUCTOS ----------------------------------
 -- ---------------------------------------------Agregar Producto------------------------------------------------
@@ -649,7 +649,7 @@ call sp_AgregarProducto('Tarta de Manzana', 58);
 call sp_ListarProductos();
 call sp_BuscarProducto(1);
 -- call sp_EliminarProducto(2);
-call sp_EditarProducto(3, 'Pan con salchicha y papa', 100);
+-- call sp_EditarProducto(3, 'Pan con salchicha y papa', 100);
 -- ------------------------------------PROCEDIMIENTOS ALMACENADOS DE PRODUCTOS ----------------------------------
 -- ---------------------------------------------Agregar Empleado------------------------------------------------
 Delimiter //
@@ -729,7 +729,7 @@ call sp_AgregarEmpleado (5, 'López García', 'María', 'Avenida Principal, 567'
 call sp_ListarEmpleados	();
 call sp_BuscarEmpleado(1);
 -- call sp_EliminarEmpleado(2);
-call sp_EditarEmpleado(3, 5, 'Marroquin Santos', 'Fernanda Stacy', 'Zona 8, 8va calle', '51698732', 'Chef de cocina fría', 3);
+-- call sp_EditarEmpleado(3, 5, 'Marroquin Santos', 'Fernanda Stacy', 'Zona 8, 8va calle', '51698732', 'Chef de cocina fría', 3);
 
 -- ------------------------------------PROCEDIMIENTOS ALMACENADOS DE PRODUCTOS_HAS_PLATOS ----------------------------------
 -- ---------------------------------------------Agregar PRODUCTO_HAS_PLATO----------------------------------------------
@@ -875,7 +875,7 @@ Delimiter //
         End//
 Delimiter ;
 -- ---------------------------------------------Listar SERVICIOS_HAS_PLATOS----------------------------------------------
-Delimiter //
+Delimiter $$
 	Create procedure sp_ListarServicios_has_Platos()
 		Begin
 			Select 
@@ -885,9 +885,9 @@ Delimiter //
                 SHP.codigoServicio,
                 S.tipoServicio
                 From Servicios_has_Platos SHP
-					inner join Plato P on SHP.codigoPlato = P.codigoPlato
+					inner join Platos P on SHP.codigoPlato = P.codigoPlato
 						inner join Servicios S on SHP.codigoServicio = S.codigoServicio; 
-        End//
+        End $$
 Delimiter ;
 -- ---------------------------------------------Buscar SERVICIO_HAS_PLATO----------------------------------------------
 Delimiter //
@@ -926,3 +926,37 @@ call sp_AgregarServicio_has_Plato (3, 3, 3);
 call sp_AgregarServicio_has_Plato (4, 4 ,4);
 call sp_AgregarServicio_has_Plato (5, 5, 5);
 call sp_ListarServicios_has_Platos();
+
+
+delimiter $$
+	Create procedure sp_ListarPresupuestosEmpresa(in codEmpresa int)
+		begin
+			select 
+				S.fechaServicio,
+                S.horaServicio,
+                S.lugarServicio,
+                S.telefonoContacto,
+                E.nombreEmpresa,
+                E.direccion,
+                E.telefono,
+				P.fechaSolicitud,
+				P.cantidadPresupuesto
+					from Empresas E 
+                    Inner join Servicios S on E.codigoEmpresa = S.codigoEmpresa
+                    Inner join Presupuestos P on E.codigoEmpresa = P.codigoEmpresa
+                    where E.codigoEmpresa = codEmpresa 
+                    group by   S.fechaServicio,
+								S.horaServicio,
+								S.lugarServicio,
+								S.telefonoContacto,
+								E.nombreEmpresa,
+								E.direccion,
+								E.telefono,
+								P.fechaSolicitud,
+								P.cantidadPresupuesto;
+        end $$
+delimiter ;
+
+CALL sp_ListarPresupuestosEmpresa(2);
+
+USE dbtonyskinal2019620;
