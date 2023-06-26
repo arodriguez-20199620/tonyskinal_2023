@@ -37,12 +37,12 @@
                   <Font name="Garet Bold" size="18.0" />
                </font>
             </Label>
-            <Hyperlink layoutX="134.0" layoutY="483.0" onAction="#abrirVentanaUsuario" text="¿No tienes una cuenta?" />
             <JFXButton fx:id="btnCrear" layoutX="50.0" layoutY="393.0" onAction="#iniciarSesion" prefHeight="50.0" prefWidth="300.0" ripplerFill="WHITE" style="-fx-background-color: #1dddbc; -fx-background-radius: 5;" text="INICIAR SESIÓN" textFill="WHITE" AnchorPane.bottomAnchor="75.0">
                <font>
                   <Font name="Garet Bold" size="20.0" />
                </font>
             </JFXButton>
+            <Hyperlink layoutX="134.0" layoutY="483.0" onAction="#abrirVentanaUsuario" text="¿No tienes una cuenta?" />
          </children>
       </AnchorPane>
       <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="420.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="410.0">
@@ -57,7 +57,7 @@
       </Label>
       <HBox layoutX="784.0" layoutY="10.0" prefHeight="30.0" prefWidth="60.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <JFXButton buttonType="RAISED" contentDisplay="CENTER" prefHeight="30.0" prefWidth="30.0" text=" " textFill="#1dddbc">
+            <JFXButton buttonType="RAISED" contentDisplay="CENTER" onAction="#minimizarVentana" prefHeight="30.0" prefWidth="30.0" text=" " textFill="#1dddbc">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>

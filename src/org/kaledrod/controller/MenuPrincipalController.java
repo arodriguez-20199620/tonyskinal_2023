@@ -161,7 +161,7 @@ public class MenuPrincipalController implements Initializable {
         GenerarReporte.mostarReporte("ReporteGeneral.jasper", "Reporte general", parametros);
     }
 
-    public void buttonAccionCerrar() {
+    public void cerrarAplicacion() {
         System.exit(0);
     }
 

@@ -328,7 +328,6 @@ public class PresupuestoController implements Initializable {
         int codEmpresa = Integer.valueOf(((Empresa) cmbCodigoEmpresa.getSelectionModel().getSelectedItem()).getCodigoEmpresa());
         parametros.put("codEmpresa", codEmpresa);
         parametros.put("RUTA_IMAGEN", EmpleadoController.class.getResource("/org/kaledrod/image/Logo2Forma2.png"));
-        parametros.put("RUTA_IMAGEN", EmpleadoController.class.getResource("/org/kaledrod/report/SubReportePresupuesto.jrrml"));
         GenerarReporte.mostarReporte("ReportePresupuesto.jasper", "Reporte de Presupuesto", parametros);
     }
 

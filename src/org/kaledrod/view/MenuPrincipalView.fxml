@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -16,6 +17,34 @@
    <children>
       <AnchorPane layoutX="494.0" layoutY="-3.0" prefHeight="50.0" prefWidth="800.0" AnchorPane.bottomAnchor="550.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
+            <HBox prefHeight="30.0" prefWidth="60.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <JFXButton buttonType="RAISED" contentDisplay="CENTER" onAction="#buttonAccionMinimizar" prefHeight="30.0" prefWidth="30.0" text=" " textFill="#1dddbc">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/Min.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" contentDisplay="CENTER" onAction="#cerrarAplicacion" prefHeight="30.0" prefWidth="30.0" text=" " textFill="#1dddbc">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/Cerrar.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </HBox>
             <MenuBar layoutX="-7.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="35.0" prefWidth="800.0" stylesheets="@../resourse/TonysKinal.css" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="0.0">
                <menus>
                   <Menu mnemonicParsing="false" text="Modulos">
@@ -50,45 +79,11 @@
                   </Menu>
                </menus>
             </MenuBar>
-            <HBox prefHeight="30.0" prefWidth="60.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#buttonAccionMinimizar" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: transparen;">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <image>
-                              <Image url="@../image/Min.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#buttonAccionCerrar" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: transparen;">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <image>
-                              <Image url="@../image/Cerrar.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-               </children>
-            </HBox>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="pane1" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
          <children>
-            <ImageView fitHeight="550.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="137.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="421.0" AnchorPane.topAnchor="0.0">
+            <ImageView fitHeight="550.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
                   <Image url="@../image/Fondo1.png" />
                </image>
@@ -97,7 +92,7 @@
       </AnchorPane>
       <AnchorPane fx:id="pane2" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
          <children>
-            <ImageView fitHeight="550.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="550.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
                   <Image url="@../image/Fondo2.png" />
                </image>
@@ -106,19 +101,22 @@
       </AnchorPane>
       <AnchorPane fx:id="pane3" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
          <children>
-            <ImageView fitHeight="550.0" fitWidth="1000.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="550.0" fitWidth="1000.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
                   <Image url="@../image/Fondo3.png" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
-      <Button layoutX="256.0" layoutY="166.0" mnemonicParsing="false" onAction="#back" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: white;" text="&lt;" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="0.0">
+      <JFXButton onAction="#back" prefHeight="50.0" prefWidth="50.0" text="&lt;" textFill="#1dddbc" AnchorPane.bottomAnchor="250.0">
          <font>
             <Font name="Garet Bold" size="18.0" />
          </font>
-      </Button>
-      <Button layoutX="266.0" layoutY="176.0" mnemonicParsing="false" onAction="#next" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: white;" text="&gt;" AnchorPane.bottomAnchor="250.0" AnchorPane.rightAnchor="0.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Button layoutX="266.0" layoutY="176.0" mnemonicParsing="false" onAction="#next" prefHeight="50.0" prefWidth="50.0" text="&gt;" AnchorPane.bottomAnchor="250.0" AnchorPane.rightAnchor="0.0">
          <font>
             <Font name="Garet Bold" size="18.0" />
          </font>
