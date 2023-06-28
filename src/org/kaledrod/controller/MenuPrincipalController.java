@@ -158,6 +158,7 @@ public class MenuPrincipalController implements Initializable {
     public void imprimirReporte() {
         Map parametros = new HashMap();
         parametros.put("codigoEmpresa", null);
+        parametros.put("RUTA_IMAGEN", MenuPrincipalController.class.getResource("/org/kaledrod/image/Logo2Forma2.png"));
         GenerarReporte.mostarReporte("ReporteGeneral.jasper", "Reporte general", parametros);
     }
 

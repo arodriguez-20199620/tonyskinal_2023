@@ -16,9 +16,7 @@ import org.kaledrod.bean.Servicios;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Time;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Locale;
 import java.util.Optional;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -36,7 +34,7 @@ import org.kaledrod.main.Principal;
 import com.jfoenix.controls.JFXTimePicker;
 import com.jfoenix.controls.JFXDatePicker;
 import java.sql.Date;
-import java.time.LocalDate;
+import java.sql.SQLException;
 
 /**
  *
@@ -146,8 +144,7 @@ public class ServiciosController implements Initializable {
                         resultado.getString("telefonoContacto"),
                         resultado.getInt("codigoEmpresa")));
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
         }
         return listaServicio = FXCollections.observableArrayList(lista);
     }

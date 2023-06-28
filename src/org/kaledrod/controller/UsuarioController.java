@@ -151,7 +151,7 @@ public class UsuarioController implements Initializable {
             public void run() {
                 Platform.runLater(() -> label.setVisible(false));
             }
-        }, 1000);
+        }, 1500);
     }
 
     /**

@@ -140,6 +140,9 @@ public class EmpresaController implements Initializable {
             limpiarControles();
             desactivarControles();
             activarTbl();
+            btnNuevo.setDisable(false);
+            btnEditar.setDisable(false);
+            btnReporte.setDisable(false);
         });
         btnConfirmar.setOnAction(e -> {
             String nombreEmpresa = txtNombreEmpresa.getText().trim();
@@ -182,7 +185,7 @@ public class EmpresaController implements Initializable {
             procedimiento.setString(3, registro.getTelefono());
             procedimiento.execute();
             listaEmpresa.add(registro);
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -197,7 +200,7 @@ public class EmpresaController implements Initializable {
             if (registro.next()) {
                 return true;
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return salida;

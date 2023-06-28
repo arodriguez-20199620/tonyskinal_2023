@@ -116,7 +116,6 @@ public class EmpleadoController implements Initializable {
         desactivarControles();
         asignarBoton();
         formatoNumero(txtNumeroEmpleado);
-        formatoNumero(txtTelefonoContacto);
         cmbCodTipoEmpleado.setItems(getTipoEmpleado());
     }
 

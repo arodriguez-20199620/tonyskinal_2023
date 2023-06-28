@@ -2,7 +2,8 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteGeneral" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="21aeaf4d-a62e-42b6-95ba-d6a91282fcb4">
 	<property name="ireport.zoom" value="1.0000000000000047"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="250"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="RUTA_IMAGEN" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[call sp_ReporteFinal();]]>
 	</queryString>
@@ -114,42 +115,60 @@
 	<title>
 		<band height="80" splitType="Stretch">
 			<rectangle>
-				<reportElement x="0" y="0" width="460" height="80" forecolor="#FFFFFF" backcolor="#1DDDBC" uuid="b42644da-3e63-458f-83a7-b2df75dd96c9"/>
+				<reportElement x="394" y="0" width="178" height="80" forecolor="#FFFFFF" backcolor="#1DDDBC" uuid="844edc7d-2fc7-4750-a472-c2d40ef3bab0"/>
 			</rectangle>
 			<rectangle>
-				<reportElement x="472" y="0" width="100" height="80" forecolor="#FFFFFF" backcolor="#1DDDBC" uuid="52d6a18a-074c-4192-aab3-2b40bb243fa6"/>
+				<reportElement x="0" y="0" width="382" height="80" forecolor="#FFFFFF" backcolor="#1DDDBC" uuid="9471b778-ba79-4b1d-a741-e1c3b93aff16"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="10" y="10" width="100" height="20" forecolor="#FFFFFF" uuid="4e5d9c1e-fb8b-465d-aea1-48357026d079"/>
+				<reportElement x="475" y="40" width="97" height="30" forecolor="#FFFFFF" uuid="dd09dc16-e1b3-4ec3-aee1-2d29135d7203"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Rounded MT Bold" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[KINAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="10" width="100" height="20" forecolor="#FFFFFF" uuid="c9025d51-0a94-4bc1-ba45-d3e6d6357339"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial Rounded MT Bold" size="12"/>
 				</textElement>
-				<text><![CDATA[Tony`s Kinal]]></text>
+				<text><![CDATA[Tonys Kinal]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="10" y="50" width="419" height="20" forecolor="#FFFFFF" uuid="d021cba7-5116-4ab6-a05b-eea16c3b84be"/>
+				<reportElement x="10" y="30" width="372" height="20" forecolor="#FFFFFF" uuid="e3dd90d0-65c6-4b19-955b-7dd7606a9ea6"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Rounded MT Bold" size="12"/>
+				</textElement>
+				<text><![CDATA[6 avenida 13-54 zona 7, Colonia Landívar, Ciudad de Guatemala]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="475" y="10" width="97" height="30" forecolor="#FFFFFF" uuid="87ec5e17-1d37-4870-9503-27853896aca4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Rounded MT Bold" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TONYS]]></text>
+			</staticText>
+			<image>
+				<reportElement x="400" y="5" width="70" height="70" uuid="b1ad8b3c-7709-4142-af59-152c3e3c5ddd"/>
+				<imageExpression><![CDATA[$P{RUTA_IMAGEN}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="10" y="50" width="100" height="20" forecolor="#FFFFFF" uuid="a9108d15-2bb9-49f8-b9e5-082698225cdd"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial Rounded MT Bold" size="12"/>
 				</textElement>
 				<text><![CDATA[2216 0000]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="10" y="30" width="450" height="20" forecolor="#FFFFFF" uuid="58b28b77-a361-4968-8f15-66c73b9b3df7"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Arial Rounded MT Bold" size="12"/>
-				</textElement>
-				<text><![CDATA[6 avenida 13-54 zona 7, Colonia Landívar, 01007 Ciudad de Guatemala]]></text>
-			</staticText>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="76" splitType="Stretch">
+		<band height="111" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="572" height="76" uuid="c360cb7a-5230-4635-a00a-2864457fa35f"/>
+				<reportElement x="0" y="0" width="572" height="111" uuid="9a8b16e1-9931-46c7-9a1e-c36fca547558"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial Black" size="26"/>
 				</textElement>
-				<text><![CDATA[Informe General]]></text>
+				<text><![CDATA[INFORME GENERAL]]></text>
 			</staticText>
 		</band>
 	</pageHeader>

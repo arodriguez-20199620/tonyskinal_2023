@@ -18,7 +18,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kaledrod.controller.PresupuestoController">
    <children>
-      <TableView fx:id="tblPresupuestos" layoutX="250.0" layoutY="200.0" prefHeight="350.0" prefWidth="700.0" stylesheets="@../resourse/TonysKinal.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+      <TableView fx:id="tblPresupuestos" layoutX="250.0" layoutY="200.0" onKeyReleased="#seleccionarElemento" onMouseClicked="#seleccionarElemento" prefHeight="350.0" prefWidth="700.0" stylesheets="@../resourse/TonysKinal.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
         <columns>
           <TableColumn fx:id="colCodigoPresupuesto" prefWidth="180.0" text="Codigo Presupuesto" />
             <TableColumn fx:id="colFechaSolicitud" prefWidth="180.0" text="Fecha Solicitud" />
@@ -30,19 +30,6 @@
          
          </columnResizePolicy>
       </TableView>
-      <GridPane fx:id="grpFecha" layoutX="250.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="150.0" prefWidth="900.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="400.0">
-        <columnConstraints>
-          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="225.33334350585938" minWidth="10.0" prefWidth="178.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="289.66668701171875" minWidth="10.0" prefWidth="193.0" />
-          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="177.6666259765625" minWidth="10.0" prefWidth="122.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="205.0" minWidth="10.0" prefWidth="205.0" />
-        </columnConstraints>
-        <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-      </GridPane>
       <AnchorPane prefHeight="30.0" prefWidth="1000.0" style="-fx-background-color: #1DDDBC;">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="1000.0" text="Presupuesto" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">

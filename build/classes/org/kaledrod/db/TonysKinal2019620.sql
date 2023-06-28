@@ -494,7 +494,7 @@ Delimiter ;
 -- -------------------------------------------Editar Servicio -----------------------------------------------------
 Delimiter $$
 	Create procedure sp_EditarServicio(in codServicio int, in fechaServi date, in tipoServi varchar(150), 
-		in horaServi time, in lugarServi varchar(150), in telContacto varchar(150))
+		in horaServi time, in lugarServi varchar(150), in telContacto varchar(150), in codEmpresa int)
 		Begin 
 			Update Servicios S
 				set 
@@ -502,7 +502,8 @@ Delimiter $$
 				S.tipoServicio = tipoServi, 
 				S.horaServicio = horaServi, 
 				S.lugarServicio = lugarServi, 
-				S.telefonoContacto = telContacto 
+				S.telefonoContacto = telContacto,
+                S.codigoEmpresa = codEmpresa
 				where codigoServicio =  codServicio;  
         End$$
 Delimiter ;
@@ -515,7 +516,7 @@ call sp_AgregarServicio('2023-06-18', '15 años', '12:30:00', 'Kilometro 13.5 Ca
 call sp_ListarServicios();
 call sp_BuscarServicio(1);
 -- call sp_EliminarServicio(2);
--- call sp_EditarServicio(3, '2023-04-20', 'Boda', '14:00:00', 'Zona 10, diagonal 6', '8623 1931');
+-- call sp_EditarServicio(3, '2023-04-20', 'Boda', '14:00:00', 'Zona 10, diagonal 6', '8623 1931', 5);
 
 -- ------------------------------------PROCEDIMIENTOS ALMACENADOS DE PLATOS ----------------------------------
 -- ---------------------------------------------Agregar Platos----------------------------------------------
@@ -567,14 +568,15 @@ Delimiter ;
 -- -------------------------------------------Editar Plato -----------------------------------------------------
 Delimiter //
 	Create procedure sp_EditarPlato(in codPlato int, in cant int, in nomPlato varchar(150), in descri varchar(150), 
-		in precPlato decimal(10,2))
+		in precPlato decimal(10,2), in codTipoPlato int)
 		Begin 
 			Update Platos P
 				set  
 				P.cantidad = cant, 
 				P.nombrePlato = nomPlato,
 				P.descripcion = descri, 
-				P.precioPlato = precPlato
+				P.precioPlato = precPlato,
+                P.codigoTipoPlato = codTipoPlato
 				where codigoPlato =  codPlato;  
         End//
 Delimiter ;

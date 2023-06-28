@@ -23,7 +23,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="300.0" layoutY="50.0" prefHeight="400.0" prefWidth="650.0" style="-fx-background-color: #161B22; -fx-background-radius: 20;" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
+      <AnchorPane layoutX="300.0" layoutY="50.0" prefHeight="400.0" prefWidth="650.0" style="-fx-background-color: #161B22; -fx-background-radius: 10;" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="299.0" layoutY="28.0" text="CREA UNA CUENTA" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
                <font>

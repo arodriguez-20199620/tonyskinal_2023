@@ -314,7 +314,7 @@ public class PlatoController implements Initializable {
         registro.setPrecioPlato(Double.parseDouble(txtPrecioPlato.getText()));
         registro.setCodigoTipoPlato(((TipoPlato) cmbCodigoTipoPlato.getSelectionModel().getSelectedItem()).getCodigoTipoPlato());
         try {
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_EditarPlato(?,?,?,?,?,?)");
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_EditarPlato(?,?,?,?,?,? )");
             procedimiento.setInt(1, registro.getCodigoPlato());
             procedimiento.setInt(2, registro.getCantidad());
             procedimiento.setString(3, registro.getNombrePlato());

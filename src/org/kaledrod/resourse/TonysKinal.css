@@ -58,7 +58,7 @@
 .menu-item .label {
     -fx-alignment: TOP_LEFT;
     -fx-pref-width: 200px;
-    -fx-background-color:  #0D1117;
+    -fx-background-color:  transparent;
     -fx-border-width: 0 0 0 5;
     -fx-border-color: transparent;
     -fx-pref-height: 30px;
@@ -67,12 +67,13 @@
     -fx-text-fill: white;
 }
 
-/*.menu-item:hover {
-        -fx-background-color: #363636;
+.menu-item:hover {
+    -fx-background-color: linear-gradient(to right, #363636, #121212);
     -fx-border-width: 0 0 0 5;
     -fx-border-color: derive(#1dddbc, 30%);
     -fx-pref-height: 30px;
-}*/
+}
+
 
 .menu-item .label:hover {
     -fx-font-size: 15px;
@@ -80,16 +81,14 @@
     -fx-text-fill: white;
 }
 
-/*.context-menu {
+.context-menu {
     -fx-skin: "com.sun.javafx.scene.control.skin.ContextMenuSkin";
     -fx-background-color:  #0D1117;
     -fx-border-width: 0 2 2 2;
     -fx-border-color:  #0D1117;
-}*/
+}
 
-/* Botones*/
 
-/* Botones normales*/
 .button1 {
     -fx-pref-width: 150px;
     -fx-pref-height: 50px;
