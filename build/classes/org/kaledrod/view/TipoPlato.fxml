@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -40,8 +41,8 @@
                   <Font name="Garet Regular" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="txtCodTipoPlato" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="172.0" styleClass="text-field1" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="txtDescripcion" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" styleClass="text-field1" stylesheets="@../resourse/TonysKinal.css" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <JFXTextField fx:id="txtCodTipoPlato" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <TableView fx:id="tblTipoPlatos" layoutX="250.0" layoutY="200.0" onKeyReleased="#seleccionarElemento" onMouseClicked="#seleccionarElemento" prefHeight="350.0" prefWidth="900.0" stylesheets="@../resourse/TonysKinal.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">

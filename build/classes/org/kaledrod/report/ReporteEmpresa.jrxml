@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteEmpresa" language="groovy" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d8f0a2c7-e2b1-4b3c-9ca3-90b8c03f68c4">
 	<property name="ireport.zoom" value="1.1269722013523682"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="112"/>
+	<property name="ireport.y" value="111"/>
 	<parameter name="RUTA_IMAGEN" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[call sp_ListarEmpresas();]]>
@@ -171,7 +171,7 @@
 			<textField>
 				<reportElement x="470" y="44" width="60" height="20" uuid="61fd1e79-eb13-41cd-a33e-b0478d79f354"/>
 				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="532" y="44" width="40" height="20" uuid="87f09feb-9955-4d8c-ba16-29e4d4afb2f8"/>

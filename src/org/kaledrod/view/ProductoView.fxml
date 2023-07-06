@@ -124,7 +124,7 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Button fx:id="btnReporte" alignment="CENTER" mnemonicParsing="false" onAction="#reporte" styleClass="button1" stylesheets="@../resourse/TonysKinal.css" text="Reporte">
+            <Button fx:id="btnReporte" alignment="CENTER" mnemonicParsing="false" onAction="#generarReporte" styleClass="button1" stylesheets="@../resourse/TonysKinal.css" text="Reporte">
                <graphic>
                   <ImageView fx:id="imgReporte" fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>

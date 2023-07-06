@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteEmpresa" language="groovy" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d8f0a2c7-e2b1-4b3c-9ca3-90b8c03f68c4">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="30"/>
+	<parameter name="RUTA_IMAGEN" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[call sp_ListarProductos();]]>
+	</queryString>
+	<field name="codigoProducto" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombreProducto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cantidad" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<title>
+		<band height="80" splitType="Stretch">
+			<rectangle>
+				<reportElement x="394" y="0" width="178" height="80" forecolor="#FFFFFF" backcolor="#1DDDBC" uuid="2fbc4b3b-7f65-496a-9378-15de49ded90e"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="0" width="382" height="80" forecolor="#FFFFFF" backcolor="#1DDDBC" uuid="b1e02fe9-f01c-4366-bed9-7aa7d857934b"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="10" y="10" width="100" height="20" forecolor="#FFFFFF" uuid="2c80aa8a-7b10-4507-bfbe-6d9b92c047a7"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Rounded MT Bold" size="12"/>
+				</textElement>
+				<text><![CDATA[Tonys Kinal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="30" width="372" height="20" forecolor="#FFFFFF" uuid="6d6b94e7-daf4-4293-9aaf-c6cf824dc404"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Rounded MT Bold" size="12"/>
+				</textElement>
+				<text><![CDATA[6 avenida 13-54 zona 7, Colonia Landívar, Ciudad de Guatemala]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="50" width="100" height="20" forecolor="#FFFFFF" uuid="b9ffe8a7-e856-4ee0-a039-3b57b38161b4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Rounded MT Bold" size="12"/>
+				</textElement>
+				<text><![CDATA[2216 0000]]></text>
+			</staticText>
+			<image>
+				<reportElement x="400" y="5" width="70" height="70" uuid="5512e6e3-6f7d-4818-96c0-3cb09c00b9bb"/>
+				<imageExpression><![CDATA[$P{RUTA_IMAGEN}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="475" y="10" width="97" height="30" forecolor="#FFFFFF" uuid="f6cfddbb-9022-4524-8165-f819910d1426"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Rounded MT Bold" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TONYS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="475" y="40" width="97" height="30" forecolor="#FFFFFF" uuid="874a1c02-0e29-4cfa-b7a3-c11ae4ed5c39"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Rounded MT Bold" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[KINAL]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="111" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="572" height="111" uuid="d52517f3-fbff-4b0a-a418-f04d158ad6a5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Black" size="26"/>
+				</textElement>
+				<text><![CDATA[INFORME DE PRODUCTOS]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="27" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="572" height="25" forecolor="#FFFFFF" backcolor="#1DDDBC" uuid="13ab56d1-7e4a-420f-b9d6-295010bb9348"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="380" y="0" width="192" height="25" forecolor="#FFFFFF" backcolor="#FFFFFF" uuid="7caedf65-18ab-4639-a004-fd3aa2454c52"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Rounded MT Bold" size="11"/>
+				</textElement>
+				<text><![CDATA[Cantidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="0" width="190" height="25" forecolor="#FFFFFF" backcolor="#FFFFFF" uuid="7fd31350-2f0f-482c-a878-0ad9caf2b620"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Rounded MT Bold" size="11"/>
+				</textElement>
+				<text><![CDATA[Nombre de producto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="190" height="25" forecolor="#FFFFFF" backcolor="#FFFFFF" uuid="4c844078-df2e-4d28-810f-fb92ee8a6101"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Rounded MT Bold" size="11"/>
+				</textElement>
+				<text><![CDATA[Codigo de productos]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="27" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="572" height="25" forecolor="#FFFFFF" backcolor="#E4E9ED" uuid="b1296dde-4e29-4786-89fb-b79de05d2ace"/>
+			</rectangle>
+			<line>
+				<reportElement x="190" y="0" width="1" height="25" forecolor="#FFFFFF" uuid="a3cbbdaf-f711-4618-86ba-1c46d3df0b8a"/>
+			</line>
+			<line>
+				<reportElement x="380" y="1" width="1" height="25" forecolor="#FFFFFF" uuid="b70d25a8-a50c-447f-b25f-318ed4667d26"/>
+			</line>
+			<textField>
+				<reportElement x="0" y="0" width="190" height="25" uuid="fe353c9a-2883-4b99-a970-8c54d11e9144"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codigoProducto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="0" width="192" height="25" uuid="10a78a47-bcd5-47f1-8081-c04d43fe7af6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="0" width="190" height="25" uuid="879e51fd-6e41-4ca9-9b0d-f35fcd88a019"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombreProducto}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="48" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="64" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="44" width="100" height="20" uuid="cd112c8e-e92a-4808-96dc-59329797601b"/>
+				<textElement textAlignment="Center" rotation="None"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="470" y="44" width="60" height="20" uuid="61fd1e79-eb13-41cd-a33e-b0478d79f354"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="532" y="44" width="40" height="20" uuid="87f09feb-9955-4d8c-ba16-29e4d4afb2f8"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

@@ -7,21 +7,15 @@ Fecha De Creacion 12/04/2023 Hora : 8:00
 package org.kaledrod.main;
 
 import java.io.InputStream;
-import javafx.animation.TranslateTransition;
 import javafx.scene.image.Image;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.stage.WindowEvent;
-import javafx.util.Duration;
-import org.kaledrod.bean.Login;
 import org.kaledrod.controller.EmpleadoController;
 import org.kaledrod.controller.EmpresaController;
 import org.kaledrod.controller.LoginController;
@@ -48,8 +42,10 @@ public class Principal extends Application {
 
     /**
      * Método principal que se ejecuta al iniciar la aplicación JavaFX.
+     *
      * @param escenarioPrinciapal El escenario principal de la aplicación.
-     * @throws Exception Si ocurre algún error durante la carga de la ventana de inicio de sesión.
+     * @throws Exception Si ocurre algún error durante la carga de la ventana de
+     * inicio de sesión.
      */
     @Override
     public void start(Stage escenarioPrinciapal) throws Exception {
@@ -211,7 +207,7 @@ public class Principal extends Application {
             UsuarioController usuario = (UsuarioController) cargarEscena("UsuarioView.fxml", 1000, 650);
             usuario.setEscenarioPrincipal(this);
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -267,7 +263,7 @@ public class Principal extends Application {
      *
      * @param fxml el nombre del archivo FXML
      * @param ancho el ancho de la escena
-     * @param alto  el alto de la escena
+     * @param alto el alto de la escena
      * @return el controlador inicializable de la escena cargada
      * @throws Exception si ocurre algún error durante la carga de la escena
      */

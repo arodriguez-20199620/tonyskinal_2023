@@ -294,7 +294,7 @@ public class EmpresaController implements Initializable {
     public void imprimirReporte() {
         Map parametros = new HashMap();
         parametros.put("codigoEmpresa", null);
-        parametros.put("RUTA_IMAGEN", EmpleadoController.class.getResource("/org/kaledrod/image/Logo2Forma2.png"));
+        parametros.put("RUTA_IMAGEN", EmpresaController.class.getResource("/org/kaledrod/image/Logo2Forma2.png"));
         GenerarReporte.mostarReporte("ReporteEmpresa.jasper", "Reporte de empresa", parametros);
     }
 

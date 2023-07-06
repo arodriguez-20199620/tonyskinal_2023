@@ -52,8 +52,8 @@ public class UsuarioController implements Initializable {
 
     /**
      * Método inicializador del controlador.
-     * 
-     * @param location  URL de la ubicación del FXML.
+     *
+     * @param location URL de la ubicación del FXML.
      * @param resources ResourceBundle utilizado para localizar el FXML.
      */
     @Override
@@ -90,9 +90,22 @@ public class UsuarioController implements Initializable {
         }, 500);
     }
 
+    private void verificaraArroba() {
+        boolean verificar = false;
+        String user = txtUsuario.getText();
+        if (user.contains("@")) {
+            Platform.runLater(() -> {
+                lblUserConfirm.setVisible(true);
+                lblUserConfirm.setTextFill(Color.RED);
+                lblUserConfirm.setText("Correo invalido, asegurece que contenga @");
+            });
+        }
+
+    }
+
     /**
      * Verifica si el usuario ya existe en la base de datos.
-     * 
+     *
      * @return true si el usuario no existe, false si el usuario ya existe.
      */
     public boolean isExistUser() {
@@ -119,7 +132,7 @@ public class UsuarioController implements Initializable {
 
     /**
      * Verifica si la contraseña y su confirmación coinciden.
-     * 
+     *
      * @return true si las contraseñas coinciden, false si no coinciden.
      */
     public boolean confirmarContrasena() {
@@ -140,8 +153,9 @@ public class UsuarioController implements Initializable {
     }
 
     /**
-     * Establece un temporizador para ocultar una etiqueta después de un tiempo determinado.
-     * 
+     * Establece un temporizador para ocultar una etiqueta después de un tiempo
+     * determinado.
+     *
      * @param label La etiqueta que se ocultará después de un tiempo.
      */
     public void tiempoVisibilidad(Label label) {
@@ -211,7 +225,7 @@ public class UsuarioController implements Initializable {
 
     /**
      * Obtiene el objeto Principal del controlador.
-     * 
+     *
      * @return El objeto Principal.
      */
     public Principal getEscenarioPrincipal() {
@@ -220,7 +234,7 @@ public class UsuarioController implements Initializable {
 
     /**
      * Establece el objeto Principal del controlador.
-     * 
+     *
      * @param escenarioPrincipal El objeto Principal a establecer.
      */
     public void setEscenarioPrincipal(Principal escenarioPrincipal) {

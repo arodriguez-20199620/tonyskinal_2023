@@ -9,6 +9,8 @@ import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -32,6 +34,7 @@ import org.kaledrod.bean.Producto;
 import org.kaledrod.db.Conexion;
 
 import org.kaledrod.main.Principal;
+import org.kaledrod.report.GenerarReporte;
 
 /**
  *
@@ -81,7 +84,7 @@ public class ProductoController implements Initializable {
         desactivarControles();
         cargarDatos();
         asignarBoton();
-        formatoNumero(txtCantidad); 
+        formatoNumero(txtCantidad);
     }
 //  Cargar los datos en ls columnas de la tabla
 
@@ -263,8 +266,15 @@ public class ProductoController implements Initializable {
         }
     }
 
-    public void reporte() {
+    public void generarReporte() {
+        imprimirReporte();
+    }
 
+    public void imprimirReporte() {
+        Map parametros = new HashMap();
+        parametros.put("codigoEmpresa", null);
+        parametros.put("RUTA_IMAGEN", ProductoController.class.getResource("/org/kaledrod/image/Logo2Forma2.png"));
+        GenerarReporte.mostarReporte("ReporteProducto.jasper", "Reporte de empresa", parametros);
     }
 
     public void formatoNumero(TextField textField) {

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kaledrod.controller.MenuPrincipalController">
+   <children>
+      <AnchorPane layoutX="494.0" layoutY="-3.0" prefHeight="50.0" prefWidth="800.0" AnchorPane.bottomAnchor="550.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox prefHeight="30.0" prefWidth="60.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <JFXButton buttonType="RAISED" contentDisplay="CENTER" onAction="#buttonAccionMinimizar" prefHeight="30.0" prefWidth="30.0" text=" " textFill="#1dddbc">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/Min.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" contentDisplay="CENTER" onAction="#cerrarAplicacion" prefHeight="30.0" prefWidth="30.0" text=" " textFill="#1dddbc">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/Cerrar.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <MenuBar layoutX="-7.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="35.0" prefWidth="800.0" stylesheets="@../resourse/TonysKinal.css" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="0.0">
+               <menus>
+                  <Menu mnemonicParsing="false" text="Modulos">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#ventanaEmpresa" text="Empresas" />
+                        <MenuItem mnemonicParsing="false" onAction="#ventanaProducto" text="Productos" />
+                        <MenuItem mnemonicParsing="false" onAction="#ventanaPresupuesto" text="Presupuesto" />
+                        <MenuItem mnemonicParsing="false" onAction="#ventanaTipoEmpleado" text="Tipo Empleado" />
+                        <MenuItem mnemonicParsing="false" onAction="#ventanaTipoPlato" text="Tipo Plato" />
+                        <MenuItem mnemonicParsing="false" onAction="#ventanEmpleado" text="Empleados" />
+                        <MenuItem mnemonicParsing="false" onAction="#ventanaPlato" text="Platos" />
+                        <MenuItem mnemonicParsing="false" onAction="#ventanaServicios" text="Servicios" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Reportes">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#generarReporete" text="Reporte de general" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Has">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#ventanaProductos_has_platos" text="Productos_has_plato" />
+                        <MenuItem mnemonicParsing="false" onAction="#ventanaServicios_has_platos" text="Servicios_Has_Platos" />
+                        <MenuItem mnemonicParsing="false" onAction="#ventanaServicios_has_empleados" text="Servicios_Has_Empleados" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text=" ?">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#ventanaProgramador" text="Programador" />
+                        <MenuItem mnemonicParsing="false" onAction="#cerrarSesion" text="Cerrar Sesion" />
+                    </items>
+                  </Menu>
+               </menus>
+            </MenuBar>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

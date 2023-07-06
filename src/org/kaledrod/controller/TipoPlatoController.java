@@ -5,6 +5,7 @@
  */
 package org.kaledrod.controller;
 
+import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -55,7 +56,7 @@ public class TipoPlatoController implements Initializable {
 
 // Declaracion de los texfields :3
     @FXML
-    private TextField txtCodTipoPlato;
+    private JFXTextField txtCodTipoPlato;
     @FXML
     private TextField txtDescripcion;
 
